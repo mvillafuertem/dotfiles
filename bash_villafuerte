@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+export CDPATH=.:~/Projects:~/go/src
+
+if [ -f /usr/local/share/kube-ps1/kube-ps1.sh ]; then
+    . /usr/local/share/kube-ps1/kube-ps1.sh 
+fi
+
+#function kubectl(){
+#  echo "+ kubectl $@";
+#  command kubectl $@;
+#}
+
+function git_villafuerte {
+  local git_compruebo="$(git branch 2>/dev/null)"
+  if [[ ! -z "$git_compruebo" ]]; then
+    local git_status="$(git status 2> /dev/null)"
+    local git_branch="$(git branch 2> /dev/null | grep '^*' | colrm 1 2)"
+
+    if [[ ! $git_status =~ "working tree clean" ]]; then
+      echo -e "\033[3;38;5;124m [✘ $git_branch]"
+    elif [[ $git_status =~ "branch is ahead" ]]; then
+      echo -e "\033[3;38;5;172m [✘ $git_branch]"
+    else
+      echo -e "\033[3;32m [✔︎ $git_branch]"
+    fi
+  fi
+}
+
+PS1='\[\033[1;32m\]\u '
+PS1+='\[\033[1;36m\]\w'
+PS1+='$(git_villafuerte) '
+PS1+='\[\033[1;37m\]$(date "+%d/%b/%Y %H:%M:%S") '
+PS1+='$(kube_ps1)'
+PS1+='\n\[\033[1;32m\]└─>\[\033[0m\] '
+
+source <(kubectl completion bash | sed 's|__start_kubectl kubectl|__start_kubectl k|g')
+

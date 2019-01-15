@@ -1,0 +1,21 @@
+= Dotfiles
+
+
+
+Quick install:
+
+----
+
+sh -c "`curl -fsSL https://raw.githubusercontent.com/mvillafuertem/dotfiles/master/install.sh`"
+
+----
+
+Install with ssh (easier for committing updates):
+
+
+----
+
+git clone git@github.com:mvillafuertem/dotfiles.git ~/.dotfiles && cd .dotfiles && ./install.sh
+
+----
+

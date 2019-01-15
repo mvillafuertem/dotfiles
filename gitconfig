@@ -1,0 +1,80 @@
+[pull]
+	ff = only
+	rebase = true
+[merge]
+	ff = false
+[color]
+	branch = auto
+	diff = auto
+	pager = true
+	status = auto
+	ui = auto
+[color "branch"]
+	current = green
+	local = cyan
+	remote = white
+[color "decorate"]
+	branch = green
+	head = white
+	remote = yellow
+	stash = yellow
+	tag = yellow
+[color "diff"]
+	context = 102
+	frag = 080
+	func = 176
+	meta = 016
+	new = 157 016
+	old = 210 016
+[color "interactive"]
+	error = normal
+	header = normal
+	help = normal
+	prompt = normal
+[color "status"]
+	added = 114
+	branch = 016 068
+	changed = 210
+	header = 102
+	nobranch = bold ul blink 209
+	untracked = 221
+[format]
+	pretty = %C(045)%h%C(reset) %C(255)%s%C(reset) %C(auto)%D%C(reset) %C(190 dim)%an%C(reset) %C(046 dim)%ar%C(reset) %+b
+[user]
+	name = Miguel Villafuerte
+	email = mvillafuerte@globalavl.com
+[core]
+	excludesFile = /home/mvillafuerte/.gitignore
+	editor = vi
+[commit]
+	template = /home/mvillafuerte/.gitmessage
+[alias]
+	alias = !git config -l | grep alias | cut -c 7-
+	br = branch -a -v
+	ca = commit --amend
+	cane = commit --amend --no-edit
+	ci = commit
+	ck = checkout
+	cl = clone
+	conf = config --global --list
+	dw = diff --word-diff=color
+	dw-1 = diff --word-diff=color HEAD^
+	dw-2 = diff --word-diff=color HEAD^^
+	f = fetch
+	ll = log --graph
+	llf = log --graph --first-parent
+	lld = log --graph --date-order
+	llp = log --graph -p
+	lls = log --graph --stat
+	ph = push
+	pl = pull --rebase
+	ppl = git config --global alias.pl pull
+	ra = remote add
+	rev = merge --no-ff --no-commit
+	rr = remote remove
+	sl = stash list
+	slp = stash list --word-diff=color -p
+	sls = stash list --stat
+	st = status
+	tree = log --all --graph --decorate --oneline --simplify-by-decoration
+	rh = reset --hard
