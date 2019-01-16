@@ -16,13 +16,13 @@ alias ppwd='cd `pbpaste`'
 alias hound='grep -Hrn --color $1 $2'
 
 ### Gradle ###
-alias galias="cat ~/bash_aliases | grep gradlew"
+alias galias="cat ~/.bash_aliases | grep gradlew"
 alias gdlcb='./gradlew clean build'
 alias gdltc='./gradlew test --continuous'
 alias gdltj='./gradlew test jacocoTR --continuous'
 
 ### Maven ###
-alias malias="cat ~/bash_aliases | grep mvn"
+alias malias="cat ~/.bash_aliases | grep mvn"
 alias mvncc='mvn clean compile'
 alias mvnci='mvn clean install'
 alias mvncis='mvn clean install -Dmaven.test.skip'
@@ -43,11 +43,11 @@ alias vbox-stop='VBoxManage controlvm ubuntu poweroff'
 alias vbox-list='VBoxManage list vms'
 
 ### Docker ###
-alias dalias="cat ~/bash_aliases | grep docker"
+alias dalias="cat ~/.bash_aliases | grep docker"
 alias dkl='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 
 ### Kubernetes ###
-alias kalias="cat ~/bash_aliases | grep kubectl"
+alias kalias="cat ~/.bash_aliases | grep kubectl"
 alias klogs="kubectl logs -f"
 alias kpod="kubectl describe pod"
 alias kapply="kubectl apply -f"
@@ -75,7 +75,7 @@ alias kexec="kubectl exec -it"
 alias ktail="kubetail"
 
 ### Google Cloud ###
-alias gcloudalias="cat ~/bash_aliases | grep gcloud"
+alias gcloudalias="cat ~/.bash_aliases | grep gcloud"
 alias gcluster="gcloud container clusters list"
 alias gprojects="gcloud projects list"
 alias gprojectset="gcloud config set project"
