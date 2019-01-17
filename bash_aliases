@@ -80,3 +80,8 @@ alias gcluster="gcloud container clusters list"
 alias gprojects="gcloud projects list"
 alias gprojectset="gcloud config set project"
 
+### CICD  ###
+alias cid="./.cicd/deploy.sh"
+alias cit="./.cicd/test.sh"
+alias cib="./.cicd/build.sh"
+alias cir="./.cicd/release.sh"
