@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
 install() {
-  files=`ls | grep -v install.sh | grep -v README.adoc`
+  files=`ls | grep -v install.sh | grep -v apps.sh | grep -v README.adoc`
   for file in ${files}
   do
 	echo "Linking $file"
 	echo ln -sf "$HOME/.dotfiles/${file}" "$HOME/.${file}"
   done
 }
-
-
 
 if [[ -d "$HOME/.dotfiles" ]]
 then
@@ -23,5 +21,8 @@ else
   cd "$HOME/.dotfiles"
   install
 fi
+
+echo "Installing Apps"
+./apps
 
 exit 0

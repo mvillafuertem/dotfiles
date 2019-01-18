@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+
+declare -a apps=(
+    'https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.tgz'
+    'https://piccolo.link/sbt-1.2.8.tgz'
+)
+
+for app in ${apps[@]}; do
+    echo sudo wget --progress=dot:giga ${app} --directory-prefix=/tmp/apps;
+done
+
+for app in `ls /tmp/apps`; do
+    echo sudo tar xvfz ${app} -C /usr/local/share;
+done
