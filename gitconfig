@@ -44,10 +44,10 @@
 	name = Miguel Villafuerte
 	email = mvillafuerte@globalavl.com
 [core]
-	excludesFile = /home/mvillafuerte/.gitignore
+	excludesFile = ~/.gitignore
 	editor = vi
 [commit]
-	template = /home/mvillafuerte/.gitmessage
+	template = ~/.gitmessage
 [alias]
 	alias = !git config -l | grep alias | cut -c 7-
 	br = branch -a -v

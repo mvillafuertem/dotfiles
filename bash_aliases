@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+alias ll='ls -lah'
 alias v-='vi -'
 alias ..='cd .. && ll'
 alias .-='cd - && ll'
@@ -73,6 +73,7 @@ alias kbusybox="kubectl run busybox -it --rm --restart=Never --image=busybox:1.2
 alias kget="kubectl get"
 alias kexec="kubectl exec -it"
 alias ktail="kubetail"
+alias kalpine="kubectl run alpine --image=alpine --restart=Never --rm -it sh"
 
 ### Google Cloud ###
 alias gcloudalias="cat ~/.bash_aliases | grep gcloud"

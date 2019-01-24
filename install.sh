@@ -5,7 +5,7 @@ install() {
   for file in ${files}
   do
 	echo "Linking $file"
-	echo ln -sf "$HOME/.dotfiles/${file}" "$HOME/.${file}"
+	ln -sf "$HOME/.dotfiles/${file}" "$HOME/.${file}"
   done
 }
 
@@ -23,6 +23,6 @@ else
 fi
 
 echo "Installing Apps"
-./apps
+echo ./apps
 
 exit 0
