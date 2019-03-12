@@ -18,11 +18,11 @@ function git_villafuerte {
     local git_branch="$(git branch 2> /dev/null | grep '^*' | colrm 1 2)"
 
     if [[ ! $git_status =~ "working tree clean" ]]; then
-      echo -e "\033[3;38;5;124m[✘ $git_branch]"
+      echo -e "\033[3;38;5;124m[✘ ${git_branch}]"
     elif [[ $git_status =~ "branch is ahead" ]]; then
-      echo -e "\033[3;38;5;172m[⟲ git_branch]"
+      echo -e "\033[3;38;5;172m[⟲ ${git_branch}]"
     else
-      echo -e "\033[3;32m[✔︎ $git_branch]"
+      echo -e "\033[3;32m[✔︎ ${git_branch}]"
     fi
   fi
 }
@@ -34,7 +34,7 @@ PS1='\[\033[1;37m\]$(date "+%d/%b/%Y %H:%M:%S") '
 PS1+='\[\033[1;36m\]\w '
 PS1+='$(git_villafuerte) '
 #PS1+='\[\033[1;37m\]$(date "+%d/%b/%Y %H:%M:%S") '
-PS1+='\[\033[0m\]$(kube_ps1)'
+PS1+='$(kube_ps1)'
 #PS1+="\n\[\033[1;32m\]\u@$(ifconfig|grep broadcast|awk '{ print $2 }') \[\033[1;32m\]└─>\[\033[0m\] "
 PS1+='\n\[\033[1;32m\]\u@$IP\[\033[1;31m\] λ\[\033[0m\] '
 
