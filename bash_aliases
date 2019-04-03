@@ -45,7 +45,8 @@ alias vbox-list='VBoxManage list vms'
 ### Docker ###
 alias dalias="cat ~/.bash_aliases | grep docker"
 alias dkl='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
-
+alias rcli="docker run --rm -it alpine sh -c 'apk --update add redis && sh'"
+alias pcli="docker run --rm -it alpine sh -c 'apk --update add postgresql-client && sh'"
 ### Kubernetes ###
 alias kalias="cat ~/.bash_aliases | grep kubectl"
 alias klogs="kubectl logs -f"
@@ -86,3 +87,4 @@ alias cid="./.cicd/deploy.sh"
 alias cit="./.cicd/test.sh"
 alias cib="./.cicd/build.sh"
 alias cir="./.cicd/release.sh"
+
