@@ -78,3 +78,5 @@
 	st = status
 	tree = log --all --graph --decorate --oneline --simplify-by-decoration
 	rh = reset --hard
+[fetch]
+	prune = true
