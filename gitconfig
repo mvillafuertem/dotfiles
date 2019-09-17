@@ -78,5 +78,6 @@
 	st = status
 	tree = log --all --graph --decorate --oneline --simplify-by-decoration
 	rh = reset --hard
+	bcurrent = rev-parse --abbrev-ref HEAD
 [fetch]
 	prune = true
