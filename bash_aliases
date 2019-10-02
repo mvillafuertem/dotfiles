@@ -13,7 +13,7 @@ alias projects='cd ~/Projects'
 alias newproject='mkdir -p src/{main,test}/{java,resources} src/main/java/com/mvillafuertem'
 alias workspace='cd ~/Workspace'
 alias ppwd='cd `pbpaste`'
-alias hound='grep -Hrn --color $1 $2'
+alias hound='grep -Hrn --color'
 
 ### Gradle ###
 alias galias="cat ~/.bash_aliases | grep gradlew"
@@ -47,6 +47,7 @@ alias dalias="cat ~/.bash_aliases | grep docker"
 alias dkl='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 alias rcli="docker run --rm -it alpine sh -c 'apk --update add redis && sh'"
 alias pcli="docker run --rm -it alpine sh -c 'apk --update add postgresql-client && sh'"
+alias kman='_docker_kafka_manager() { docker run -p 9000:9000 -e APPLICATION_SECRET=letmein -e KM_ARGS=-Djava.net.preferIPv4Stack=true -e ZK_HOSTS="$1" sheepkiller/kafka-manager:latest ;}; _docker_kafka_manager'
 ### Kubernetes ###
 alias kalias="cat ~/.bash_aliases | grep kubectl"
 alias klogs="kubectl logs -f"
