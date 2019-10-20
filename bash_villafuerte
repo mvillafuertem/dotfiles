@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export CDPATH=.:~/Projects:~/go/src
+export CDPATH=.:~/Projects/:~/go/src
 
 function git_villafuerte {
   local git_compruebo="$(git branch 2>/dev/null)"
