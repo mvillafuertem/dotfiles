@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+sudo curl -o /usr/local/share/git-completion.bash --create-dirs https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
 declare -a apps=(
     'https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.tgz'

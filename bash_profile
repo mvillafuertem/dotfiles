@@ -6,8 +6,10 @@ if [ -f /usr/local/share/bash_completion.d/kubectl ]; then
   source <(kubectl completion bash)
 fi
 
+
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
+[[ -r "/usr/local/share/git-completion.bash" ]] && . "/usr/local/share/git-completion.bash"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/share/google-cloud-sdk/path.bash.inc' ]; then . '/usr/local/share/google-cloud-sdk/path.bash.inc'; fi
