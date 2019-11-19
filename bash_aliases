@@ -15,6 +15,10 @@ alias workspace='cd ~/Workspace'
 alias ppwd='cd `pbpaste`'
 alias hound='grep -Hrn --color'
 
+### Sbt ###
+alias sbtdu='sbt dependencyUpdates'
+alias sbtct='sbt clean test'
+
 ### Gradle ###
 alias galias="cat ~/.bash_aliases | grep gradlew"
 alias gdlcb='./gradlew clean build'
