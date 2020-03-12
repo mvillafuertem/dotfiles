@@ -19,3 +19,5 @@ git clone git@github.com:mvillafuertem/dotfiles.git ~/.dotfiles && cd .dotfiles 
 
 ----
 
+
+http://www.appsdeveloperblog.com/how-to-set-java_home-on-mac/
