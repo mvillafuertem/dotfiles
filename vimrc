@@ -12,19 +12,19 @@ set relativenumber
 
 
 " Configuration for vim-plug
-call plug#begin('~/.vim/plugged')
-Plug 'derekwyatt/vim-scala'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
-Plug 'christoomey/vim-tmux-navigator'
+" call plug#begin('~/.vim/plugged')
+" Plug 'derekwyatt/vim-scala'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'scrooloose/nerdtree'
+" Plug 'christoomey/vim-tmux-navigator'
 
-call plug#end()
+" call plug#end()
 
 " Configuration for nerdtree
 let mapleader=" "
-nmap <Leader>nt :NERDTreeFind<CR>
+" nmap <Leader>nt :NERDTreeFind<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 
 " Configuration for vim-scala
-au BufRead,BufNewFile *.sbt set filetype=scala
+" au BufRead,BufNewFile *.sbt set filetype=scala

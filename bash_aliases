@@ -18,6 +18,7 @@ alias hound='grep -Hrn --color'
 ### Sbt ###
 alias sbtdu='sbt dependencyUpdates'
 alias sbtct='sbt clean test'
+alias sbtfast='sbt clean fastOptJS'
 
 ### Gradle ###
 alias galias="cat ~/.bash_aliases | grep gradlew"
