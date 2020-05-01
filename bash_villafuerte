@@ -4,7 +4,7 @@ export CDPATH=.:~/Projects/:~/go/src
 
 function git_villafuerte {
   local git_compruebo="$(git branch 2>/dev/null)"
-  if [[ ! -z "$git_compruebo" ]]; then
+  if [[ -n "$git_compruebo" ]]; then
     local git_status="$(git status 2> /dev/null)"
     local git_branch="$(git branch 2> /dev/null | grep '^*' | colrm 1 2)"
 
