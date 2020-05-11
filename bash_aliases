@@ -54,6 +54,7 @@ alias dkl='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}
 alias dkx='docker exec -it --user root'
 alias dkamm='docker run --rm -it --entrypoint /bin/bash -v `pwd`:/root/app mvillafuertem/scala-amm'
 alias dksbt='docker run --rm -it --entrypoint /bin/bash -v `pwd`:/root/app mvillafuertem/scala-sbt'
+alias dkpy='docker run --rm -it --entrypoint /bin/bash -v `pwd`:/backup python:3.8.0-buster'
 alias dkaws='docker run --rm -it --entrypoint /bin/bash -v ~/.aws:/root/.aws amazon/aws-cli:2.0.7'
 alias rcli="docker run --rm -it alpine sh -c 'apk --update add redis && sh'"
 alias pcli="docker run --rm -it alpine sh -c 'apk --update add postgresql-client && sh'"
@@ -61,6 +62,7 @@ alias kman='_docker_kafka_manager() { docker run -p 9000:9000 -e APPLICATION_SEC
 alias dkps='docker ps'
 alias dkpsa='docker ps -a'
 alias dkpsaq='docker ps -aq'
+alias dkup='docker-compose -f docker-compose.yml up'
 ### Kubernetes ###
 alias kalias="cat ~/.bash_aliases | grep kubectl"
 alias klogs="kubectl logs -f"
