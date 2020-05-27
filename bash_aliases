@@ -8,7 +8,7 @@ alias desk='cd ~/Desktop'
 alias gitlab='cd ~/Projects/Gitlab'
 alias oa='atom .'
 alias of='open .'
-alias oi='idea .'
+alias oi='open -na "IntelliJ IDEA.app"'
 alias projects='cd ~/Projects'
 alias newproject='mkdir -p src/{main,test}/{java,resources} src/main/java/com/mvillafuertem'
 alias workspace='cd ~/Workspace'
@@ -49,6 +49,7 @@ alias vbox-stop='VBoxManage controlvm ubuntu poweroff'
 alias vbox-list='VBoxManage list vms'
 
 ### Docker ###
+alias relaxed="docker run -it --rm -u $(id -u):$(id -g) -v $(pwd):$(pwd) -w $(pwd) --name relaxed relaxed $@"
 alias dkalias="cat ~/.bash_aliases | grep docker"
 alias dkl='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 alias dkx='docker exec -it --user root'
@@ -63,6 +64,7 @@ alias dkps='docker ps'
 alias dkpsa='docker ps -a'
 alias dkpsaq='docker ps -aq'
 alias dkup='docker-compose -f docker-compose.yml up'
+alias dkdown='docker-compose -f docker-compose.yml down'
 ### Kubernetes ###
 alias kalias="cat ~/.bash_aliases | grep kubectl"
 alias klogs="kubectl logs -f"
