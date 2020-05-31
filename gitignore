@@ -33,4 +33,7 @@ nbdist/
 .expo
 node_modules
 package-lock.json
+yarn.lock
 
+### Metals ###
+.metals
