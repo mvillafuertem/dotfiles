@@ -1,4 +1,4 @@
-set encoding=utf-8
+set encoding=UTF-8
 set number
 set tabstop=4 expandtab shiftwidth=2 smarttab
 syntax on

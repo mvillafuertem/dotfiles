@@ -8,12 +8,13 @@ alias desk='cd ~/Desktop'
 alias gitlab='cd ~/Projects/Gitlab'
 alias oa='atom .'
 alias of='open .'
-alias oi='open -na "IntelliJ IDEA.app"'
+alias oi='open -na "IntelliJ IDEA.app" --args .'
 alias projects='cd ~/Projects'
 alias newproject='mkdir -p src/{main,test}/{java,resources} src/main/java/com/mvillafuertem'
 alias workspace='cd ~/Workspace'
 alias ppwd='cd `pbpaste`'
 alias hound='grep -Hrn --color'
+alias port='_port() { lsof -i tcp:"$1"; }; _port'
 alias +x='_chmodx() { chmod +x "$1" && ./"$1"; }; _chmodx'
 
 ### Sbt ###
@@ -65,6 +66,7 @@ alias dkpsa='docker ps -a'
 alias dkpsaq='docker ps -aq'
 alias dkup='docker-compose -f docker-compose.yml up'
 alias dkdown='docker-compose -f docker-compose.yml down'
+alias dklogs='docker logs -f'
 ### Kubernetes ###
 alias kalias="cat ~/.bash_aliases | grep kubectl"
 alias klogs="kubectl logs -f"
