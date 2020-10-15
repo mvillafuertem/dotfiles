@@ -25,4 +25,8 @@ fi
 echo "Installing Apps"
 echo ./apps
 
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
+  && brew install bash \
+  && echo $(brew --prefix)/bin/bash | sudo tee -a
+
 exit 0
