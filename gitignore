@@ -33,11 +33,14 @@ nbdist/
 .expo
 node_modules
 package-lock.json
-yarn.lock
 
 ### Metals ###
 .metals
+metals.sbt
 
+### Sbt ###
+.bsp
+.bloop
 
 ### Python ###
 .python-version

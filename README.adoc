@@ -26,7 +26,42 @@ http://www.appsdeveloperblog.com/how-to-set-java_home-on-mac/
 
 https://www.shell-tips.com/mac/upgrade-bash/
 
-Bash shortcuts
+## VIM
+
+https://superuser.com/questions/486532/how-to-open-files-in-vertically-horizontal-split-windows-in-vim-from-the-command
+
+----
+
+Ctrl+W, S (upper case) for horizontal splitting
+
+Ctrl+W, v (lower case) for vertical splitting
+
+Ctrl+W, Q to close one
+
+Ctrl+W, Ctrl+W to switch between windows
+
+Ctrl+W, J (xor K, H, L) to switch to adjacent window (intuitively up, down, left, right)
+
+RESIZE
+
+Ctrl+W+ (n) >/<: For right/left
+
+Ctrl+W+ (n) +/-: For up/down
+
+where n = any number.
+
+----
+
+
+https://vi.stackexchange.com/questions/13735/how-can-i-make-keymap-to-open-a-new-file-in-a-vertical-split
+
+----
+
+The command you are looking for is :vertical new or :vnew. The latter has the advantage that is easier to make a command which takes a count, e.g., :20vnew. In the following mapping,
+
+----
+
+## Bash shortcuts
 https://skorks.com/2009/09/bash-shortcuts-for-maximum-productivity/
 
 ----
@@ -48,5 +83,15 @@ Merge Files
 ----
 
 find . -name "*12T00_00_00_mongodb.txt" | xargs cat > 2020-05-11T00_00_00_2020-05-12T00_00_00_mongodb_MERGED.txt
+
+----
+
+
+Docker Brigde or Host Mode
+
+
+----
+
+https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach
 
 ----

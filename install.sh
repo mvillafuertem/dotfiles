@@ -27,6 +27,13 @@ echo ./apps
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
   && brew install bash \
-  && echo $(brew --prefix)/bin/bash | sudo tee -a
+  && echo $(brew --prefix)/bin/bash | sudo tee -a \
+  && brew install vim \
+  && curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+  && brew install node \
+  && brew install yarn \
+  && brew tap caskroom/fonts \
+  && brew cask install font-hack-nerd-font
 
 exit 0
