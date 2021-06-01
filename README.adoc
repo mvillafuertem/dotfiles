@@ -95,3 +95,34 @@ Docker Brigde or Host Mode
 https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach
 
 ----
+
+
+You can use the option -o to open the files in horizontal splits or -O (letter "O") to open vertical splits. The following commands open a window for each file specified:
+
+vim -o *.cpp
+vim -O foo bar baz
+You can tell Vim the maximum number of windows to open by putting an integer after o or O options, the following example will open at most two windows no matter how many file matches, you will see the first two file specified on the command line, the rest will remain hidden:
+
+vim -o2 *.cpp
+See :help -o for all the details.
+
+
+
+
+zz - move current line to the middle of the screen
+(Careful with zz, if you happen to have Caps Lock on accidentally, you will save and exit vim!)
+zt - move current line to the top of the screen
+zb - move current line to the bottom of the screen
+
+
+Additionally:
+
+Ctrl-y Moves screen up one line
+Ctrl-e Moves screen down one line
+Ctrl-u Moves cursor & screen up ½ page
+Ctrl-d Moves cursor & screen down ½ page
+Ctrl-b Moves screen up one page, cursor to last line
+Ctrl-f Moves screen down one page, cursor to first line
+Ctrl-y and Ctrl-e only change the cursor position if it would be moved off screen.
+
+Courtesy of http://www.lagmonster.org/docs/vi2.html
