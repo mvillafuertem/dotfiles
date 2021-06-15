@@ -14,6 +14,7 @@ alias newproject='mkdir -p src/{main,test}/{java,resources} src/main/java/com/mv
 alias workspace='cd ~/Workspace'
 alias ppwd='cd `pbpaste`'
 alias hound='grep -Hrn --color'
+alias ff='_ff() { find . -name "$1" -print; }; _ff'
 alias port='_port() { lsof -i tcp:"$1"; }; _port'
 alias +x='_chmodx() { chmod +x "$1" && ./"$1"; }; _chmodx'
 
