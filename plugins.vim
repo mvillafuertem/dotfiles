@@ -110,6 +110,7 @@ nmap <leader>5 <Plug>AirlineSelectTab5
 let NERDTreeShowHidden=1
 nmap <Leader>nt :NERDTreeFind<CR>
 nmap <Leader>ntc :NERDTreeClose<CR>
+nmap ,f :NERDTreeFind<CR>
 " Open NERDTree when open vim
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
