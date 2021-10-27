@@ -79,5 +79,7 @@
 	tree = log --all --graph --decorate --oneline --simplify-by-decoration
 	rh = reset --hard
 	bcurrent = rev-parse --abbrev-ref HEAD
+	dwc = diff --word-diff=color --color-words=.
+	shr = show --pretty=raw
 [fetch]
 	prune = true
