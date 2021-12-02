@@ -1,4 +1,4 @@
-= Dotfiles
+# Dotfiles
 
 
 
@@ -126,3 +126,18 @@ Ctrl-f Moves screen down one page, cursor to first line
 Ctrl-y and Ctrl-e only change the cursor position if it would be moved off screen.
 
 Courtesy of http://www.lagmonster.org/docs/vi2.html
+
+## Git
+
+https://goiabada.blog/git-tricks-avoid-solving-the-same-rebase-conflict-multiple-times-9a3afbcf1d22
+### Using git cherry-pick
+This is not as simple as using rerere but it’s still simple. With cherry-pick we can select a range of commits to apply to a given branch. This way, we can make a “manual rebase”, selecting only the commits that were not rebased onto the first one.
+In our example situation, we’ll need to select commits f, h and i from branch C and put them on top of branch A:
+
+```shell
+
+$ git checkout A
+$ git cherry-pick f^..i
+
+```
+And it’s done.

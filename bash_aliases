@@ -19,6 +19,7 @@ alias port='_port() { lsof -i tcp:"$1"; }; _port'
 alias +x='_chmodx() { chmod +x "$1" && ./"$1"; }; _chmodx'
 alias settz='sudo systemsetup -settimezone $@'
 alias gettz='sudo systemsetup -gettimezone'
+alias rmf='_rmf() { find . -type f -name "$1" -print0 | xargs -0 rm -rf; }; _rmf'
 
 ### Sbt ###
 alias sbtdu='sbt dependencyUpdates'

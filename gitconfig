@@ -83,3 +83,5 @@
 	shr = show --pretty=raw
 [fetch]
 	prune = true
+[rerere]
+	enabled = true

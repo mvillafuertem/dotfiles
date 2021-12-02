@@ -27,7 +27,7 @@ function updatePyEnvPrompt {
   && export PS1='\[\033[3;38;5;172m\] $(pyenv version-name) \[\033[0m\]'$BASE_PROMPT  ||  export PS1=$BASE_PROMPT
 }
 export PROMPT_COMMAND='updatePyEnvPrompt'
-export PATH="$PYENV_ROOT/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$(pyenv root)/shims:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
