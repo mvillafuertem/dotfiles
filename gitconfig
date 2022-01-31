@@ -3,6 +3,12 @@
 	rebase = true
 [merge]
 	ff = false
+    tool = intellij
+[difftool "intellij"]
+    cmd = /Applications/IntelliJ\\ IDEA.app/Contents/MacOS/idea diff $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\")
+[mergetool "intellij"]
+    cmd = $(osascript -e 'tell application "System Events" to POSIX path of (file of process "IntelliJ IDEA" as alias)')/Contents/MacOS/idea merge $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") $(cd $(dirname \"$BASE\") && pwd)/$(basename \"$BASE\") $(cd $(dirname \"$MERGED\") && pwd)/$(basename \"$MERGED\")
+    trustExitCode = true
 [color]
 	branch = auto
 	diff = auto
