@@ -2,7 +2,7 @@
 call plug#begin()
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'airblade/vim-gitgutter', {'branch': 'master'}
-    Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+    " Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
     Plug 'ryanoasis/vim-devicons'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'

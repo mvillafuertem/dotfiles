@@ -15,7 +15,34 @@ set backspace=indent,eol,start "https://vi.stackexchange.com/questions/2162/why-
 set path+=**
 set wildignore=.git,*/node_modules/*,*/target/* " don't search git, node_modules, or targert with wildmenu
 set signcolumn=yes " always show signcolumns
+" Enable CursorLine
+set cursorline
+" Default Colors for CursorLine
+" highlight  CursorLine ctermbg=Yellow ctermfg=None
+" Change Color when entering Insert Mode
+" autocmd InsertEnter * highlight  CursorLine ctermbg=Green ctermfg=Red
+" Revert Color to default when leaving Insert Mode
+" autocmd InsertLeave * highlight  CursorLine ctermbg=Yellow ctermfg=None
+" hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
+
+"Mode Settings
+
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
+
+"Cursor settings:
+
+"  1 -> blinking block
+"  2 -> solid block
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+
+
 let mapleader=" "
+
 
 if filereadable(expand("~/.coc-mappings.vim"))
   source ~/.coc-mappings.vim"

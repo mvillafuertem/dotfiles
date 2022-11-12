@@ -26,6 +26,32 @@ http://www.appsdeveloperblog.com/how-to-set-java_home-on-mac/
 
 https://www.shell-tips.com/mac/upgrade-bash/
 
+## Netcat
+
+https://blog.niklasottosson.com/mac/using-netcat-to-catch-request-data-from-curl/
+https://jameshfisher.com/2018/12/31/how-to-make-a-webserver-with-netcat-nc/
+
+Listener
+```shell
+
+nc -l 5000
+
+```
+
+Client 
+```shell
+
+nc -v 5000
+
+```
+
+Web server
+```shell
+
+while true; do echo "HTTP/1.1 200 OK" | nc -l 8000; done
+
+```
+
 ## VIM
 
 https://superuser.com/questions/486532/how-to-open-files-in-vertically-horizontal-split-windows-in-vim-from-the-command

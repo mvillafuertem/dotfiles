@@ -87,6 +87,7 @@
 	bcurrent = rev-parse --abbrev-ref HEAD
 	dwc = diff --word-diff=color --color-words=.
 	shr = show --pretty=raw
+	brs = branch -a -v --sort=-committerdate --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 [fetch]
 	prune = true
 [rerere]

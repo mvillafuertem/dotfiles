@@ -21,6 +21,8 @@ alias settz='sudo systemsetup -settimezone $@'
 alias gettz='sudo systemsetup -gettimezone'
 alias rmf='_rmf() { find . -type f -name "$1" -print0 | xargs -0 rm -rf; }; _rmf'
 alias extip='curl ipecho.net/plain ; echo'
+alias jvmls='/usr/libexec/java_home -V'
+alias jvmset='_jvmset() { unset JAVA_HOME; export JAVA_HOME=$(/usr/libexec/java_home -v"$1"); java -version; }; _jvmset'
 
 ### Sbt ###
 alias sbtdu='sbt dependencyUpdates'
@@ -120,3 +122,7 @@ alias cir="./.cicd/release.sh"
 ### GIT ###
 alias gitupd="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
 "
+
+### SAML ###
+alias samldev="saml2aws login --idp-account awsdev"
+alias samlpro="saml2aws login --idp-account awspro"
