@@ -44,3 +44,5 @@ metals.sbt
 
 ### Python ###
 .python-version
+
+.DS_Store

@@ -102,7 +102,7 @@ alias kall="kubectl get all"
 alias kdes="kubectl describe"
 alias kbusybox="kubectl run busybox -it --rm --restart=Never --image=busybox -- "
 alias kget="kubectl get"
-alias kexec="kubectl exec -it"
+alias kexec='_kubectl_exec() { kubectl exec -it "$1" -c "$2" -- "${@:3}"; }; _kubectl_exec'
 alias ktail="kubetail"
 alias kalpine="kubectl run alpine --image=alpine --restart=Never --rm -it sh"
 
