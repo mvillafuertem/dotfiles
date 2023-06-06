@@ -75,6 +75,7 @@ alias dkpsaq='docker ps -aq'
 alias dkup='docker-compose -f docker-compose.yml up'
 alias dkdown='docker-compose -f docker-compose.yml down'
 alias dklogs='docker logs -f'
+alias grpcurl='docker run --rm fullstorydev/grpcurl'
 ### Kubernetes ###
 alias kalias="cat ~/.bash_aliases | grep kubectl"
 alias klogs="kubectl logs -f"
@@ -126,3 +127,8 @@ alias gitupd="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git bra
 ### SAML ###
 alias samldev="saml2aws login --idp-account awsdev"
 alias samlpro="saml2aws login --idp-account awspro"
+
+### HELM ###
+# https://unix.stackexchange.com/questions/273118/direct-output-to-pipe-and-stdout
+alias hls='_helm_ls() { helm -n "$1" ls; }; _helm_ls'
+alias hun='_helm_un() { helm -n "$1" ls | awk "NR>1 {print \$1}" | tee /dev/tty | xargs helm -n "$1" un ; }; _helm_un'
