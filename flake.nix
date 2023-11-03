@@ -11,7 +11,6 @@
   outputs = inputs : {
       homeConfigurations = {
         m-mvillafuerte = inputs.home-manager.lib.homeManagerConfiguration {
-          system = "aarch64-darwin";
           pkgs = inputs.nixpkgs.legacyPackages.aarch64-darwin;
           modules = [ ./nixpkgs/home-manager/work.nix ];
           extraSpecialArgs = { pkgsUnstable = inputs.nixpkgsUnstable.legacyPackages.aarch64-darwin; };
