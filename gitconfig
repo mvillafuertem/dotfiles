@@ -48,7 +48,7 @@
 	pretty = %C(045)%h%C(reset) %C(255)%s%C(reset) %C(auto)%D%C(reset) %C(190 dim)%an%C(reset) %C(046 dim)%ar%C(reset) %+b
 [user]
 	name = Miguel Villafuerte
-	email = mivimur@hotmail.com
+	email = 24855057+mvillafuertem@users.noreply.github.com
 [core]
 	excludesFile = ~/.gitignore
 	editor = vi
