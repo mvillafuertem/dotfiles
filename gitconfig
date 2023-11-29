@@ -88,7 +88,7 @@
 	dwc = diff --word-diff=color --color-words=.
 	shr = show --pretty=raw
 	brs = branch -a -v --sort=-committerdate --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
-	gone = "!f() { git fetch --all --prune; git for-each-ref --color=always --format '%(color:cyan)%(refname:short)%(color:reset) %(upstream:track)' | awk -v gone='[gone]' '$2==gone {print $1}' | tee /dev/tty | xargs -r echo git branch -D; }; f"
+	gone = "!f() { git fetch --all --prune; git for-each-ref --color=always --sort=committerdate --format '%(upstream:track),%(color:cyan)%(refname:short)%(color:reset),%(subject),%(color:green)%(committerdate:relative)%(color:reset)' | awk -v gone='[gone]' -v FS=',' '$1==gone {$1=\"\";print $0}' | tee /dev/tty | awk '{print $1}' | xargs -r echo git branch -D;}; f"
 	trygone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | tee /dev/tty | xargs -r git branch -D; }; f"
 [fetch]
 	prune = true

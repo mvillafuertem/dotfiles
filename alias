@@ -1,0 +1,4 @@
+echo "f() { git fetch --all --prune; git for-each-ref --color=always --sort=committerdate --format '%(upstream:track),%(color:cyan)%(refname:short)%(color:reset),%(subject),%(color:green)%(committerdate:relative)%(color:reset)' | awk -v gone='[gone]' -v FS=',' '\$1==gone {\$1=\"\";print \$0}' | tee /dev/tty | awk '{print \$1}' | xargs -r echo git branch -D;}; f" > alias
+
+set  +H desactivar history
+git config --global alias.gone "!`cat alias`"
