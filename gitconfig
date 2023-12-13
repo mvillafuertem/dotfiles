@@ -29,7 +29,7 @@
 	context = 102
 	frag = 080
 	func = 176
-	meta = 016
+	meta = 102
 	new = 157 016
 	old = 210 016
 [color "interactive"]
@@ -63,14 +63,14 @@
 	ck = checkout
 	cl = clone
 	conf = config --global --list
-	dw = diff --word-diff=color
+	dw = diff --word-diff=color --unified=0
 	dw-1 = diff --word-diff=color HEAD^
 	dw-2 = diff --word-diff=color HEAD^^
 	f = fetch
 	ll = log --graph
 	llf = log --graph --first-parent
 	lld = log --graph --date-order
-	llp = log --graph -p
+	llp = log --graph -p --unified=0
 	lls = log --graph --stat
 	ph = push
 	pl = pull --rebase
@@ -101,3 +101,5 @@
 	required = true
 [init]
 	defaultBranch = main
+[push]
+	autoSetupRemote = true
