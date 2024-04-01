@@ -135,5 +135,5 @@ alias hls='_helm_ls() { helm -n "$1" ls; }; _helm_ls'
 alias hun='_helm_un() { helm -n "$1" ls | awk "NR>1 {print \$1}" | tee /dev/tty | xargs helm -n "$1" un ; }; _helm_un'
 
 ### Home Manager ###
-alias hmu="home-manager switch --flake ~/.dotfiles/home.nix"
+alias hmu="home-manager switch --flake ~/.dotfiles"
 alias nixclean="nix-collect-garbage --delete-old"
