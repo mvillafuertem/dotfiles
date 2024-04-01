@@ -1,0 +1,49 @@
+# We add pkgs since it's available as an argument, thanks to our inputs
+{ pkgs, ... }: {
+  # This is required information for home-manager to do its job
+  home = {
+    stateVersion = "23.11";
+    username = "mvillafuerte";
+    homeDirectory = "/Users/mvillafuerte";
+    # sessionPath = [ "${pkgs.git}/bin/aws_completer" ];
+    packages = with pkgs; [
+      # Then we add the packages we want in the array using pkgs.<name>
+      #neovim
+      awscli2
+      bash
+      bash-completion
+      jq
+      rustup
+      kubectl
+      nodejs
+      nixfmt
+      scalafmt
+      # google-chrome https://github.com/NixOS/nixpkgs/pull/162467
+    ];
+    # Tell it to map everything in the `config` directory in this
+    # repository to the `.config` in my home directory
+    # file.".config" = { 
+    #   source = ./config; 
+    #   recursive = true; 
+    # };
+    # file.".zprofile" = { source = ./.zprofile; };
+    # file.".zshrc" = { source = ./.zshrc.bk; };
+    file.".vimrc" = { source = ./modules/home-manager/nvim/config/vimrc; };
+  };
+  # This is to ensure programs are using ~/.config rather than
+  # /Users/<username/Library/whatever
+  xdg.enable = true;
+
+  #fonts.packages = with pkgs; [
+  #  (nerdfonts.override { fonts = [ "Hack" "JetBrains Mono" ]; })
+  #]; 
+
+  programs.home-manager.enable = true;
+  imports = [ ./modules/home-manager ];
+  # I use zsh, but bash and fish work just as well here. This will setup
+  # the shell to use home-manager properly on startup, neat!
+  # programs.bash.enable = true;
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (pkgs.lib.getName pkg) [ "google-chrome" ];
+}

@@ -50,10 +50,10 @@
 	name = Miguel Villafuerte
 	email = 24855057+mvillafuertem@users.noreply.github.com
 [core]
-	excludesFile = ~/.gitignore
+	excludesFile = ~/.config/git/.gitignore
 	editor = vi
 [commit]
-	template = ~/.gitmessage
+	template = ~/.config/git/.gitmessage
 [alias]
 	alias = !git config -l | grep alias | cut -c 7-
 	br = branch -a -v

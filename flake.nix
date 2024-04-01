@@ -1,20 +1,27 @@
 {
+  description = "mvillafuerte's dotfiles";
+
+  # inputs are other flakes you use within your own flake, dependencies
+  # if you will
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
-    nixpkgsUnstable.url = "github:NixOS/nixpkgs/master";
+    # unstable has the 'freshest' packages you will find, even the AUR
+    # doesn't do as good as this, and it's all precompiled.
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs : {
-      homeConfigurations = {
-        m-mvillafuerte = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = inputs.nixpkgs.legacyPackages.aarch64-darwin;
-          modules = [ ./nixpkgs/home-manager/work.nix ];
-          extraSpecialArgs = { pkgsUnstable = inputs.nixpkgsUnstable.legacyPackages.aarch64-darwin; };
-        };
+  # In this context, outputs are mostly about getting home-manager what it
+  # needs since it will be the one using the flake
+  outputs = { nixpkgs, home-manager, ... }: {
+    homeConfigurations = {
+      "mvillafuerte" = home-manager.lib.homeManagerConfiguration {
+        # darwin is the macOS kernel and aarch64 means ARM, i.e. apple silicon
+        pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+        modules = [ ./home.nix ];
       };
     };
+  };
 }
