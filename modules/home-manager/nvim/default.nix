@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   xdg.configFile.nvim = {
     source = ./config;
     recursive = true;
@@ -12,8 +12,8 @@
     vimdiffAlias = true;
     #extraConfig = builtins.readFile "${config.home.homeDirectory}/.dotfiles/vimrc";
     # package = pkgs.neovim-nightly;
-    extraPackages = with pkgs; [
-    ];
+    extraPackages = with pkgs; [ ];
+    # extraConfig = lib.fileContents ../path/to/your/init.vim;
     #plugins = let
     #nvim-treesitter-with-plugins = pkgs.vimPlugins.nvim-treesitter.withPlugins (treesitter-plugins:
     #  with treesitter-plugins; [

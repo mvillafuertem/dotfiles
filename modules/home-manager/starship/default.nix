@@ -1,9 +1,12 @@
-{pkgs, ...}: {
-  xdg.configFile."starship.toml" = {
-    source = ./config/starship.toml;
-    recursive = true;
+{ pkgs, ... }: {
+  #xdg.configFile."starship.toml" = {
+  #  source = ./config/starship.toml;
+  #  recursive = true;
+  #};
+  programs.starship = {
+    enable = true;
+    settings = pkgs.lib.importTOML ./config/starship.toml;
   };
-  programs.starship.enable = true;
   #programs.starship =
   #  let
   #    flavour = "mocha"; # One of `latte`, `frappe`, `macchiato`, or `mocha`
