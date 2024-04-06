@@ -9,13 +9,25 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
-      automatic_installation = true
+      -- automatic_installation = true
       -- ensure_installed = { "lua_ls", "rust_analyzer" }
 
       require("lspconfig").ast_grep.setup({})
       require("lspconfig").nil_ls.setup({})
       require("lspconfig").lua_ls.setup({})
-      require("lspconfig").rust_analyzer.setup({})
+      -- require("lspconfig").rust_analyzer.setup({})
+      --   on_attach = require("lspconfig").on_attach,
+      --   capabilities = require("lspconfig").capabilities,
+      --   filetypes = { "rust" },
+      --   root_dir = require("lspconfig/util").root_pattern("Cargo.toml"),
+      --   settings = {
+      --     ["rust-analizer"] = {
+      --       cargo = {
+      --         allFeatures = true,
+      --       },
+      --     },
+      --   },
+      -- })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

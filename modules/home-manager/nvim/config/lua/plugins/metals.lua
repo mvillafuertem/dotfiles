@@ -17,7 +17,7 @@ return {
         snippet = {
           expand = function(args)
             -- Comes from vsnip
-            fn["vsnip#anonymous"](args.body)
+            vim.fn["vsnip#anonymous"](args.body)
           end,
         },
         mapping = cmp.mapping.preset.insert({
