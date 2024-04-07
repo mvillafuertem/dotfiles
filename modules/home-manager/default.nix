@@ -1,10 +1,1 @@
-{
-  imports = [
-  ./direnv 
-  ./bash 
-  ./git 
-  ./nvim
-  ./starship
-  ./k9s
-];
-}
+{ imports = [ ./direnv ./bash ./git ./nvim ./starship ./k9s ]; }
