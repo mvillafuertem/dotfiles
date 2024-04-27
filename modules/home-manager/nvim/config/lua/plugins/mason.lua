@@ -9,12 +9,12 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
-      -- automatic_installation = true
-      -- ensure_installed = { "lua_ls", "rust_analyzer" }
+      automatic_installation = true
+      ensure_installed = { "lua_ls", "rust_analyzer" }
 
-      require("lspconfig").ast_grep.setup({})
-      require("lspconfig").nil_ls.setup({})
-      require("lspconfig").lua_ls.setup({})
+      -- require("lspconfig").ast_grep.setup({})
+      -- require("lspconfig").nil_ls.setup({})
+      -- require("lspconfig").lua_ls.setup({})
       -- require("lspconfig").rust_analyzer.setup({})
       --   on_attach = require("lspconfig").on_attach,
       --   capabilities = require("lspconfig").capabilities,

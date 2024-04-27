@@ -24,10 +24,10 @@ $python\
 $docker_context\
 $kubernetes\
 $conda\
-$aws\
 $nix_shell\
 $direnv\
 [](fg:blue bg:lavender)\
+$aws\
 [](fg:lavender bg:surface0)\
 $time\
 [ ](fg:surface0)\
@@ -135,9 +135,9 @@ style = "bg:teal"
 format = '[[($all_status$ahead_behind) ](fg:base bg:green)]($style)'
 
 [aws]
-format = " aws [$symbol $profile $region]($style)"
-style = "italic teal"
-symbol = "▲ "
+format = "[ $symbol $profile $region ]($style)"
+style = "fg:surface0 bg:lavender"
+symbol = "󰸏"
 
 [nodejs]
 symbol = ""
@@ -205,10 +205,10 @@ impure_msg = "[[\uE0C6](fg:blue bg:base)[\uE0C7](fg:blue bg:base)](fg:red bg:
 #impure_msg = "[[\uE0BA](fg:red bg:blue)◉[\uE0BA](fg:blue bg:red)](fg:base bg:red)"
 pure_msg = "[[\uE0B6](fg:red bg:blue)✓[\uE0B4](fg:red bg:blue)](fg:base bg:red)"
 unknown_msg = "⚠"
-format = '[[ $symbol( $name $state) ](fg:surface0 bg:blue)]($style)'
+format = '[[ $symbol( $name) ](fg:surface0 bg:blue)]($style)'
 
 [direnv]
-disabled = false
+disabled = true
 style = "bg:blue"
 format = "[\uE0B1 ☘](fg:base bg:blue)($style)"
 

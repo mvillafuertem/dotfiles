@@ -18,6 +18,9 @@
       nodejs
       nixfmt
       scalafmt
+      saml2aws
+      (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
+      coursier
       # google-chrome https://github.com/NixOS/nixpkgs/pull/162467
     ];
     # Tell it to map everything in the `config` directory in this
@@ -34,6 +37,7 @@
   # /Users/<username/Library/whatever
   xdg.enable = true;
 
+  fonts.fontconfig.enable = true;
   #fonts.packages = with pkgs; [
   #  (nerdfonts.override { fonts = [ "Hack" "JetBrains Mono" ]; })
   #]; 
