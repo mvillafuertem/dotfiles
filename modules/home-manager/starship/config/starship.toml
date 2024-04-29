@@ -9,7 +9,7 @@ $directory\
 [](fg:peach bg:green)\
 $git_branch\
 $git_status\
-[](fg:green bg:teal)\
+[](fg:green bg:sapphire)\
 $c\
 $rust\
 $golang\
@@ -20,7 +20,7 @@ $kotlin\
 $scala\
 $haskell\
 $python\
-[](fg:teal bg:blue)\
+[](fg:sapphire bg:blue)\
 $docker_context\
 $kubernetes\
 $conda\
@@ -166,8 +166,8 @@ format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [java]
 symbol = " "
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:sapphire"
+format = '[[ $symbol( $version) ](fg:base bg:sapphire)]($style)'
 
 [kotlin]
 symbol = ""
@@ -176,8 +176,8 @@ format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [scala]
 symbol = " "
-style = "bg:#teal"
-format = '[[ $symbol ($version) ](fg:base bg:teal)]($style)'
+style = "bg:sapphire"
+format = '[[ $symbol ($version) ](fg:base bg:sapphire)]($style)'
 
 [haskell]
 symbol = ""
@@ -216,6 +216,10 @@ format = "[\uE0B1 ☘](fg:base bg:blue)($style)"
 symbol = ""
 style = "bg:mantel"
 format = '[[ $symbol( $context) ](fg:#83a598 bg:mantel)]($style)'
+
+[kubernetes]
+disabled = true
+style = "bg:blue fg:teal"
 
 [conda]
 style = "bg:mantel"

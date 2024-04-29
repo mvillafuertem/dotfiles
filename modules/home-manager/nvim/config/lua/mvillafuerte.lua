@@ -21,4 +21,7 @@ vim.keymap.set("i", "ª", ":m .+1<CR>==gi", { desc = "to move a line down" })
 -- gi : go back to your insert https://vimhelp.org/insert.txt.html#gi
 vim.keymap.set("v", "ª", ":m '>+1<CR>gv==gv", { desc = "" })
 vim.keymap.set("v", "º", ":m '<-2<CR>gv==gv", { desc = "" })
-
+vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", {})
+vim.keymap.set("n", "<C-j>", ":wincmd j<CR>", {})
+vim.keymap.set("n", "<C-h>", ":wincmd h<CR>", {})
+vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", {})

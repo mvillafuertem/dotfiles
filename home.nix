@@ -12,15 +12,16 @@
       awscli2
       bash
       bash-completion
-      jq
-      rustup
-      kubectl
-      nodejs
-      nixfmt
-      scalafmt
-      saml2aws
-      (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
       coursier
+      jq
+      kubectl
+      nixfmt
+      nodejs
+      openfortivpn
+      rustup
+      saml2aws
+      scalafmt
+      (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
       # google-chrome https://github.com/NixOS/nixpkgs/pull/162467
     ];
     # Tell it to map everything in the `config` directory in this
