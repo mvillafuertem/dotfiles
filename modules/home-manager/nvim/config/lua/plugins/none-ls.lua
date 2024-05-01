@@ -1,6 +1,9 @@
 return {
 
 	"nvimtools/none-ls.nvim",
+	dependencies = {
+		"nvimtools/none-ls-extras.nvim",
+	},
 	config = function()
 		local null_ls = require("null-ls")
 		null_ls.setup({
@@ -12,6 +15,7 @@ return {
 				null_ls.builtins.formatting.buf,
 
 				null_ls.builtins.diagnostics.buf,
+				require("none-ls.formatting.jq"),
 				-- require("none-ls.diagnostics.ast_grep"),
 				-- require("none-ls.formatting.ast_grep"),
 				-- null_ls.builtins.formatting.ast_grep,

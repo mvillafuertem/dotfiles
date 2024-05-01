@@ -2,15 +2,17 @@
 return {
 	{
 		"GCBallesteros/jupytext.nvim",
+		config = true,
 		-- enabled = false,
-		dev = true,
+		-- dev = true,
 		opts = {
 			style = "markdown",
 			output_extension = "md",
 			force_ft = "markdown",
 		},
-		config = function()
-		end,
+		-- config = function()
+		--   require("jupytext").setup()
+		-- end,
 	},
 	{
 		"quarto-dev/quarto-nvim",
@@ -78,7 +80,7 @@ return {
 			)
 
 			-- for more keybinds that I would use in a quarto document, see the configuration for molten
-			require("benlubas.hydra.notebook")
+			-- require("benlubas.hydra.notebook")
 		end,
-	},
+	}
 }
