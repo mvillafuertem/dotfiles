@@ -50,7 +50,7 @@
 	name = Miguel Villafuerte
 	email = 24855057+mvillafuertem@users.noreply.github.com
 [core]
-	excludesFile = ~/.config/git/.gitignore
+	excludesFile = ~/.config/git/gitignore
 	editor = vi
 [commit]
 	template = ~/.config/git/.gitmessage
