@@ -46,5 +46,6 @@ vim.keymap.set("n", "N", "Nzzzv", {})
 
 vim.keymap.set("n", "Q", "<nop>", {})
 
+-- https://linuxize.com/post/vim-find-replace/
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", {})
 
