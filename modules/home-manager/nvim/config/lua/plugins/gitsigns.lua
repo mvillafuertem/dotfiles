@@ -1,5 +1,8 @@
 return {
 	"lewis6991/gitsigns.nvim",
+	opts = {
+		numhl = false,
+	},
 	--  event = "User FilePost",
 	--  opts = {
 	--    signs = {
@@ -25,10 +28,10 @@ return {
 	--      map("n", "<leader>gb", gs.blame_line, opts("Blame Line"))
 	--    end,
 	--  },
-	  config = function(_, opts)
-	--    dofile(vim.g.base46_cache .. "git")
-	    require("gitsigns").setup(opts)
-      vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
-      vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", {})
-	  end,
+	config = function(_, opts)
+		--    dofile(vim.g.base46_cache .. "git")
+		require("gitsigns").setup(opts)
+		vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
+		vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", {})
+	end,
 }

@@ -1,14 +1,29 @@
 return {
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				auto_install = true,
-				-- ensure_installed = { "c", "vim", "vimdoc", "lua", "rust", "toml", "bash" },
-				highlight = { enable = true },
-				indent = { enable = true },
-			})
-		end,
-	}
+	"nvim-treesitter/nvim-treesitter",
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter-textobjects",
+	},
+	build = ":TSUpdate",
+	event = "VeryLazy",
+	main = "nvim-treesitter.configs",
+	opts = {
+		-- auto_install = true,
+		ensure_installed = { "vim", "vimdoc", "lua", "rust", "toml", "bash" },
+		highlight = { enable = true },
+		indent = { enable = true },
+		textobjects = {
+			select = {
+				enable = true,
+				lookahead = true,
+				keymaps = {
+					["af"] = "@function.outer",
+					["if"] = "@function.inner",
+					["ac"] = "@conditional.outer",
+					["ic"] = "@conditional.inner",
+					["al"] = "@loop.outer",
+					["il"] = "@loop.inner",
+				},
+			},
+		},
+	},
 }
