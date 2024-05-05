@@ -5,6 +5,7 @@ return {
 		require("lualine").setup({
 			options = {
 				theme = "catppuccin",
+				globalstatus = true,
 			},
 			tabline = {
 				lualine_a = {
@@ -20,7 +21,11 @@ return {
 					{ "tabs", max_length = vim.o.columns },
 				},
 			},
-			winbar = {},
+			inactive_winbar = {
+				-- lualine_c = { "filename" },
+				lualine_y = { { "filetype", icon_only = true } },
+				lualine_z = { { "filename", path = 1 } },
+			},
 		})
 	end,
 }

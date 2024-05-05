@@ -24,6 +24,9 @@ vim.o.shiftwidth = 2
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "" })
 
+vim.keymap.set("v", ">", ">gv", { desc = "after tab in - go previous select" })
+vim.keymap.set("v", "<", "<gv", { desc = "after tab out - go previous select" })
+
 -- help map-modes
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = 'use register ["_] [d]elete and [P]aste' })
 vim.keymap.set("x", "<leader>y", '"+y', { desc = 'use register ["+] and [y]ank' })
@@ -48,4 +51,3 @@ vim.keymap.set("n", "Q", "<nop>", {})
 
 -- https://linuxize.com/post/vim-find-replace/
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", {})
-
