@@ -1,16 +1,23 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
+  event = "VeryLazy",
   dependencies = {
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-git",
+    --
     "hrsh7th/cmp-vsnip",
     "hrsh7th/vim-vsnip",
   },
-  opts = function()
+  config = function()
     local cmp = require("cmp")
-    local conf = {
+    cmp.setup({
       sources = {
         { name = "nvim_lsp" },
+        { name = "path" },
+        { name = "buffer" },
         { name = "vsnip" },
         { name = "crates" },
       },
@@ -27,7 +34,40 @@ return {
         -- snippets you need to remove this select
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
       }),
-    }
-    return conf
+      -- mapping = {
+      --   ["<C-d>"] = cmp..mapping.scroll_docs(-4),
+      -- 	["<C-f>"] = cmp.mapping.scroll_docs(4),
+      -- 	["<C-e>"] = cmp.mapping.abort(),
+      -- 	["<C-n>"] = cmp.mapping(function(fallback)
+      -- 		if cmp.visible() then
+      -- 			cmp.select_next_item()
+      -- 		else
+      -- 			fallback()
+      -- 		end
+      -- 	end, { "i", "s" }),
+      -- 	["<C-p>"] = cmp.mapping.select_prev_item(),
+      -- 	["<C-y>"] = cmp.mapping.confirm({
+      -- 		behavior = cmp.ConfirmBehavior.Insert,
+      -- 		select = true,
+      -- 	}),
+      -- 	["<C-space>"] = cmp.mapping.complete(),
+      -- },
+    })
+
+    cmp.setup.cmdline({ "/", "?" }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
+      },
+    })
+
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        { name = "cmdline" },
+      }),
+    })
   end,
 }
