@@ -8,7 +8,22 @@ return {
   main = "nvim-treesitter.configs",
   opts = {
     -- auto_install = true,
-    ensure_installed = { "vim", "vimdoc", "lua", "rust", "toml", "bash" },
+    ensure_installed = {
+      "bash",
+      "dockerfile",
+      "json",
+      "lua",
+      "markdown",
+      "nix",
+      "rust",
+      "scala",
+      "terraform",
+      "toml",
+      "typescript",
+      "vim",
+      "vimdoc",
+      "yaml",
+    },
     highlight = { enable = true },
     indent = { enable = true },
     textobjects = {

@@ -3,7 +3,7 @@ return {
     "scalameta/nvim-metals",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      { "j-hui/fidget.nvim", opts = {} },
+      -- { "j-hui/fidget.nvim", opts = {} },
       "mfussenegger/nvim-dap",
     },
     ft = { "scala", "sbt", "java" },
