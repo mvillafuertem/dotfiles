@@ -1,6 +1,6 @@
 {
   programs.zsh = {
-    enable = true; 
+    enable = false; 
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
@@ -14,7 +14,6 @@
     #	update = "sudo nixos-rebuild switch";
     #};
     oh-my-zsh = {
-	enable = true;
 	plugins = ["zsh-autosuggestions" "zsh-syntax-highlighting"];
     };
   };

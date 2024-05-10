@@ -1,6 +1,7 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = "VeryLazy",
+  -- event = "VeryLazy",
+  event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
@@ -33,6 +34,7 @@ return {
         -- also using the snippet stuff. So keep in mind that if you remove
         -- snippets you need to remove this select
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-space>"] = cmp.mapping.complete(),
       }),
       -- mapping = {
       --   ["<C-d>"] = cmp..mapping.scroll_docs(-4),

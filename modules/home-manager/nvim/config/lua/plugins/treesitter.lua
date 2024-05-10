@@ -11,6 +11,7 @@ return {
     ensure_installed = {
       "bash",
       "dockerfile",
+      "java",
       "json",
       "lua",
       "markdown",
@@ -23,6 +24,7 @@ return {
       "vim",
       "vimdoc",
       "yaml",
+      "gotmpl",
     },
     highlight = { enable = true },
     indent = { enable = true },

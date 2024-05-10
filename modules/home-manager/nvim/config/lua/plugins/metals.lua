@@ -3,17 +3,37 @@ return {
     "scalameta/nvim-metals",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      -- { "j-hui/fidget.nvim", opts = {} },
+      "j-hui/fidget.nvim",
       "mfussenegger/nvim-dap",
     },
     ft = { "scala", "sbt", "java" },
+    keys = {
+      {
+        "<leader>cW",
+        function()
+          require("metals").hover_worksheet()
+        end,
+        desc = "Metals Worksheet",
+      },
+      {
+        "<leader>cM",
+        function()
+          require("telescope").extensions.metals.commands()
+        end,
+        desc = "Telescope Metals Commands",
+      },
+    },
     opts = function()
       local metals_config = require("metals").bare_config()
 
       -- Example of settings
       metals_config.settings = {
+        -- showImplicitArguments = true,
+        -- excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
         showImplicitArguments = true,
-        excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+        showImplicitConversionsAndClasses = true,
+        showInferredType = true,
+        superMethodLensesEnabled = true,
       }
 
       -- *READ THIS*

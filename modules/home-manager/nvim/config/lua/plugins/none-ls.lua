@@ -12,6 +12,7 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.nixfmt,
 				null_ls.builtins.formatting.scalafmt,
+				null_ls.builtins.formatting.yamlfmt,
 				null_ls.builtins.formatting.buf,
 
 				null_ls.builtins.diagnostics.buf,

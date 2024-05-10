@@ -8,6 +8,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {})
 vim.keymap.set("n", "<leader>wq", ":wq<CR>", {})
 vim.keymap.set("n", "<leader>q", ":q<CR>", {})
 vim.keymap.set("n", "<leader>w", ":w<CR>", {})
+vim.keymap.set("n", "<leader>bd", ":bd!<CR>", { desc = "Deletes the current buffer" })
 -- vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 vim.o.expandtab = true
 vim.o.smarttab = true
@@ -51,3 +52,9 @@ vim.keymap.set("n", "Q", "<nop>", {})
 
 -- https://linuxize.com/post/vim-find-replace/
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", {})
+
+vim.keymap.set("n", "-", "<cmd>foldclose<CR>", { desc = "Close code fold" })
+vim.keymap.set("n", "+", "<cmd>foldopen<CR>", { desc = "Open code fold" })
+vim.keymap.set("n", "<leader>fz", function()
+  vim.cmd([[normal zfaf]])
+end, { desc = "Fold the function" })

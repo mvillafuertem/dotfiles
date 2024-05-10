@@ -7,7 +7,19 @@ return {
 		"MunifTanjim/nui.nvim",
 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 	},
-	config = function()
+	opts = {
+		window = {
+			auto_expand_width = true,
+		},
+		filesystem = {
+			filtered_items = {
+				hide_dotfiles = false,
+			},
+			group_empty_dirs = true,
+		},
+	},
+	config = function(_, opts)
 		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
-	end
+		require("neo-tree").setup(opts)
+	end,
 }

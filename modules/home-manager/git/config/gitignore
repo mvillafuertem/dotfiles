@@ -46,3 +46,5 @@ metals.sbt
 .python-version
 
 .DS_Store
+
+.direnv/

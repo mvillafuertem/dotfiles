@@ -5,6 +5,5 @@
   ./k9s
   ./nvim 
   ./starship 
-  ./tmux
   ]; 
 }
