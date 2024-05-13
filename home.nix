@@ -10,7 +10,7 @@
       # Then we add the packages we want in the array using pkgs.<name>
       #neovim
       awscli2
-      bash
+      # bash
       bash-completion
       coursier
       jq

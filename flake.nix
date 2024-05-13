@@ -11,11 +11,36 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    darwin = {
+      url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # In this context, outputs are mostly about getting home-manager what it
   # needs since it will be the one using the flake
-  outputs = { nixpkgs, home-manager, ... }: {
+  # Standalone home-manager configuration entrypoint
+  # Available through 'home-manager --flake .#your-username@your-hostname'
+  # darwin-rebuild build --flake .#simple
+  outputs = { nixpkgs, home-manager, darwin, ... }: {
+
+    darwinConfigurations = {
+      "mvillafuerte" = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          ./darwin.nix
+          {
+            users.users.mvillafuerte.home = "/Users/mvillafuerte";
+          }
+          home-manager.darwinModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.mvillafuerte = import ./home.nix;
+          }
+        ];
+      };
+    };
+
     homeConfigurations = {
       "mvillafuerte" = home-manager.lib.homeManagerConfiguration {
         # darwin is the macOS kernel and aarch64 means ARM, i.e. apple silicon

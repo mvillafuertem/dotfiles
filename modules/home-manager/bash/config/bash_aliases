@@ -137,3 +137,4 @@ alias hun='_helm_un() { helm -n "$1" ls | awk "NR>1 {print \$1}" | tee /dev/tty 
 ### Home Manager ###
 alias hmu="home-manager switch --flake ~/.dotfiles"
 alias nixclean="nix-collect-garbage --delete-old"
+alias dwu="darwin-rebuild switch --flake ~/.dotfiles#mvillafuerte"
