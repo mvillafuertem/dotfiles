@@ -9,6 +9,8 @@ vim.keymap.set("n", "<leader>wq", ":wq<CR>", {})
 vim.keymap.set("n", "<leader>q", ":q<CR>", {})
 vim.keymap.set("n", "<leader>w", ":w<CR>", {})
 vim.keymap.set("n", "<leader>bd", ":bd!<CR>", { desc = "Deletes the current buffer" })
+vim.keymap.set("n", "<Leader>cf", "<cmd>let @+=expand('%:p')<CR>", { desc = "copy current file path to cb" }) -- copy current file path to cb
+vim.keymap.set("n", "<Leader>cd", "<cmd>let @+=getcwd()<CR>", { desc = "copy current directory path to cb" }) -- copy current directory path to cb
 -- vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 vim.o.expandtab = true
 vim.o.smarttab = true
@@ -53,6 +55,11 @@ vim.keymap.set("n", "Q", "<nop>", {})
 -- https://linuxize.com/post/vim-find-replace/
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", {})
 
+
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
 vim.keymap.set("n", "-", "<cmd>foldclose<CR>", { desc = "Close code fold" })
 vim.keymap.set("n", "+", "<cmd>foldopen<CR>", { desc = "Open code fold" })
 vim.keymap.set("n", "<leader>fz", function()

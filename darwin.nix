@@ -20,8 +20,9 @@
       #FirstClickThreshold = 1;
       #SecondClickThreshold = 2;
       #TrackpadRightClick = true;
-      # TrackpadThreeFingerDrag = true;
+      #TrackpadThreeFingerDrag = true;
     };
   };
   security.pam.enableSudoTouchIdAuth = true;
+  imports = [ ./modules/darwin ];
 }

@@ -22,31 +22,40 @@
   # Standalone home-manager configuration entrypoint
   # Available through 'home-manager --flake .#your-username@your-hostname'
   # darwin-rebuild build --flake .#simple
-  outputs = { nixpkgs, home-manager, darwin, ... }: {
+  outputs = { nixpkgs, home-manager, darwin, ... }:
 
-    darwinConfigurations = {
-      "mvillafuerte" = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          ./darwin.nix
-          {
-            users.users.mvillafuerte.home = "/Users/mvillafuerte";
-          }
-          home-manager.darwinModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.mvillafuerte = import ./home.nix;
-          }
-        ];
+    let
+      user = "mvillafuerte";
+      system = "aarch64-darwin";
+    in {
+
+      darwinConfigurations = {
+        ${user} = darwin.lib.darwinSystem {
+          inherit system;
+          modules = [
+            ./darwin.nix
+            ({ pkgs, ... }: {
+              users.users.${user} = {
+                home = "/Users/${user}";
+                shell = pkgs.bash;
+              };
+            })
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${user} = import ./home.nix;
+            }
+          ];
+        };
+      };
+
+      homeConfigurations = {
+        ${user} = home-manager.lib.homeManagerConfiguration {
+          # darwin is the macOS kernel and aarch64 means ARM, i.e. apple silicon
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          modules = [ ./home.nix ];
+        };
       };
     };
-
-    homeConfigurations = {
-      "mvillafuerte" = home-manager.lib.homeManagerConfiguration {
-        # darwin is the macOS kernel and aarch64 means ARM, i.e. apple silicon
-        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-        modules = [ ./home.nix ];
-      };
-    };
-  };
 }
