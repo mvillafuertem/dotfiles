@@ -18,6 +18,7 @@ return {
       "nix",
       "rust",
       "scala",
+      "hcl",
       "terraform",
       "toml",
       "typescript",

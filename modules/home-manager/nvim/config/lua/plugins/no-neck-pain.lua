@@ -8,5 +8,7 @@ return {
       desc = "[N]o [N]eckpain"
     }
   },
-  opts = {},
+  opts = {
+    width = 120
+  },
 }

@@ -8,16 +8,16 @@
     # sessionPath = [ "${pkgs.git}/bin/aws_completer" ];
     packages = with pkgs; [
       # Then we add the packages we want in the array using pkgs.<name>
-      #neovim
       awscli2
-      # bash
       bash-completion
       coursier
+      go
       jq
       kubectl
       nixfmt
       nodejs
       openfortivpn
+      pam-reattach
       rustup
       saml2aws
       scalafmt

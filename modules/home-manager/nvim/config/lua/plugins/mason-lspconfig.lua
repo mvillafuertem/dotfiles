@@ -12,6 +12,7 @@ return {
         -- automatic_installation = true,
         ensure_installed = {
           "ansiblels",
+          "gopls",
           -- "azure_pipelines_ls",
           "bashls",
           "cypher_ls",
@@ -21,6 +22,7 @@ return {
           "nil_ls",
           "rust_analyzer",
           "terraformls",
+          "tflint",
           "tsserver",
           "yamlls",
           "helm_ls",
@@ -77,8 +79,18 @@ return {
         capabilities = lsp_capabilities,
       })
       lspconfig.nil_ls.setup({})
-      lspconfig.terraformls.setup({})
-      lspconfig.tsserver.setup({})
+      lspconfig.terraformls.setup({
+        capabilities =  lsp_capabilities,
+        filetypes = { "terraform", "tf" },
+      })
+      lspconfig.tflint.setup({
+        capabilities =  lsp_capabilities,
+        filetypes = { "terraform", "tf" },
+      })
+      lspconfig.tsserver.setup({
+        capabilities = lsp_capabilities,
+        filetypes = { "ts", "js" },
+      })
       -- https://github.com/Allaman/nvim/blob/main/lua/core/plugins/lsp/settings/yaml.lua
       lspconfig.yamlls.setup({
         capabilities = lsp_capabilities,
@@ -123,6 +135,18 @@ return {
             hover = true,
           }
         }
+      })
+      -- https://github.com/cksidharthan/nvim/blob/main/lua/sid/plugins/lsp/lspconfig.lua#L36C36-L47C4
+      lspconfig.gopls.setup({
+        capabilities = capabilities,
+        settings = {
+          gopls = {
+            analyses = {
+              unusedparams = true,
+            },
+            staticcheck = true,
+          },
+        },
       })
       lspconfig.helm_ls.setup({})
       -- lspconfig.rust_analyzer.setup({})
