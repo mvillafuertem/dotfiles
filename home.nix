@@ -14,13 +14,14 @@
       go
       jq
       kubectl
-      nixfmt
+      nixfmt-classic
       nodejs
       openfortivpn
       pam-reattach
       rustup
       saml2aws
       scalafmt
+      git-lfs
       (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
       # google-chrome https://github.com/NixOS/nixpkgs/pull/162467
     ];

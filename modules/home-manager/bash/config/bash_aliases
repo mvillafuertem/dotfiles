@@ -3,7 +3,7 @@ alias ll='ls -lah'
 alias v-='vi -'
 alias ..='cd .. && ll'
 alias .-='cd - && ll'
-alias ..2='cd ../..'
+alias 2..='cd ../.. && ll'
 alias desk='cd ~/Desktop'
 alias gitlab='cd ~/Projects/Gitlab'
 alias oa='atom .'
@@ -31,13 +31,13 @@ alias sbtct='sbt clean test'
 alias sbtfast='sbt clean fastOptJS'
 
 ### Gradle ###
-alias galias="cat ~/.bash_aliases | grep gradlew"
+alias galias="cat ~/.config/bash/bash_aliases | grep gradlew"
 alias gdlcb='./gradlew clean build'
 alias gdltc='./gradlew test --continuous'
 alias gdltj='./gradlew test jacocoTR --continuous'
 
 ### Maven ###
-alias malias="cat ~/.bash_aliases | grep mvn"
+alias malias="cat ~/.config/bash/bash_aliases | grep mvn"
 alias mvncc='mvn clean compile'
 alias mvnci='mvn clean install'
 alias mvncis='mvn clean install -Dmaven.test.skip'
@@ -59,7 +59,7 @@ alias vbox-list='VBoxManage list vms'
 
 ### Docker ###
 alias relaxed="docker run -it --rm -u $(id -u):$(id -g) -v $(pwd):$(pwd) -w $(pwd) --name relaxed relaxed $@"
-alias dkalias="cat ~/.bash_aliases | grep docker"
+alias dkalias="cat ~/.config/bash/bash_aliases | grep docker"
 alias dkl='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 alias dkx='docker exec -it --user root'
 alias dkenter='_dkenter() { docker exec -it "$1" /bin/bash; }; _dkenter'
@@ -78,7 +78,7 @@ alias dkdown='docker-compose -f docker-compose.yml down'
 alias dklogs='docker logs -f'
 alias grpcurl='docker run --rm fullstorydev/grpcurl'
 ### Kubernetes ###
-alias kalias="cat ~/.bash_aliases | grep kubectl"
+alias kalias="cat ~/.config/bash/bash_aliases | grep kubectl"
 alias klogs="kubectl logs -f"
 alias kpod="kubectl describe pod"
 alias kapply="kubectl apply -f"
@@ -109,7 +109,7 @@ alias ktail="kubetail"
 alias kalpine="kubectl run alpine --image=alpine --restart=Never --rm -it sh"
 
 ### Google Cloud ###
-alias gcloudalias="cat ~/.bash_aliases | grep gcloud"
+alias gcloudalias="cat ~/.config/bash/bash_aliases | grep gcloud"
 alias gcluster="gcloud container clusters list"
 alias gprojects="gcloud projects list"
 alias gprojectset="gcloud config set project"

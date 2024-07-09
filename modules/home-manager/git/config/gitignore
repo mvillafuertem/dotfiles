@@ -48,3 +48,5 @@ metals.sbt
 .DS_Store
 
 .direnv/
+
+.terraform/
