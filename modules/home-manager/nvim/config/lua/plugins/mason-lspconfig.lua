@@ -12,7 +12,7 @@ return {
         -- automatic_installation = true,
         ensure_installed = {
           "ansiblels",
-          "gopls",
+          -- "gopls",
           -- "azure_pipelines_ls",
           "bashls",
           "cypher_ls",
@@ -37,16 +37,6 @@ return {
       "nvim-treesitter/nvim-treesitter"
     },
     config = function(_, opts)
-      local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
-      parser_config.gotmpl = {
-        install_info = {
-          url = "https://github.com/ngalaiko/tree-sitter-go-template",
-          files = { "src/parser.c" }
-        },
-        filetype = "gotmpl",
-        used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" }
-      }
-
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
@@ -167,19 +157,37 @@ return {
           }
         }
       })
+      
+      -- local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
+      -- parser_config.gotmpl = {
+      --   install_info = {
+      --     url = "https://github.com/ngalaiko/tree-sitter-go-template",
+      --     files = { "src/parser.c" }
+      --   },
+      --   filetype = "gotmpl",
+      --   used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl" }
+      -- }
       -- https://github.com/cksidharthan/nvim/blob/main/lua/sid/plugins/lsp/lspconfig.lua#L36C36-L47C4
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
+      -- lspconfig.gopls.setup({
+      --   capabilities = capabilities,
+      --   settings = {
+      --     gopls = {
+      --       analyses = {
+      --         unusedparams = true,
+      --       },
+      --       staticcheck = true,
+      --     },
+      --   },
+      -- })
+      lspconfig.helm_ls.setup({
         settings = {
-          gopls = {
-            analyses = {
-              unusedparams = true,
-            },
-            staticcheck = true,
-          },
-        },
+          ['helm-ls'] = {
+            yamlls = {
+              path = "yaml-language-server",
+            }
+          }
+        }
       })
-      lspconfig.helm_ls.setup({})
       -- lspconfig.rust_analyzer.setup({})
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
