@@ -25,7 +25,7 @@ return {
       "vim",
       "vimdoc",
       "yaml",
-      "gotmpl",
+      -- "gotmpl",
     },
     highlight = { enable = true },
     indent = { enable = true },

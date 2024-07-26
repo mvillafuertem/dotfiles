@@ -36,7 +36,7 @@
                   pip 
                   setuptools 
                   wheel
-                  molecule
+                  # molecule
                 ]))
               (pkgs.wrapHelm pkgs.kubernetes-helm {
                 plugins = [ pkgs.kubernetes-helmPlugins.helm-diff ];

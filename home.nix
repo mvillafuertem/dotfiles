@@ -9,6 +9,7 @@
     packages = with pkgs; [
       # Then we add the packages we want in the array using pkgs.<name>
       awscli2
+      ssm-session-manager-plugin
       bash-completion
       coursier
       go

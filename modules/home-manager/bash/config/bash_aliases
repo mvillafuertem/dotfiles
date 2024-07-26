@@ -25,6 +25,12 @@ alias extip='curl ipecho.net/plain ; echo'
 alias jvmls='/usr/libexec/java_home -V'
 alias jvmset='_jvmset() { unset JAVA_HOME; export JAVA_HOME=$(/usr/libexec/java_home -v"$1"); java -version; }; _jvmset'
 
+### Vi ###
+alias vi='nvim'
+# vim +'500|norm! zt' filename
+# vim +500 filename -c 'normal zt'
+alias viline='_viline() { local file line; file=$(echo "$1" | awk -F: "{print \$1}"); line=$(echo "$1" | awk -F: "{print \$2}"); nvim +$line $file -c "normal zz"; }; _viline'
+
 ### Sbt ###
 alias sbtdu='sbt dependencyUpdates'
 alias sbtct='sbt clean test'
@@ -107,6 +113,8 @@ alias kget="kubectl get"
 alias kexec='_kubectl_exec() { kubectl exec -it "$1" -c "$2" -- "${@:3}"; }; _kubectl_exec'
 alias ktail="kubetail"
 alias kalpine="kubectl run alpine --image=alpine --restart=Never --rm -it sh"
+alias kaws="kubectl run awscli --image=amazon/aws-cli --restart=Never --rm -it -n inv-os-london -- sts get-caller-identity"
+alias kmini="kubectl config view --raw --minify --flatten --output='jsonpath={.contexts[].name}'"
 
 ### Google Cloud ###
 alias gcloudalias="cat ~/.config/bash/bash_aliases | grep gcloud"
