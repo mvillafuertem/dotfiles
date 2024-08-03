@@ -65,3 +65,7 @@ vim.keymap.set("n", "+", "<cmd>foldopen<CR>", { desc = "Open code fold" })
 vim.keymap.set("n", "<leader>fz", function()
   vim.cmd([[normal zfaf]])
 end, { desc = "Fold the function" })
+
+
+local prefix = vim.env.XDG_CONFIG_HOME or vim.fn.expand("~/.config")
+vim.opt.undodir = { prefix .. "/nvim/.undo//"}
