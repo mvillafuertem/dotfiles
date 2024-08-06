@@ -57,26 +57,26 @@ return {
   -- local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
   -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
   -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
-  keys = {
-    {
-      ";",
-      function()
-        require("nvim-treesitter.textobjects.repeatable_move").repeat_last_move_next()
-      end,
-      mode = { "n", "x", "o" },
-      -- silent = true,
-      noremap = true,
-      desc = "Treesitter Repeat Last Move Next",
-    },
-    {
-      ",",
-      function()
-        require("nvim-treesitter.textobjects.repeatable_move").repeat_last_move_previous()
-      end,
-      mode = { "n", "x", "o" },
-      -- silent = true,
-      noremap = true,
-      desc = "Treesitter Repeat Last Move Previous",
-    },
-  },
+  -- keys = {
+  --   {
+  --     ";",
+  --     function()
+  --       require("nvim-treesitter.textobjects.repeatable_move").repeat_last_move_next()
+  --     end,
+  --     mode = { "n", "x", "o" },
+  --     -- silent = true,
+  --     noremap = true,
+  --     desc = "Treesitter Repeat Last Move Next",
+  --   },
+  --   {
+  --     ",",
+  --     function()
+  --       require("nvim-treesitter.textobjects.repeatable_move").repeat_last_move_previous()
+  --     end,
+  --     mode = { "n", "x", "o" },
+  --     -- silent = true,
+  --     noremap = true,
+  --     desc = "Treesitter Repeat Last Move Previous",
+  --   },
+  -- },
 }
