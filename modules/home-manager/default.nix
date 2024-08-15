@@ -6,5 +6,6 @@
   ./nvim 
   ./starship 
   ./tmux
+  ./wezterm
   ]; 
 }
