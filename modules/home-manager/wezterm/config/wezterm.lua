@@ -5,9 +5,14 @@ return {
   hide_tab_bar_if_only_one_tab = true,
   window_close_confirmation = "NeverPrompt",
   window_decorations = "RESIZE",
-  color_scheme = "Catppuccin Mocha", -- or Macchiato, Frappe, Latte
+  color_scheme = "Catppuccin Mocha",                            -- or Macchiato, Frappe, Latte
   font = wezterm.font("JetBrainsMono NF", { weight = "Bold" }), -- wezterm ls-fonts --list-system
   font_size = 13.0,
+  colors = {
+    indexed = {
+      [16] = "#000000",
+    }
+  }
   -- window_padding = {
   --   left = 3,
   --   right = 3,

@@ -10,7 +10,7 @@
       minimize-to-application = false;
       expose-group-by-app = true;
       tilesize = 36;
-      orientation = "left";
+      orientation = "bottom";
     };
     # https://github.com/mirkolenz/nixos/blob/main/system/darwin/settings.nix
     trackpad = {
