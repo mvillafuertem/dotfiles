@@ -4,14 +4,43 @@ return {
   automatically_reload_config = true,
   hide_tab_bar_if_only_one_tab = true,
   window_close_confirmation = "NeverPrompt",
+  -- Removes the title bar, leaving only the tab bar. Keeps
+  -- the ability to resize by dragging the window's edges.
+  -- On macOS, 'RESIZE|INTEGRATED_BUTTONS' also looks nice if
+  -- you want to keep the window controls visible and integrate
+  -- them into the tab bar.
   window_decorations = "RESIZE",
+  window_background_opacity = 1.0,
+  macos_window_background_blur = 30,
   color_scheme = "Catppuccin Mocha",                            -- or Macchiato, Frappe, Latte
   font = wezterm.font("JetBrainsMono NF", { weight = "Bold" }), -- wezterm ls-fonts --list-system
   font_size = 13.0,
+  window_frame = {
+    -- Berkeley Mono for me again, though an idea could be to try a
+    -- serif font here instead of monospace for a nicer look?
+    font = wezterm.font({ family = 'JetBrainsMono NF', weight = 'Bold' }),
+    font_size = 13,
+  },
   colors = {
     indexed = {
       [16] = "#000000",
     }
+  },
+  -- https://github.com/wez/wezterm/issues/3866
+  send_composed_key_when_left_alt_is_pressed = true,
+  -- we have to disable this key binding because we are using them in tmux
+  -- https://wezfurlong.org/wezterm/config/default-keys.html
+  keys = {
+    {
+      key = 'Tab',
+      mods = 'CTRL',
+      action = wezterm.action.DisableDefaultAssignment,
+    },
+    {
+      key = 'Tab',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.DisableDefaultAssignment,
+    },
   }
   -- window_padding = {
   --   left = 3,
