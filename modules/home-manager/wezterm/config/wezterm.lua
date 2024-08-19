@@ -14,12 +14,12 @@ return {
   macos_window_background_blur = 30,
   color_scheme = "Catppuccin Mocha",                            -- or Macchiato, Frappe, Latte
   font = wezterm.font("JetBrainsMono NF", { weight = "Bold" }), -- wezterm ls-fonts --list-system
-  font_size = 13.0,
+  font_size = 15.0,
   window_frame = {
     -- Berkeley Mono for me again, though an idea could be to try a
     -- serif font here instead of monospace for a nicer look?
     font = wezterm.font({ family = 'JetBrainsMono NF', weight = 'Bold' }),
-    font_size = 13,
+    font_size = 15,
   },
   colors = {
     indexed = {
@@ -28,9 +28,9 @@ return {
   },
   -- https://github.com/wez/wezterm/issues/3866
   send_composed_key_when_left_alt_is_pressed = true,
-  -- we have to disable this key binding because we are using them in tmux
-  -- https://wezfurlong.org/wezterm/config/default-keys.html
   keys = {
+    -- we have to disable this key binding because we are using them in tmux
+    -- https://wezfurlong.org/wezterm/config/default-keys.html
     {
       key = 'Tab',
       mods = 'CTRL',
@@ -40,6 +40,25 @@ return {
       key = 'Tab',
       mods = 'CTRL|SHIFT',
       action = wezterm.action.DisableDefaultAssignment,
+    },
+    -- https://tangledhelix.com/posts/iterm2-keymaps-for-tmux/
+    -- In other macOS applications this key is used to move between windows, 
+    -- Let's replicate the behaviour but for tmux prefix + p(previous window) or prefix + n(next window).
+    {
+      key = 'LeftArrow',
+      mods = 'OPT|CMD',
+      action = wezterm.action.Multiple {
+        wezterm.action.SendKey { key = 's', mods = "CTRL" },
+        wezterm.action.SendKey { key = 'p' },
+      }
+    },
+    {
+      key = 'RightArrow',
+      mods = 'OPT|CMD',
+      action = wezterm.action.Multiple {
+        wezterm.action.SendKey { key = 's', mods = "CTRL" },
+        wezterm.action.SendKey { key = 'n' },
+      }
     },
   }
   -- window_padding = {
