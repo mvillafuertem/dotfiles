@@ -42,7 +42,7 @@ return {
       action = wezterm.action.DisableDefaultAssignment,
     },
     -- https://tangledhelix.com/posts/iterm2-keymaps-for-tmux/
-    -- In other macOS applications this key is used to move between windows, 
+    -- In other macOS applications this key is used to move between windows,
     -- Let's replicate the behaviour but for tmux prefix + p(previous window) or prefix + n(next window).
     {
       key = 'LeftArrow',
@@ -59,6 +59,12 @@ return {
         wezterm.action.SendKey { key = 's', mods = "CTRL" },
         wezterm.action.SendKey { key = 'n' },
       }
+    },
+    --
+    {
+      key = '+',
+      mods = 'CMD',
+      action = wezterm.action.IncreaseFontSize
     },
   }
   -- window_padding = {
