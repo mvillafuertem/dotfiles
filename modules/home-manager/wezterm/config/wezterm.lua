@@ -41,6 +41,27 @@ return {
       mods = 'CTRL|SHIFT',
       action = wezterm.action.DisableDefaultAssignment,
     },
+    -- https://github.com/wez/wezterm/issues/1919
+    {
+      key = '-',
+      mods = 'CTRL',
+      action = wezterm.action.DisableDefaultAssignment
+    },
+    {
+      key = '=',
+      mods = 'CTRL',
+      action = wezterm.action.DisableDefaultAssignment
+    },
+    {
+      key = '_',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.DisableDefaultAssignment
+    },
+    {
+      key = '+',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.DisableDefaultAssignment
+    },
     -- https://tangledhelix.com/posts/iterm2-keymaps-for-tmux/
     -- In other macOS applications this key is used to move between windows,
     -- Let's replicate the behaviour but for tmux prefix + p(previous window) or prefix + n(next window).
@@ -65,6 +86,19 @@ return {
       key = '+',
       mods = 'CMD',
       action = wezterm.action.IncreaseFontSize
+    },
+  },
+  mouse_bindings = {
+    -- CMD-click will open the link under the mouse cursor
+    {
+      event = { Up = { streak = 1, button = 'Left' } },
+      mods = 'SHIFT',
+      action = wezterm.action.DisableDefaultAssignment,
+    },
+    {
+      event = { Up = { streak = 1, button = 'Left' } },
+      mods = 'CMD',
+      action = wezterm.action.OpenLinkAtMouseCursor,
     },
   }
   -- window_padding = {

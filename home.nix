@@ -14,6 +14,9 @@
       coursier
       go
       jq
+      docker
+      docker-credential-helpers
+      docker-buildx
       kubectl
       nixfmt-classic
       nodejs

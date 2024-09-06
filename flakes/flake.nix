@@ -20,6 +20,17 @@
           pkgs = nixpkgs.legacyPackages.${system};
           terraform = nixpkgs-terraform.packages.${system}."1.8.1";
           python = nixpkgs-python.packages.${system}."3.8";
+          # https://github.com/NixOS/nixpkgs/issues/217768#issuecomment-1672145841
+          myhelm = with pkgs;
+            wrapHelm kubernetes-helm {
+              plugins = with pkgs.kubernetes-helmPlugins; [ 
+                helm-diff
+                helm-secrets
+              ];
+            };
+          myhelmfile = pkgs.helmfile-wrapped.override {
+            inherit (myhelm.passthru) pluginsDir;
+          };
         in {
           default = pkgs.mkShell {
             name = "devops";
@@ -29,19 +40,17 @@
               # pkgs.molecule
               pkgs.pyenv
               pkgs.crossplane
-              pkgs.helmfile
-              (pkgs.python3.withPackages
-                (packages: with packages; [ 
-                  virtualenv 
-                  pip 
-                  setuptools 
+              (pkgs.python3.withPackages (packages:
+                with packages; [
+                  virtualenv
+                  pip
+                  setuptools
                   wheel
                   # molecule
                 ]))
-              (pkgs.wrapHelm pkgs.kubernetes-helm {
-                plugins = [ pkgs.kubernetes-helmPlugins.helm-diff ];
-              })
             ];
+            nativeBuildInputs = [ myhelm myhelmfile ];
+
             shellHook = ''
               echo "Running hook"
               source <(helm completion bash)

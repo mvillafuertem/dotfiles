@@ -9,7 +9,6 @@
       "blackhole-16ch"
       "google-chrome"
       "docker"
-      "nikitabobko/tap/aerospace"
     ];
   };
   

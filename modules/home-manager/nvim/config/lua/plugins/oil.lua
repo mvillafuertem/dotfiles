@@ -1,5 +1,6 @@
 return {
   'stevearc/oil.nvim',
+  lazy = false,
   keys = {
     -- :map <BS> :echo 'test command test map You pressed backspace!'<CR>
     {

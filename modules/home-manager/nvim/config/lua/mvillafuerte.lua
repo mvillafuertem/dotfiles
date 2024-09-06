@@ -11,6 +11,10 @@ vim.keymap.set("n", "<leader>w", ":w<CR>", {})
 vim.keymap.set("n", "<leader>bd", ":bd!<CR>", { desc = "Deletes the current buffer" })
 vim.keymap.set("n", "<Leader>cf", "<cmd>let @+=expand('%:p')<CR>", { desc = "copy current file path to cb" }) -- copy current file path to cb
 vim.keymap.set("n", "<Leader>cd", "<cmd>let @+=getcwd()<CR>", { desc = "copy current directory path to cb" }) -- copy current directory path to cb
+-- terminal mode
+vim.keymap.set("t", "<esc>", "<C-\\><C-n>", {})
+-- vim.keymap.set("n", "<leader>t", ":botright :terminal<CR>i", {})
+vim.keymap.set("n", "<leader>t", ":sp<CR><C-w>J10<C-w>_:terminal<CR>i", {})
 -- vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 vim.o.expandtab = true
 vim.o.smarttab = true
