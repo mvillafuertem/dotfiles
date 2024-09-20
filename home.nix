@@ -9,6 +9,7 @@
     packages = with pkgs; [
       # Then we add the packages we want in the array using pkgs.<name>
       awscli2
+      # nmap https://github.com/NixOS/nixpkgs/issues/333530#issuecomment-2325269416
       ssm-session-manager-plugin
       bash-completion
       coursier

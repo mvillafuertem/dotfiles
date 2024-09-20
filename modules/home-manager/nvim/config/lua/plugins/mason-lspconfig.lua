@@ -23,7 +23,7 @@ return {
           "rust_analyzer",
           "terraformls",
           "tflint",
-          "tsserver",
+          -- "tsserver",
           "yamlls",
           "helm_ls",
         },
@@ -107,11 +107,11 @@ return {
         capabilities = lsp_capabilities,
         filetypes = { "terraform", "tf", "terraform-vars" },
       })
-      lspconfig.tsserver.setup({
-        on_attach = on_attach,
-        capabilities = lsp_capabilities,
-        filetypes = { "typescript", "js" },
-      })
+      -- lspconfig.tsserver.setup({
+      --  on_attach = on_attach,
+      --  capabilities = lsp_capabilities,
+      --  filetypes = { "typescript", "js" },
+      -- })
       -- https://github.com/Allaman/nvim/blob/main/lua/core/plugins/lsp/settings/yaml.lua
       lspconfig.yamlls.setup({
         capabilities = lsp_capabilities,
