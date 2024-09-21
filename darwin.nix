@@ -1,4 +1,20 @@
-{ inputs, config, pkgs, lib, darwin, ... }: {
+{ pkgs, ... }:
+
+let
+
+  user = "mvillafuerte";
+  system = "aarch64-darwin";
+
+in {
+  users.users.${user} = {
+    home = "/Users/${user}";
+    shell = pkgs.bash;
+  };
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.${user} = import ./home.nix;
+  };
   nixpkgs.hostPlatform = "aarch64-darwin";
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = false;

@@ -50,7 +50,6 @@
   #]; 
 
   programs.home-manager.enable = true;
-  programs.wezterm.enable = true;
   imports = [ ./modules/home-manager ];
   # I use zsh, but bash and fish work just as well here. This will setup
   # the shell to use home-manager properly on startup, neat!

@@ -25,7 +25,7 @@ return {
           "tflint",
           -- "tsserver",
           "yamlls",
-          "helm_ls",
+          "helm_ls", -- 
         },
       })
     end,
@@ -34,7 +34,8 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "j-hui/fidget.nvim",
-      "nvim-treesitter/nvim-treesitter"
+      "nvim-treesitter/nvim-treesitter",
+      "towolf/vim-helm"
     },
     config = function(_, opts)
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -180,6 +181,7 @@ return {
       --   },
       -- })
       lspconfig.helm_ls.setup({
+        capabilities = lsp_capabilities,
         settings = {
           ['helm-ls'] = {
             yamlls = {

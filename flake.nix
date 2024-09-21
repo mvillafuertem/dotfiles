@@ -26,6 +26,7 @@
 
     let
       user = "mvillafuerte";
+      home = "/Users/${user}"; 
       system = "aarch64-darwin";
     in {
 
@@ -34,18 +35,7 @@
           inherit system;
           modules = [
             ./darwin.nix
-            ({ pkgs, ... }: {
-              users.users.${user} = {
-                home = "/Users/${user}";
-                shell = pkgs.bash;
-              };
-            })
             home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.${user} = import ./home.nix;
-            }
           ];
         };
       };
