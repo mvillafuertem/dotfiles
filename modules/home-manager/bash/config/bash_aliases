@@ -158,6 +158,7 @@ alias hun='_helm_un() { helm -n "$1" ls | awk "NR>1 {print \$1}" | tee /dev/tty 
 alias hmu="home-manager switch --flake ~/.dotfiles"
 alias nixclean="nix-collect-garbage --delete-old"
 alias dwu="darwin-rebuild switch --flake ~/.dotfiles#mvillafuerte"
+alias dwunocache="darwin-rebuild switch --flake ~/.dotfiles#mvillafuerte --option eval-cache false"
 
 alias myip="curl ifconfig.io"
 alias nixdevops="nix develop ~/.dotfiles/flakes/flake.nix"

@@ -2,7 +2,7 @@
 { pkgs, ... }: {
   # This is required information for home-manager to do its job
   home = {
-    stateVersion = "24.05";
+    stateVersion = "24.11";
     username = "mvillafuerte";
     homeDirectory = "/Users/mvillafuerte";
     # sessionPath = [ "${pkgs.git}/bin/aws_completer" ];
