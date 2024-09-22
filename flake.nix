@@ -15,6 +15,9 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    devops.url = "./flakes/devops";
+    scala.url = "./flakes/scala";
+    rust.url = "./flakes/rust";
   };
 
   # In this context, outputs are mostly about getting home-manager what it
@@ -22,30 +25,38 @@
   # Standalone home-manager configuration entrypoint
   # Available through 'home-manager --flake .#your-username@your-hostname'
   # darwin-rebuild build --flake .#simple
-  outputs = { nixpkgs, home-manager, darwin, ... }:
+  outputs = { nixpkgs, home-manager, darwin, devops, scala, rust, ... }:
 
     let
       user = "mvillafuerte";
-      home = "/Users/${user}"; 
+      home = "/Users/${user}";
       system = "aarch64-darwin";
+      pkgs = nixpkgs.legacyPackages.${system};
     in {
 
       darwinConfigurations = {
         ${user} = darwin.lib.darwinSystem {
           inherit system;
-          modules = [
-            ./darwin.nix
-            home-manager.darwinModules.home-manager
-          ];
+          modules = [ ./darwin.nix home-manager.darwinModules.home-manager ];
         };
       };
 
       homeConfigurations = {
         ${user} = home-manager.lib.homeManagerConfiguration {
           # darwin is the macOS kernel and aarch64 means ARM, i.e. apple silicon
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          inherit pkgs;
           modules = [ ./home.nix ];
         };
+      };
+
+      # https://discourse.nixos.org/t/making-globally-available-devshells/24913/4
+      # nix develop ~/.dotfiles/flake.nix#devops
+      # echo "use flake ~/.dotfiles/flake.nix#devops" > .direnv
+      devShells.${system} = {
+        default = devops.devShells.${system}.default;
+        devops = devops.devShells.${system}.default;
+        rust = rust.devShells.${system}.default;
+        scala = scala.devShells.${system}.default;
       };
     };
 }

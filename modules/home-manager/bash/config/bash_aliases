@@ -161,4 +161,5 @@ alias dwu="darwin-rebuild switch --flake ~/.dotfiles#mvillafuerte"
 alias dwunocache="darwin-rebuild switch --flake ~/.dotfiles#mvillafuerte --option eval-cache false"
 
 alias myip="curl ifconfig.io"
-alias nixdevops="nix develop ~/.dotfiles/flakes/flake.nix"
+alias nix-dev='_nix_dev() { nix develop ~/.dotfiles/flake.nix#"$1" ; }; _nix_dev'
+alias nix-dev-shells="nix flake show ~/.dotfiles/flake.nix --json | jq '.devShells'"
