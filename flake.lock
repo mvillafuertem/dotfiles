@@ -48,11 +48,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-pYL1q58szDFAi6CirhLO4pFcDBjqfSfqEJ/mvrtO8Kg=",
-        "path": "/nix/store/q3gfmsb35y3y725w77q6dii8fxfn41gq-source/flakes/devops",
+        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/devops",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/q3gfmsb35y3y725w77q6dii8fxfn41gq-source/flakes/devops",
+        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/devops",
         "type": "path"
       }
     },
@@ -276,22 +276,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
-      "locked": {
-        "lastModified": 1704290814,
-        "narHash": "sha256-LWvKHp7kGxk/GEtlrGYV68qIvPHkU9iToomNFGagixU=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "70bdadeb94ffc8806c0570eb5c2695ad29f0e421",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-23.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "darwin": "darwin",
@@ -309,26 +293,28 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-m0cA8IxZhGK8DxHEZNXMseve4pVGtnG2AmAmOMYr+4Q=",
-        "path": "/nix/store/q3gfmsb35y3y725w77q6dii8fxfn41gq-source/flakes/rust",
+        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/rust",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/q3gfmsb35y3y725w77q6dii8fxfn41gq-source/flakes/rust",
+        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/rust",
         "type": "path"
       }
     },
     "scala": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-ipyjF+vR2m/ufg35GTXFXE2VXUtcik72ga09NSvpZ+U=",
-        "path": "/nix/store/q3gfmsb35y3y725w77q6dii8fxfn41gq-source/flakes/scala",
+        "narHash": "sha256-ka0JJL4QDQ2JWtwSJlJa86rocxO6zzqfcwQZWMmGf54=",
+        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/scala",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/q3gfmsb35y3y725w77q6dii8fxfn41gq-source/flakes/scala",
+        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/scala",
         "type": "path"
       }
     },

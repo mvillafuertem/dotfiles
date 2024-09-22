@@ -15,9 +15,18 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    devops.url = "./flakes/devops";
-    scala.url = "./flakes/scala";
-    rust.url = "./flakes/rust";
+    devops = {
+      url = "./flakes/devops";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    scala = {
+      url = "./flakes/scala";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    rust = {
+      url = "./flakes/rust";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # In this context, outputs are mostly about getting home-manager what it
