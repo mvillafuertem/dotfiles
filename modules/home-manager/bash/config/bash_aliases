@@ -163,3 +163,5 @@ alias dwunocache="darwin-rebuild switch --flake ~/.dotfiles#mvillafuerte --optio
 alias myip="curl ifconfig.io"
 alias nix-dev='_nix_dev() { nix develop ~/.dotfiles/flake.nix#"$1" ; }; _nix_dev'
 alias nix-dev-shells="nix flake show ~/.dotfiles/flake.nix --json | jq '.devShells'"
+
+alias vpn='stty -echo; printf "Password:"; read pass; stty echo; { echo $pass; echo $pass; pass=***; } | sudo --stdin openfortivpn --pppd-use-peerdns=1 --username=<username> --trusted-cert <hash-cert> <domain>:<port>'
