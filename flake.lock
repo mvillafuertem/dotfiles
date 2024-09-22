@@ -40,19 +40,21 @@
     },
     "devops": {
       "inputs": {
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "nixpkgs-python": "nixpkgs-python",
         "nixpkgs-terraform": "nixpkgs-terraform",
         "systems": "systems_2"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-pYL1q58szDFAi6CirhLO4pFcDBjqfSfqEJ/mvrtO8Kg=",
-        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/devops",
+        "narHash": "sha256-5K+2d1XkygdAnLiYBh0GiXVzP3eBo+S7B2Yz9/g4h34=",
+        "path": "/nix/store/2zp3hrzb82ks3gmkc4xsi86qg7d8xsiv-source/flakes/devops",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/devops",
+        "path": "/nix/store/2zp3hrzb82ks3gmkc4xsi86qg7d8xsiv-source/flakes/devops",
         "type": "path"
       }
     },
@@ -112,16 +114,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1726871744,
-        "narHash": "sha256-V5LpfdHyQkUF7RfOaDPrZDP+oqz88lTJrMT1+stXNwo=",
-        "owner": "nixos",
+        "lastModified": 1719253556,
+        "narHash": "sha256-A/76RFUVxZ/7Y8+OMVL1Lc8LRhBxZ8ZE2bpMnvZ1VpY=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a1d92660c6b3b7c26fb883500a80ea9d33321be2",
+        "rev": "fc07dc3bdf2956ddd64f24612ea7fc894933eb2e",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
+        "owner": "NixOS",
+        "ref": "nixos-24.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -189,7 +191,7 @@
     "nixpkgs-python": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "lastModified": 1722978926,
@@ -230,22 +232,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1719253556,
-        "narHash": "sha256-A/76RFUVxZ/7Y8+OMVL1Lc8LRhBxZ8ZE2bpMnvZ1VpY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "fc07dc3bdf2956ddd64f24612ea7fc894933eb2e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-24.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1723221148,
         "narHash": "sha256-7pjpeQlZUNQ4eeVntytU3jkw9dFK3k1Htgk2iuXjaD8=",
         "owner": "nixos",
@@ -260,44 +246,30 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1704290814,
-        "narHash": "sha256-LWvKHp7kGxk/GEtlrGYV68qIvPHkU9iToomNFGagixU=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "70bdadeb94ffc8806c0570eb5c2695ad29f0e421",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-23.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "darwin": "darwin",
         "devops": "devops",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "rust": "rust",
         "scala": "scala"
       }
     },
     "rust": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-m0cA8IxZhGK8DxHEZNXMseve4pVGtnG2AmAmOMYr+4Q=",
-        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/rust",
+        "narHash": "sha256-cMNtxefuHHOZoya4HI8YRHWJev07MKZj1huqTTBve08=",
+        "path": "/nix/store/2zp3hrzb82ks3gmkc4xsi86qg7d8xsiv-source/flakes/rust",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/rust",
+        "path": "/nix/store/2zp3hrzb82ks3gmkc4xsi86qg7d8xsiv-source/flakes/rust",
         "type": "path"
       }
     },
@@ -309,12 +281,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-ka0JJL4QDQ2JWtwSJlJa86rocxO6zzqfcwQZWMmGf54=",
-        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/scala",
+        "narHash": "sha256-gnXCBIxW6Ho4J33KViNoNdIjYOs8jv35rtsIAt+oiHg=",
+        "path": "/nix/store/2zp3hrzb82ks3gmkc4xsi86qg7d8xsiv-source/flakes/scala",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/dbgm4r37zh4mbbmhy35nxx5dbzxls9r1-source/flakes/scala",
+        "path": "/nix/store/2zp3hrzb82ks3gmkc4xsi86qg7d8xsiv-source/flakes/scala",
         "type": "path"
       }
     },
