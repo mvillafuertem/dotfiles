@@ -50,11 +50,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-ZNw+6FlSprAjvfT/a2HJ7QFkaCOlEnouRu3y2BZi/IU=",
-        "path": "/nix/store/rsbf6kamxh35aqyl4xcymvmqqnglwyvb-source/flakes/devops",
+        "path": "/nix/store/lw3vhbpqmp4kwhr3sn2h1ndm6zr9mnsi-source/flakes/devops",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/rsbf6kamxh35aqyl4xcymvmqqnglwyvb-source/flakes/devops",
+        "path": "/nix/store/lw3vhbpqmp4kwhr3sn2h1ndm6zr9mnsi-source/flakes/devops",
         "type": "path"
       }
     },
@@ -265,11 +265,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-cMNtxefuHHOZoya4HI8YRHWJev07MKZj1huqTTBve08=",
-        "path": "/nix/store/rsbf6kamxh35aqyl4xcymvmqqnglwyvb-source/flakes/rust",
+        "path": "/nix/store/lw3vhbpqmp4kwhr3sn2h1ndm6zr9mnsi-source/flakes/rust",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/rsbf6kamxh35aqyl4xcymvmqqnglwyvb-source/flakes/rust",
+        "path": "/nix/store/lw3vhbpqmp4kwhr3sn2h1ndm6zr9mnsi-source/flakes/rust",
         "type": "path"
       }
     },
@@ -281,12 +281,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-y+x2yMrsSPmaPaTe60FxL22Ostlm91vo0fQET4HjfJY=",
-        "path": "/nix/store/rsbf6kamxh35aqyl4xcymvmqqnglwyvb-source/flakes/scala",
+        "narHash": "sha256-XtdmgdrX3p2A3+ut2LKQsH5K4VukGGoM1qdLQphiFHk=",
+        "path": "/nix/store/lw3vhbpqmp4kwhr3sn2h1ndm6zr9mnsi-source/flakes/scala",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/rsbf6kamxh35aqyl4xcymvmqqnglwyvb-source/flakes/scala",
+        "path": "/nix/store/lw3vhbpqmp4kwhr3sn2h1ndm6zr9mnsi-source/flakes/scala",
         "type": "path"
       }
     },

@@ -7,33 +7,24 @@ return {
       "mfussenegger/nvim-dap",
     },
     ft = { "scala", "sbt", "java" },
-    keys = {
-      {
-        "<leader>cW",
-        function()
-          require("metals").hover_worksheet()
-        end,
-        desc = "Metals Worksheet",
-      },
-      {
-        "<leader>cM",
-        function()
-          require("telescope").extensions.metals.commands()
-        end,
-        desc = "Telescope Metals Commands",
-      },
-    },
     opts = function()
       local metals_config = require("metals").bare_config()
 
       -- Example of settings
       metals_config.settings = {
-        -- showImplicitArguments = true,
         -- excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
         showImplicitArguments = true,
         showImplicitConversionsAndClasses = true,
         showInferredType = true,
         superMethodLensesEnabled = true,
+        useGlobalExecutable = true,
+        inlayHints = {
+          hintsInPatternMatch = { enable = true },
+          implicitArguments = { enable = true },
+          implicitConversions = { enable = true },
+          inferredTypes = { enable = true },
+          typeParameters = { enable = true },
+        },
       }
 
       -- *READ THIS*
@@ -52,77 +43,171 @@ return {
 
       metals_config.on_attach = function(client, bufnr)
         require("metals").setup_dap()
+        -- Define your mappings with descriptions
+        local keymaps = {
+          {
+            "n",
+            "<leader>cW",
+            function()
+              require("metals").hover_worksheet()
+            end,
+            "Metals Worksheet",
+          },
+          {
+            "n",
+            "<leader>cM",
+            function()
+              require("telescope").extensions.metals.commands()
+            end,
+            "Telescope Metals Commands",
+          },
+          -- LSP mappings
+          { "n", "gD",         vim.lsp.buf.declaration,     "Go to declaration" },
+          { "n", "gd",         vim.lsp.buf.definition,      "Go to definition" },
+          { "n", "K",          vim.lsp.buf.hover,           "Hover info" },
+          { "n", "gi",         vim.lsp.buf.implementation,  "Go to implementation" },
+          { "n", "gr",         vim.lsp.buf.references,      "Show references" },
+          { "n", "<leader>D",  vim.lsp.buf.type_definition, "Type definition" },
+          { "n", "<leader>cl", vim.lsp.codelens.run,        "Run CodeLens" },
+          { "n", "<leader>sh", vim.lsp.buf.signature_help,  "Signature help" },
+          { "n", "<leader>rn", vim.lsp.buf.rename,          "Rename symbol" },
+          { "n", "<leader>f",  vim.lsp.buf.format,          "Format code" },
+          { "n", "<leader>ca", vim.lsp.buf.code_action,     "Code action" },
+          -- { "n", "<leader>gds", vim.lsp.buf.document_symbol,                       "Doc symbols" },
+          {
+            "n",
+            "<leader>gds",
+            function()
+              require("telescope.builtin").lsp_document_symbols()
+            end,
+            "Doc symbols",
+          },
+          -- { "n", "gws",         vim.lsp.buf.workspace_symbol,                      "Workspace symbols" },
+          {
+            "n",
+            "<leader>gws",
+            function()
+              require("telescope.builtin").lsp_dynamic_workspace_symbols()
+            end,
+            "Workspace symbols",
+          },
+          {
+            "n",
+            "<leader><leader>tr",
+            function()
+              require("metals.tvp").toggle_tree_view()
+            end,
+            "Tree View Protocol",
+          },
+          {
+            "n",
+            "<leader><leader>rt",
+            function()
+              require("metals.tvp").reveal_in_tree()
+            end,
+            "Reveal In Tree",
+          },
 
-        -- LSP mappings
-        vim.keymap.set("n", "gD", vim.lsp.buf.definition)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references)
-        vim.keymap.set("n", "gds", vim.lsp.buf.document_symbol)
-        vim.keymap.set("n", "gws", vim.lsp.buf.workspace_symbol)
-        vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run)
-        vim.keymap.set("n", "<leader>sh", vim.lsp.buf.signature_help)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-        vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+          -- Diagnostic mappings
+          { "n", "<leader>aa", vim.diagnostic.setqflist,  "All diagnostics" },
+          {
+            "n",
+            "<leader>ae",
+            function()
+              vim.diagnostic.setqflist({ severity = "E" })
+            end,
+            "All errors",
+          },
+          {
+            "n",
+            "<leader>aw",
+            function()
+              vim.diagnostic.setqflist({ severity = "W" })
+            end,
+            "All warnings",
+          },
+          { "n", "<leader>d",  vim.diagnostic.setloclist, "Buffer diagnostics" },
+          {
+            "n",
+            "[c",
+            function()
+              vim.diagnostic.goto_prev({ wrap = false })
+            end,
+            "Prev diagnostic",
+          },
+          {
+            "n",
+            "]c",
+            function()
+              vim.diagnostic.goto_next({ wrap = false })
+            end,
+            "Next diagnostic",
+          },
 
-        vim.keymap.set("n", "<leader>ws", function()
-          require("metals").hover_worksheet()
-        end)
+          -- DAP (Debug Adapter Protocol) mappings
+          {
+            "n",
+            "<leader>dc",
+            function()
+              require("dap").continue()
+            end,
+            "DAP continue",
+          },
+          {
+            "n",
+            "<leader>dr",
+            function()
+              require("dap").repl.toggle()
+            end,
+            "DAP REPL",
+          },
+          {
+            "n",
+            "<leader>dK",
+            function()
+              require("dap.ui.widgets").hover()
+            end,
+            "DAP hover",
+          },
+          {
+            "n",
+            "<leader>dt",
+            function()
+              require("dap").toggle_breakpoint()
+            end,
+            "Toggle breakpoint",
+          },
+          {
+            "n",
+            "<leader>dso",
+            function()
+              require("dap").step_over()
+            end,
+            "Step over",
+          },
+          {
+            "n",
+            "<leader>dsi",
+            function()
+              require("dap").step_into()
+            end,
+            "Step into",
+          },
+          {
+            "n",
+            "<leader>dl",
+            function()
+              require("dap").run_last()
+            end,
+            "Run last",
+          },
+        }
 
-        -- all workspace diagnostics
-        vim.keymap.set("n", "<leader>aa", vim.diagnostic.setqflist)
-
-        -- all workspace errors
-        vim.keymap.set("n", "<leader>ae", function()
-          vim.diagnostic.setqflist({ severity = "E" })
-        end)
-
-        -- all workspace warnings
-        vim.keymap.set("n", "<leader>aw", function()
-          vim.diagnostic.setqflist({ severity = "W" })
-        end)
-
-        -- buffer diagnostics only
-        vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist)
-
-        vim.keymap.set("n", "[c", function()
-          vim.diagnostic.goto_prev({ wrap = false })
-        end)
-
-        vim.keymap.set("n", "]c", function()
-          vim.diagnostic.goto_next({ wrap = false })
-        end)
-
-        -- Example mappings for usage with nvim-dap. If you don't use that, you can
-        -- skip these
-        vim.keymap.set("n", "<leader>dc", function()
-          require("dap").continue()
-        end)
-
-        vim.keymap.set("n", "<leader>dr", function()
-          require("dap").repl.toggle()
-        end)
-
-        vim.keymap.set("n", "<leader>dK", function()
-          require("dap.ui.widgets").hover()
-        end)
-
-        vim.keymap.set("n", "<leader>dt", function()
-          require("dap").toggle_breakpoint()
-        end)
-
-        vim.keymap.set("n", "<leader>dso", function()
-          require("dap").step_over()
-        end)
-
-        vim.keymap.set("n", "<leader>dsi", function()
-          require("dap").step_into()
-        end)
-
-        vim.keymap.set("n", "<leader>dl", function()
-          require("dap").run_last()
-        end)
+        -- Apply mappings in a loop
+        for _, keymap in ipairs(keymaps) do
+          local mode, lhs, rhs, desc = unpack(keymap)
+          vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+        end
       end
 
       return metals_config

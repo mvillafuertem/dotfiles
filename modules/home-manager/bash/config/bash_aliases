@@ -151,6 +151,7 @@ alias samlpro="saml2aws login --idp-account awspro"
 
 ### HELM ###
 # https://unix.stackexchange.com/questions/273118/direct-output-to-pipe-and-stdout
+alias hh='_helm_history() { helm history -n $@; }; _helm_history'
 alias hls='_helm_ls() { helm -n "$1" ls; }; _helm_ls'
 alias hun='_helm_un() { helm -n "$1" ls | awk "NR>1 {print \$1}" | tee /dev/tty | xargs helm -n "$1" un ; }; _helm_un'
 
