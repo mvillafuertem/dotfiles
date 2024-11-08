@@ -1,4 +1,5 @@
 {
+  # nix-shell -p nix-info --run "nix-info -m"
   description = "mvillafuerte's dotfiles";
 
   # inputs are other flakes you use within your own flake, dependencies

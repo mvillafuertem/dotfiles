@@ -11,22 +11,12 @@
   programs.bash = {
     enable = true;
     shellOptions = [];
-    enableCompletion = false;
+    enableCompletion = true;
     bashrcExtra = ''
-
-export BASH_SILENCE_DEPRECATION_WARNING=1
-
-source <(kubectl completion bash)
-
-complete -C "${pkgs.awscli2}/bin/aws_completer" aws
-
-[[ -z BASH_COMPLETION_VERSINFO ]] && . "${pkgs.bash-completion}/etc/profile.d/bash_completion.sh"
-[[ -r "${pkgs.git}/share/git/contrib/completion/git-completion.bash" ]] && . "${pkgs.git}/share/git/contrib/completion/git-completion.bash"
-#[[ -r "${pkgs.bash-completion}/share/bash-completion/completions/kubectl" ]] || kubectl completion bash > "${pkgs.bash-completion}/share/bash-completion/completions/kubectl"
-
-#[[ -r "${config.xdg.configHome}/bash/bash_profile" ]] && . "${config.xdg.configHome}/bash/bash_profile"
-#[[ -r "${config.xdg.configHome}/bash/bash_villafuerte" ]] && . "${config.xdg.configHome}/bash/bash_villafuerte"
-[[ -r "${config.xdg.configHome}/bash/bash_aliases" ]] && . "${config.xdg.configHome}/bash/bash_aliases"
+      export BASH_SILENCE_DEPRECATION_WARNING=1
+      #[[ -r "${config.xdg.configHome}/bash/bash_profile" ]] && . "${config.xdg.configHome}/bash/bash_profile"
+      #[[ -r "${config.xdg.configHome}/bash/bash_villafuerte" ]] && . "${config.xdg.configHome}/bash/bash_villafuerte"
+      [[ -r "${config.xdg.configHome}/bash/bash_aliases" ]] && . "${config.xdg.configHome}/bash/bash_aliases"
     '';
   };
 }

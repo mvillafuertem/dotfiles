@@ -55,9 +55,6 @@
             mkdir -p /tmp/figlet &&\
             curl -L https://raw.githubusercontent.com/xero/figlet-fonts/master/ANSI%20Shadow.flf > /tmp/figlet/Shadow.flf
             echo -e "\033[36m$(figlet -f "/tmp/figlet/Shadow.flf" "devops")\033[0m"
-            source <(helm completion bash)
-            source <(helmfile completion bash)
-            source <(pip completion --bash)
             echo "Helm:" $(helm version)
             echo "Helmfile:" $(helmfile version)
             echo "Molecule:" $(molecule --version)

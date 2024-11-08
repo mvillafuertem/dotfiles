@@ -53,9 +53,6 @@
 
             shellHook = ''
               echo "Running hook"
-              source <(helm completion bash)
-              source <(helmfile completion bash)
-              source <(pip completion --bash)
               echo "Helm:" $(helm version)
               echo "Helmfile:" $(helmfile version)
               echo "Molecule:" $(molecule --version)
