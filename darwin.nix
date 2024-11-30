@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ user, pkgs, ... }:
 
 let
 
@@ -8,7 +8,7 @@ let
 in {
   users.users.${user} = {
     home = "/Users/${user}";
-    shell = pkgs.bash;
+    shell = pkgs.bashInteractive;
   };
   home-manager = {
     useGlobalPkgs = true;
@@ -18,7 +18,9 @@ in {
   nixpkgs.hostPlatform = "aarch64-darwin";
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = false;
+  # https://github.com/LnL7/nix-darwin/issues/1041
   services.karabiner-elements.enable = true;
+  system.stateVersion = 5;
   system.defaults = {
     dock = {
       autohide = true;
@@ -36,7 +38,7 @@ in {
       #FirstClickThreshold = 1;
       #SecondClickThreshold = 2;
       #TrackpadRightClick = true;
-      #TrackpadThreeFingerDrag = true;
+      TrackpadThreeFingerDrag = true;
     };
   };
   security.pam.enableSudoTouchIdAuth = true;

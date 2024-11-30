@@ -8,12 +8,13 @@
     # unstable has the 'freshest' packages you will find, even the AUR
     # doesn't do as good as this, and it's all precompiled.
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/24.11-beta";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin = {
-      url = "github:LnL7/nix-darwin/master";
+      url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     devops = {
@@ -38,15 +39,27 @@
   outputs = { nixpkgs, home-manager, darwin, devops, scala, rust, ... }:
 
     let
+      inherit (builtins) readDir;
+      inherit (nixpkgs.lib) mapAttrsToList filterAttrs hasSuffix;
+
       user = "mvillafuerte";
       home = "/Users/${user}";
       system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
+
+      importFrom = path: filename: import (path + ("/" + filename));
+      importOverlay = filename: _: importFrom ./overlays filename;
+      regularOverlays =
+        filterAttrs (name: _: hasSuffix ".nix" name) (readDir ./overlays);
+
+      pkgs = import nixpkgs {
+        system = system;
+        overlays = mapAttrsToList importOverlay regularOverlays;
+      };
     in {
 
       darwinConfigurations = {
         ${user} = darwin.lib.darwinSystem {
-          inherit system;
+          inherit system pkgs;
           modules = [ ./darwin.nix home-manager.darwinModules.home-manager ];
         };
       };
@@ -54,7 +67,7 @@
       homeConfigurations = {
         ${user} = home-manager.lib.homeManagerConfiguration {
           # darwin is the macOS kernel and aarch64 means ARM, i.e. apple silicon
-          inherit pkgs;
+          inherit system pkgs;
           modules = [ ./home.nix ];
         };
       };
