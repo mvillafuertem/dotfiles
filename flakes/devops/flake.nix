@@ -35,6 +35,7 @@
           buildInputs = [
             terraform
             pkgs.figlet
+            pkgs.git
             # python
             # pkgs.molecule
             pkgs.pyenv

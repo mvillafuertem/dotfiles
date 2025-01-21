@@ -1,16 +1,46 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# format = """
+# [](surface0)\
+# $os\
+# $username\
+# [](fg:surface0 bg:peach)\
+# $directory\
+# [](fg:peach bg:green)\
+# $git_branch\
+# $git_status\
+# [](fg:green bg:sky)\
+# [](fg:sky bg:sapphire)\
+# $c\
+# $rust\
+# $golang\
+# $nodejs\
+# $php\
+# $java\
+# $kotlin\
+# $scala\
+# $haskell\
+# $python\
+# [](fg:sapphire bg:blue)\
+# $docker_context\
+# $conda\
+# $nix_shell\
+# $direnv\
+# [](fg:blue bg:lavender)\
+# $aws\
+# $kubernetes\
+# [](fg:lavender bg:surface0)\
+# $time\
+# [ ](fg:surface0)\
+# $line_break [┗](surface0)$character"""
+
 format = """
 [](surface0)\
 $os\
 $username\
-[](fg:surface0 bg:peach)\
 $directory\
-[](fg:peach bg:green)\
 $git_branch\
 $git_status\
-[](fg:green bg:sky)\
-[](fg:sky bg:sapphire)\
 $c\
 $rust\
 $golang\
@@ -21,15 +51,13 @@ $kotlin\
 $scala\
 $haskell\
 $python\
-[](fg:sapphire bg:blue)\
 $docker_context\
 $conda\
 $nix_shell\
 $direnv\
-[](fg:blue bg:lavender)\
 $aws\
 $kubernetes\
-[](fg:lavender bg:surface0)\
+$fill\
 $time\
 [ ](fg:surface0)\
 $line_break [┗](surface0)$character"""
@@ -103,6 +131,9 @@ Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
+[fill]
+format = "none"
+
 [username]
 disabled = false
 show_always = true
@@ -112,7 +143,7 @@ format = '[ $user ]($style)'
 
 [directory]
 style = "fg:mantle bg:peach"
-format = "[ $path ]($style)"
+format = "[[│](fg:overlay0 bg:base)[ $path ]($style)]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
@@ -126,7 +157,7 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "bg:teal"
-format = '[[ $symbol $branch ](fg:base bg:green)]($style)'
+format = '[[│](fg:overlay0 bg:base)[ $symbol $branch ](fg:base bg:green)]($style)'
 
 [git_status]
 style = "bg:teal"
@@ -224,7 +255,7 @@ format = '[[ $symbol( $context) ](fg:surface0 bg:blue)]($style)'
 [kubernetes]
 disabled = false
 style = "bg:teal"
-format = '[[ $symbol($context) ](fg:surface0 bg:lavender)]($style)'
+format = '[[│](fg:overlay0 bg:base)[ $symbol($context) ](fg:surface0 bg:lavender)]($style)'
 
 [conda]
 style = "bg:mantel"
