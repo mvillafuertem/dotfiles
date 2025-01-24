@@ -13,13 +13,15 @@
       ssm-session-manager-plugin
       # bash-completion
       # coursier
-      go
+      # go
       jq
       docker
       docker-credential-helpers
       docker-buildx
       kubectl
       nixfmt-classic
+      nix
+      colima
       nodejs
       openfortivpn
       pam-reattach

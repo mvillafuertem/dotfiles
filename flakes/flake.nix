@@ -46,7 +46,7 @@
                   pip
                   setuptools
                   wheel
-                  # molecule
+                  molecule
                 ]))
             ];
             nativeBuildInputs = [ myhelm myhelmfile ];

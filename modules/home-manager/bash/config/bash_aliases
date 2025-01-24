@@ -166,3 +166,8 @@ alias nix-dev='_nix_dev() { nix develop ~/.dotfiles#"$1" ; }; _nix_dev'
 alias nix-dev-shells="nix flake show ~/.dotfiles --json | jq '.devShells'"
 
 alias vpn='stty -echo; printf "Password:"; read pass; stty echo; { echo $pass; echo $pass; pass=***; } | sudo --stdin openfortivpn --pppd-use-peerdns=1 --username=<username> --trusted-cert <hash-cert> <domain>:<port>'
+
+### Virtualenv ###
+alias vin="virtualenv .venv && source .venv/bin/activate"
+alias vout="deactivate && rm -rf .venv"
+

@@ -1,3 +1,7 @@
+# https://www.codyhiar.com/blog/replace-pyenv-with-a-nix-flake/
+# alias vin="virtualenv .venv && source .venv/bin/activate"
+# alias vout="deactivate && rm -rf .venv"
+# pip install -r requirements.txt
 {
   inputs = {
     nixpkgs-terraform.url = "github:stackbuilders/nixpkgs-terraform";
@@ -17,7 +21,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         terraform = nixpkgs-terraform.packages.${system}."1.9.5";
-        python = nixpkgs-python.packages.${system}."3.8";
+        python = nixpkgs-python.packages.${system}."3.9.20";
         # https://github.com/NixOS/nixpkgs/issues/217768#issuecomment-1672145841
         myhelm = with pkgs;
           wrapHelm kubernetes-helm {
@@ -36,17 +40,16 @@
             terraform
             pkgs.figlet
             pkgs.git
-            # python
-            # pkgs.molecule
+            #python
             pkgs.pyenv
             pkgs.crossplane
-            (pkgs.python3.withPackages (packages:
+            #(pkgs.python3.withPackages (packages:
+            (python.withPackages (packages:
               with packages; [
                 virtualenv
                 pip
                 setuptools
                 wheel
-                # molecule
               ]))
           ];
           nativeBuildInputs = [ myhelm myhelmfile ];
