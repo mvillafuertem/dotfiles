@@ -1,4 +1,5 @@
 # https://github.com/ConstantinCezarBegu/nix/blob/master/module/darwin/macos-keyboard-shortcuts-configuration.nix
+# defaults read com.apple.symbolichotkeys AppleSymbolicHotKeys
 {
   system.defaults.CustomUserPreferences = {
     "com.apple.symbolichotkeys" = {
