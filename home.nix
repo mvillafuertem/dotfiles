@@ -9,6 +9,7 @@
     packages = with pkgs; [
       # Then we add the packages we want in the array using pkgs.<name>
       awscli2
+      # aerospace
       # nmap https://github.com/NixOS/nixpkgs/issues/333530#issuecomment-2325269416
       ssm-session-manager-plugin
       # bash-completion
@@ -29,7 +30,9 @@
       saml2aws
       scalafmt
       git-lfs
-      (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
+      nerd-fonts.hack
+      nerd-fonts.jetbrains-mono
+      # (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
       # google-chrome https://github.com/NixOS/nixpkgs/pull/162467
     ];
     # Tell it to map everything in the `config` directory in this

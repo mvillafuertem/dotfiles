@@ -40,7 +40,7 @@
             terraform
             pkgs.figlet
             pkgs.git
-            #python
+            python
             pkgs.pyenv
             pkgs.crossplane
             #(pkgs.python3.withPackages (packages:

@@ -26,7 +26,7 @@ in {
       autohide = true;
       mru-spaces = false;
       minimize-to-application = false;
-      expose-group-by-app = true;
+      expose-group-apps = true;
       tilesize = 36;
       orientation = "bottom";
     };
