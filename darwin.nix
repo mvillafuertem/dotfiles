@@ -1,11 +1,5 @@
-{ user, pkgs, ... }:
-
-let
-
-  user = "mvillafuerte";
-  system = "aarch64-darwin";
-
-in {
+{ user, system, pkgs, ... }:
+{
   users.users.${user} = {
     home = "/Users/${user}";
     shell = pkgs.bashInteractive;
@@ -13,9 +7,9 @@ in {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.${user} = import ./home.nix;
+    users.${user} = (import ./home.nix { inherit user pkgs; });
   };
-  nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.hostPlatform = system;
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = false;
   # https://github.com/LnL7/nix-darwin/issues/1041

@@ -42,44 +42,75 @@
       inherit (builtins) readDir;
       inherit (nixpkgs.lib) mapAttrsToList filterAttrs hasSuffix;
 
-      user = "mvillafuerte";
-      home = "/Users/${user}";
-      system = "aarch64-darwin";
+      users = [
+        {
+          user = "maximus";
+          system = "x86_64-darwin";
+        }
+        {
+          user = "mvillafuerte";
+          system = "aarch64-darwin";
+        }
+        {
+          user = "userC";
+          system = "x86_64-linux";
+        }
+      ];
 
-      importFrom = path: filename: import (path + ("/" + filename));
-      importOverlay = filename: _: importFrom ./overlays filename;
-      regularOverlays =
-        filterAttrs (name: _: hasSuffix ".nix" name) (readDir ./overlays);
+      # importFrom = path: filename: import (path + ("/" + filename));
+      # importOverlay = filename: _: importFrom ./overlays filename;
+      # regularOverlays =
+      #   filterAttrs (name: _: hasSuffix ".nix" name) (readDir ./overlays);
+      # overlays = mapAttrsToList importOverlay regularOverlays;
+      overlays = map (name: import ./overlays/${name}) (builtins.attrNames
+        (filterAttrs (name: _: hasSuffix ".nix" name) (readDir ./overlays)));
 
-      pkgs = import nixpkgs {
-        system = system;
-        overlays = mapAttrsToList importOverlay regularOverlays;
-      };
-    in {
+      mkPkgs = system: import nixpkgs { inherit system overlays; };
 
-      darwinConfigurations = {
-        ${user} = darwin.lib.darwinSystem {
-          inherit system pkgs;
+      mkDarwinConfig = cfg: {
+        name = cfg.user;
+        value = darwin.lib.darwinSystem {
+          inherit (cfg) system;
+          pkgs = mkPkgs cfg.system;
+          specialArgs = {
+            inherit (cfg) user system; # Pasamos los valores como atributos
+            pkgs = mkPkgs cfg.system;
+          };
           modules = [ ./darwin.nix home-manager.darwinModules.home-manager ];
         };
       };
 
-      homeConfigurations = {
-        ${user} = home-manager.lib.homeManagerConfiguration {
-          # darwin is the macOS kernel and aarch64 means ARM, i.e. apple silicon
-          inherit system pkgs;
+      mkHomeConfig = cfg: {
+        name = cfg.user;
+        value = home-manager.lib.homeManagerConfiguration {
+          inherit (cfg) system;
+          pkgs = mkPkgs cfg.system;
+          specialArgs = {
+            inherit (cfg) user system; # Pasamos los valores como atributos
+            pkgs = mkPkgs cfg.system;
+          };
           modules = [ ./home.nix ];
         };
       };
 
-      # https://discourse.nixos.org/t/making-globally-available-devshells/24913/4
-      # nix develop ~/.dotfiles/flake.nix#devops
-      # echo "use flake ~/.dotfiles/flake.nix#devops" > .direnv
-      devShells.${system} = {
+      mkDevShell = system: {
         default = devops.devShells.${system}.default;
         devops = devops.devShells.${system}.default;
         rust = rust.devShells.${system}.default;
         scala = scala.devShells.${system}.default;
       };
+
+    in {
+      darwinConfigurations = builtins.listToAttrs (map mkDarwinConfig users);
+      homeConfigurations = builtins.listToAttrs (map mkHomeConfig users);
+
+      # https://discourse.nixos.org/t/making-globally-available-devshells/24913/4
+      # nix develop ~/.dotfiles/flake.nix#devops
+      # echo "use flake ~/.dotfiles/flake.nix#devops" > .direnv
+      devShells = builtins.listToAttrs (map (cfg: {
+        name = cfg.system;
+        value = mkDevShell cfg.system;
+      }) users);
+
     };
 }
