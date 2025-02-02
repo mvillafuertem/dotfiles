@@ -1,14 +1,13 @@
 {...}: {
-
   homebrew = {
     enable = false;
     brews = [];
     casks = [
-      "jetbrains-toolbox"
-      "postman"
       "blackhole-16ch"
+      # "docker"
       "google-chrome"
-      "docker"
+      "jetbrains-toolbox"
+      # "postman"
     ];
   };
   
