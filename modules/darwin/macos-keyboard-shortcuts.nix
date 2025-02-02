@@ -2,6 +2,17 @@
 # defaults read com.apple.symbolichotkeys AppleSymbolicHotKeys
 {
   system.defaults.CustomUserPreferences = {
+    NSGlobalDomain.NSUserKeyEquivalents = {
+      "Fill" = "~^\\U000D";   # Control + Option + Enter
+      "Bottom" = "~^\\U2193"; # Control + Option + ↓
+      "Left" = "~^\\U2190";   # Control + Option + ←
+      "Right" = "~^\\U2192";  # Control + Option + →
+      "Top" = "~^\\U2191";    # Control + Option + ↑
+      "Bottom Left" = "~^i";
+      "Bottom Right" = "~^o";
+      "Top Left" = "~^u";
+      "Top Right" = "~^p";
+    };
     "com.apple.symbolichotkeys" = {
       AppleSymbolicHotKeys = {
         "10" = {

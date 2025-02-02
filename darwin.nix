@@ -11,7 +11,7 @@
   };
   nixpkgs.hostPlatform = system;
   # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = false;
+  services.nix-daemon.enable = true;
   # https://github.com/LnL7/nix-darwin/issues/1041
   services.karabiner-elements.enable = true;
   system.stateVersion = 5;
@@ -25,15 +25,6 @@
       orientation = "bottom";
     };
     # https://github.com/mirkolenz/nixos/blob/main/system/darwin/settings.nix
-    trackpad = {
-      #ActuationStrength = 1;
-      #Clicking = true;
-      #Dragging = true;
-      #FirstClickThreshold = 1;
-      #SecondClickThreshold = 2;
-      #TrackpadRightClick = true;
-      TrackpadThreeFingerDrag = true;
-    };
   };
   security.pam.enableSudoTouchIdAuth = true;
   imports = [ ./modules/darwin ];

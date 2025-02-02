@@ -49,11 +49,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-+ly/0URAXBybHIr/iUENItB7TbwkPu5D/5aobyqWWrc=",
-        "path": "/nix/store/gy767pc3n543jmkmbs96xjipm7plb6d7-source/flakes/devops",
+        "path": "/nix/store/z2rkx6mgig06k0j8wx8g98xir9v5nwg1-source/flakes/devops",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/gy767pc3n543jmkmbs96xjipm7plb6d7-source/flakes/devops",
+        "path": "/nix/store/z2rkx6mgig06k0j8wx8g98xir9v5nwg1-source/flakes/devops",
         "type": "path"
       }
     },
@@ -264,11 +264,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-cMNtxefuHHOZoya4HI8YRHWJev07MKZj1huqTTBve08=",
-        "path": "/nix/store/gy767pc3n543jmkmbs96xjipm7plb6d7-source/flakes/rust",
+        "path": "/nix/store/z2rkx6mgig06k0j8wx8g98xir9v5nwg1-source/flakes/rust",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/gy767pc3n543jmkmbs96xjipm7plb6d7-source/flakes/rust",
+        "path": "/nix/store/z2rkx6mgig06k0j8wx8g98xir9v5nwg1-source/flakes/rust",
         "type": "path"
       }
     },
@@ -281,11 +281,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-+lzWCmrxw5M8CMEqpRdk5h2Vs4x74hCgMlUXwi6d5aM=",
-        "path": "/nix/store/gy767pc3n543jmkmbs96xjipm7plb6d7-source/flakes/scala",
+        "path": "/nix/store/z2rkx6mgig06k0j8wx8g98xir9v5nwg1-source/flakes/scala",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/gy767pc3n543jmkmbs96xjipm7plb6d7-source/flakes/scala",
+        "path": "/nix/store/z2rkx6mgig06k0j8wx8g98xir9v5nwg1-source/flakes/scala",
         "type": "path"
       }
     },
