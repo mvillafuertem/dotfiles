@@ -1,6 +1,6 @@
 {...}: {
   homebrew = {
-    enable = false;
+    enable = true;
     brews = [];
     casks = [
       "blackhole-16ch"

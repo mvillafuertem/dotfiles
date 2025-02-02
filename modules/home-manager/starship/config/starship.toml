@@ -132,7 +132,8 @@ Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
 [fill]
-format = "none"
+symbol = ' '
+style = "bg:surface0 fg:text"
 
 [username]
 disabled = false
