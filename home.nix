@@ -26,7 +26,7 @@
       nodejs
       openfortivpn
       pam-reattach
-      rustup
+      rustup #rustup update
       saml2aws
       scalafmt
       git-lfs

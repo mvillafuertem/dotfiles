@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs-terraform.url = "github:stackbuilders/nixpkgs-terraform";
     nixpkgs-python.url = "github:cachix/nixpkgs-python";
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
   };
 
