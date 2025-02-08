@@ -15,21 +15,22 @@
       # bash-completion
       # coursier
       # go
-      jq
-      docker
-      docker-credential-helpers
-      docker-buildx
-      kubectl
-      nixfmt-classic
-      nix
       colima
+      docker
+      docker-buildx
+      docker-credential-helpers
+      eza
+      git-lfs
+      jq
+      kubectl
+      nix
+      nixfmt-classic
       nodejs
       openfortivpn
       pam-reattach
       rustup #rustup update
       saml2aws
       scalafmt
-      git-lfs
       nerd-fonts.hack
       nerd-fonts.jetbrains-mono
       # (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
