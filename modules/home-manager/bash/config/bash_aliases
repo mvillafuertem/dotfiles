@@ -12,7 +12,7 @@ start_colima() {
   colima ssh -- sudo service docker restart
 }
 alias ll='ls -lah'
-alias ll='eza -lah --color --icons --group-directories-first --level=1 --tree'
+alias ll='eza -lao --color --icons --group-directories-first --level=1 --tree'
 alias v-='vi -'
 alias ..='cd .. && ll'
 alias .-='cd - && ll'
