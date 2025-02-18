@@ -10,7 +10,7 @@
   };
   nixpkgs.hostPlatform = system;
   # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = false;
+  services.nix-daemon.enable = true;
   # https://github.com/LnL7/nix-darwin/issues/1041
   services.karabiner-elements.enable = true;
   system.stateVersion = 5;

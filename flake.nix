@@ -39,8 +39,8 @@
   outputs = { nixpkgs, home-manager, darwin, devops, scala, rust, ... }:
 
     let
-      inherit (builtins) readDir;
-      inherit (nixpkgs.lib) mapAttrsToList filterAttrs hasSuffix;
+      inherit (builtins) readDir attrNames elem;
+      inherit (nixpkgs.lib) mapAttrsToList filterAttrs hasSuffix getName;
 
       users = [
         {
@@ -62,10 +62,17 @@
       # regularOverlays =
       #   filterAttrs (name: _: hasSuffix ".nix" name) (readDir ./overlays);
       # overlays = mapAttrsToList importOverlay regularOverlays;
-      overlays = map (name: import ./overlays/${name}) (builtins.attrNames
+      overlays = map (name: import ./overlays/${name}) (attrNames
         (filterAttrs (name: _: hasSuffix ".nix" name) (readDir ./overlays)));
 
-      mkPkgs = system: import nixpkgs { inherit system overlays; };
+      mkPkgs = system:
+        import nixpkgs {
+          inherit system overlays;
+          config = {
+            allowUnfreePredicate = pkg:
+              elem (getName pkg) [ "google-chrome" "obsidian" ];
+          };
+        };
 
       mkDarwinConfig = cfg: {
         name = cfg.user;

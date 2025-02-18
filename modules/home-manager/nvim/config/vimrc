@@ -52,8 +52,8 @@ if filereadable(expand("~/.plugins.vim"))
   source ~/.plugins.vim"
 endif
 
-" Theme
-" set termguicolors
+" necessary for bufferline
+set termguicolors=true
 
 set background=dark
 " onedark.vim override: Don't set a background color when running in a terminal;

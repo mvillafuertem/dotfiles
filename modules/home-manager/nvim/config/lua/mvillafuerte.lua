@@ -20,6 +20,7 @@ vim.o.expandtab = true
 vim.o.smarttab = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
+vim.o.conceallevel = 1
 
 -- vim.keymap.set("n", "ª", ":m .+1<CR>==", { desc = "to move a line down" })
 -- vim.keymap.set("i", "ª", ":m .+1<CR>==gi", { desc = "to move a line down" })

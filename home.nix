@@ -28,7 +28,7 @@
       nodejs
       openfortivpn
       pam-reattach
-      rustup #rustup update
+      rustup # rustup update
       saml2aws
       scalafmt
       nerd-fonts.hack
@@ -61,7 +61,5 @@
   # the shell to use home-manager properly on startup, neat!
   # programs.bash.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (pkgs.lib.getName pkg) [ "google-chrome" ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
