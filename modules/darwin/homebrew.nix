@@ -5,7 +5,7 @@
     casks = [
       "blackhole-16ch"
       "brave-browser"
-      "obsidean"
+      "obsidian"
       # "docker"
       # "google-chrome"
       "jdownloader"
