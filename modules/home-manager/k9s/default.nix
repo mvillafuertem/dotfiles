@@ -5,7 +5,7 @@
     "k9s/skins/catppuccin-mocha.yaml".source = (pkgs.fetchFromGitHub {
       owner = "catppuccin";
       repo = "k9s";
-      rev = "82eba6feb442932e28facedfb18dfbe79234f180";
+      rev = "fdbec82284744a1fc2eb3e2d24cb92ef87ffb8b4";
       sha256 = "VLi7G6Rjmbr6feSOg8aLYJmOb+GyJUKi3k9qod6ut9k=";
     } + "/dist/catppuccin-mocha.yaml");
   };
