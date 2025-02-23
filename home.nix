@@ -61,5 +61,4 @@
   # the shell to use home-manager properly on startup, neat!
   # programs.bash.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
