@@ -6,6 +6,7 @@
       "blackhole-16ch"
       "brave-browser"
       "obsidian"
+      "spotify"
       # "docker"
       # "google-chrome"
       "jdownloader"
