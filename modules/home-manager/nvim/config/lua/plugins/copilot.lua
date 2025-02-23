@@ -3,15 +3,18 @@ return {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
+      version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
     opts = {
       provider = "copilot",
     },
-    build = ":AvanteBuild", -- This is optional, recommended tho. Also note that this will block the startup for a bit since we are compiling bindings in Rust.
+    build = "make", -- This is optional, recommended tho. Also note that this will block the startup for a bit since we are compiling bindings in Rust.
     dependencies = {
+      "nvim-treesitter/nvim-treesitter",
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
+      "hrsh7th/nvim-cmp",
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       "zbirenbaum/copilot.lua",    -- for providers='copilot'
       {
@@ -32,11 +35,6 @@ return {
           },
         },
       },
-      config = function()
-        require("avante").setup({
-          provider = "copilot",
-        })
-      end,
       {
         -- Make sure to setup it properly if you have lazy=true
         "MeanderingProgrammer/render-markdown.nvim",

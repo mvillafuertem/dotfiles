@@ -5,12 +5,12 @@
     casks = [
       "blackhole-16ch"
       "brave-browser"
+      "jdownloader"
+      "jetbrains-toolbox"
       "obsidian"
       "spotify"
       # "docker"
       # "google-chrome"
-      "jdownloader"
-      "jetbrains-toolbox"
       # "postman"
     ];
   };

@@ -49,11 +49,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-+ly/0URAXBybHIr/iUENItB7TbwkPu5D/5aobyqWWrc=",
-        "path": "/nix/store/sgh1b6v250nm3k0jv46nx44mxcdc819q-source/flakes/devops",
+        "path": "/nix/store/jypc0mwc90m6x66hl8ai92rcxk1ndcz2-source/flakes/devops",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/sgh1b6v250nm3k0jv46nx44mxcdc819q-source/flakes/devops",
+        "path": "/nix/store/jypc0mwc90m6x66hl8ai92rcxk1ndcz2-source/flakes/devops",
         "type": "path"
       }
     },
@@ -98,11 +98,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740283128,
-        "narHash": "sha256-R61wtNknWWejnl+K0l4sxu/wnLNFbNe44tNM2zbj5yE=",
+        "lastModified": 1740318342,
+        "narHash": "sha256-fjr9+3Iru6O5qE+2oERQkabqAUXx4awm0+i2MBcta1U=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ed030a787938cae01d693ebaad52bbb672a4a69d",
+        "rev": "b5ab2c7fdaa807cf425066ab7cd34b073946b1ca",
         "type": "github"
       },
       "original": {
@@ -265,11 +265,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-kn4jIWgUC61NKNgsCtQNQvBA/eGeSmRYOHDvlqu/rUc=",
-        "path": "/nix/store/sgh1b6v250nm3k0jv46nx44mxcdc819q-source/flakes/rust",
+        "path": "/nix/store/jypc0mwc90m6x66hl8ai92rcxk1ndcz2-source/flakes/rust",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/sgh1b6v250nm3k0jv46nx44mxcdc819q-source/flakes/rust",
+        "path": "/nix/store/jypc0mwc90m6x66hl8ai92rcxk1ndcz2-source/flakes/rust",
         "type": "path"
       }
     },
@@ -303,11 +303,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-+lzWCmrxw5M8CMEqpRdk5h2Vs4x74hCgMlUXwi6d5aM=",
-        "path": "/nix/store/sgh1b6v250nm3k0jv46nx44mxcdc819q-source/flakes/scala",
+        "path": "/nix/store/jypc0mwc90m6x66hl8ai92rcxk1ndcz2-source/flakes/scala",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/sgh1b6v250nm3k0jv46nx44mxcdc819q-source/flakes/scala",
+        "path": "/nix/store/jypc0mwc90m6x66hl8ai92rcxk1ndcz2-source/flakes/scala",
         "type": "path"
       }
     },
