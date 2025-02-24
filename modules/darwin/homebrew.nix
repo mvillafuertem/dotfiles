@@ -12,6 +12,7 @@
       # "docker"
       # "google-chrome"
       # "postman"
+      "wezterm"
     ];
   };
   
