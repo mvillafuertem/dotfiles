@@ -37,8 +37,8 @@ return {
       --			},
       inactive_winbar = {
         -- lualine_c = { "filename" },
-        lualine_y = { { "filetype", icon_only = true } },
-        lualine_z = { { "filename", path = 1 } },
+        -- lualine_y = { { "filetype", icon_only = true } },
+        -- lualine_z = { { "filename", path = 1 } },
       },
     })
   end,

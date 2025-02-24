@@ -6,7 +6,7 @@
       owner = "catppuccin";
       repo = "k9s";
       rev = "fdbec82284744a1fc2eb3e2d24cb92ef87ffb8b4";
-      sha256 = "VLi7G6Rjmbr6feSOg8aLYJmOb+GyJUKi3k9qod6ut9k=";
+      sha256 = "9h+jyEO4w0OnzeEKQXJbg9dvvWGZYQAO4MbgDn6QRzM=";
     } + "/dist/catppuccin-mocha.yaml");
   };
 
