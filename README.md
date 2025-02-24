@@ -281,3 +281,6 @@ $ git reset --soft <common ancestor commit hash>
 $ git commit -m "We did it!"
 $ git rebase master
 ```
+
+
+https://medium.com/@EduardoRodriguesF/swim-with-vimdiff-and-youll-never-drown-in-merge-conflicts-ever-again-71df98d4a84c
