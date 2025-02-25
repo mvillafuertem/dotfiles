@@ -26,7 +26,7 @@
     };
     # https://github.com/mirkolenz/nixos/blob/main/system/darwin/settings.nix
   };
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
   # https://write.rog.gr/writing/using-touchid-with-tmux/
   environment = {
     etc."pam.d/sudo_local".text = ''
