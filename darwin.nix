@@ -26,14 +26,17 @@
     };
     # https://github.com/mirkolenz/nixos/blob/main/system/darwin/settings.nix
   };
-  security.pam.services.sudo_local.touchIdAuth = true;
-  # https://write.rog.gr/writing/using-touchid-with-tmux/
-  environment = {
-    etc."pam.d/sudo_local".text = ''
-      # Managed by Nix Darwin
-      auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
-      auth       sufficient     pam_tid.so
-    '';
+  security.pam.services.sudo_local = {
+    touchIdAuth = true;
+    reattach = true;
   };
+  # https://write.rog.gr/writing/using-touchid-with-tmux/
+  # environment = {
+  #   etc."pam.d/sudo_local".text = ''
+  #     # Managed by Nix Darwin
+  #     auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
+  #     auth       sufficient     pam_tid.so
+  #   '';
+  # };
   imports = [ ./modules/darwin ];
 }
