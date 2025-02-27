@@ -4,6 +4,7 @@
   ./eza
   ./git 
   ./k9s
+  ./karabiner
   ./nvim 
   ./starship 
   ./tmux
