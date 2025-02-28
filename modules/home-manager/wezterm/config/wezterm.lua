@@ -31,6 +31,7 @@ return {
   keys = {
     -- we have to disable this key binding because we are using them in tmux
     -- https://wezfurlong.org/wezterm/config/default-keys.html
+    -- wezterm show-keys --lua
     {
       key = "Tab",
       mods = "CTRL",
@@ -66,7 +67,8 @@ return {
     -- In other macOS applications this key is used to move between windows,
     -- Let's replicate the behaviour but for tmux prefix + p(previous window) or prefix + n(next window).
     {
-      key = "LeftArrow",
+      -- key = "LeftArrow",
+      key = "h",
       mods = "OPT|CMD",
       action = wezterm.action.Multiple({
         wezterm.action.SendKey({ key = "s", mods = "CTRL" }),
@@ -74,14 +76,30 @@ return {
       }),
     },
     {
-      key = "RightArrow",
+      -- key = "RightArrow",
+      key = "l",
       mods = "OPT|CMD",
       action = wezterm.action.Multiple({
         wezterm.action.SendKey({ key = "s", mods = "CTRL" }),
         wezterm.action.SendKey({ key = "n" }),
       }),
     },
-    --
+    -- {
+    --   key = "h",
+    --   mods = "SHIFT|CMD",
+    --   action = wezterm.action.Multiple({
+    --     wezterm.action.SendKey({ key = "s", mods = "CTRL" }),
+    --     wezterm.action.SendKey({ key = "p" }),
+    --   }),
+    -- },
+    -- {
+    --   key = "l",
+    --   mods = "CMD",
+    --   action = wezterm.action.Multiple({
+    --     wezterm.action.SendKey({ key = "s", mods = "CTRL" }),
+    --     wezterm.action.SendKey({ key = "n" }),
+    --   }),
+    -- },
     {
       key = "+",
       mods = "CMD",
