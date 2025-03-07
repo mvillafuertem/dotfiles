@@ -49,11 +49,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-+ly/0URAXBybHIr/iUENItB7TbwkPu5D/5aobyqWWrc=",
-        "path": "/nix/store/yihg96cnkk4svvkavl5h9715j5wg71zs-source/flakes/devops",
+        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/devops",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/yihg96cnkk4svvkavl5h9715j5wg71zs-source/flakes/devops",
+        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/devops",
         "type": "path"
       }
     },
@@ -265,11 +265,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-kn4jIWgUC61NKNgsCtQNQvBA/eGeSmRYOHDvlqu/rUc=",
-        "path": "/nix/store/yihg96cnkk4svvkavl5h9715j5wg71zs-source/flakes/rust",
+        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/rust",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/yihg96cnkk4svvkavl5h9715j5wg71zs-source/flakes/rust",
+        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/rust",
         "type": "path"
       }
     },
@@ -298,16 +298,17 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "systems": "systems_3"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-+lzWCmrxw5M8CMEqpRdk5h2Vs4x74hCgMlUXwi6d5aM=",
-        "path": "/nix/store/yihg96cnkk4svvkavl5h9715j5wg71zs-source/flakes/scala",
+        "narHash": "sha256-4LTQCRGg+SvQEVqjhY3lXNvJyFn/N5LBXGBCVdWDMQY=",
+        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/scala",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/yihg96cnkk4svvkavl5h9715j5wg71zs-source/flakes/scala",
+        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/scala",
         "type": "path"
       }
     },
@@ -327,6 +328,21 @@
       }
     },
     "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_3": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
