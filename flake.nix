@@ -31,6 +31,11 @@
     };
   };
 
+  # nixConfig = {
+  #   substituters = [ "https://cache.nixos.org" ];
+  #   trusted-public-keys = [ ];
+  # };
+
   # In this context, outputs are mostly about getting home-manager what it
   # needs since it will be the one using the flake
   # Standalone home-manager configuration entrypoint

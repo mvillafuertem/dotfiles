@@ -6,23 +6,19 @@
   outputs = { systems, nixpkgs, ... }: {
     devShells = nixpkgs.lib.genAttrs (import systems) (system:
       let
+        pkgs = nixpkgs.legacyPackages.${system};
         jdk = pkgs.openjdk8;
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [
-            (final: prev: {
-              sbt = prev.sbt.overrideAttrs {
-                patchPhase = ''
-                  echo -java-home ${jdk} >> conf/sbtopts
-                '';
-              };
-            })
-          ];
-        };
+        sbt = pkgs.sbt.override { jre = jdk; };
+        metals = pkgs.metals.override { jre = jdk; };
+        # sbt = pkgs.sbt.overrideAttrs (old: rec {
+        #   patchPhase = ''
+        #     echo -java-home ${jdk} >> conf/sbtopts
+        #   '';
+        # });
       in {
         default = pkgs.mkShell {
           name = "scala";
-          buildInputs = [ jdk pkgs.sbt pkgs.metals pkgs.figlet ];
+          buildInputs = [ jdk sbt metals pkgs.figlet ];
           shellHook = ''
             [ ! -f /tmp/figlet/Shadow.flf ] &&\
             mkdir -p /tmp/figlet &&\
