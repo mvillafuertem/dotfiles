@@ -25,6 +25,10 @@
       url = "./flakes/scala";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    scala212 = {
+      url = "./flakes/scala212";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     rust = {
       url = "./flakes/rust";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,7 +45,7 @@
   # Standalone home-manager configuration entrypoint
   # Available through 'home-manager --flake .#your-username@your-hostname'
   # darwin-rebuild build --flake .#simple
-  outputs = { nixpkgs, home-manager, darwin, devops, scala, rust, ... }:
+  outputs = { nixpkgs, home-manager, darwin, devops, scala, scala212, rust, ... }:
 
     let
       inherit (builtins) readDir attrNames elem;
@@ -110,6 +114,7 @@
         devops = devops.devShells.${system}.default;
         rust = rust.devShells.${system}.default;
         scala = scala.devShells.${system}.default;
+        scala212 = scala212.devShells.${system}.default;
       };
 
     in {

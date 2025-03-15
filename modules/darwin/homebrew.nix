@@ -10,7 +10,7 @@
       "obsidian"
       "spotify"
       # "docker"
-      # "google-chrome"
+      "google-chrome"
       # "postman"
       "wezterm"
     ];

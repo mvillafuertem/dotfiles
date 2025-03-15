@@ -49,11 +49,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-+ly/0URAXBybHIr/iUENItB7TbwkPu5D/5aobyqWWrc=",
-        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/devops",
+        "path": "/nix/store/0npfs20rawzc9gbpygjmqy6nsji0aa02-source/flakes/devops",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/devops",
+        "path": "/nix/store/0npfs20rawzc9gbpygjmqy6nsji0aa02-source/flakes/devops",
         "type": "path"
       }
     },
@@ -252,7 +252,8 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
         "rust": "rust",
-        "scala": "scala"
+        "scala": "scala",
+        "scala212": "scala212"
       }
     },
     "rust": {
@@ -265,11 +266,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-kn4jIWgUC61NKNgsCtQNQvBA/eGeSmRYOHDvlqu/rUc=",
-        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/rust",
+        "path": "/nix/store/0npfs20rawzc9gbpygjmqy6nsji0aa02-source/flakes/rust",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/rust",
+        "path": "/nix/store/0npfs20rawzc9gbpygjmqy6nsji0aa02-source/flakes/rust",
         "type": "path"
       }
     },
@@ -303,12 +304,30 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-4LTQCRGg+SvQEVqjhY3lXNvJyFn/N5LBXGBCVdWDMQY=",
-        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/scala",
+        "narHash": "sha256-2MSPgmt5QfB1Cbl30lLe6M/I8p2Sj1b9w5ON9i5ve9Y=",
+        "path": "/nix/store/0npfs20rawzc9gbpygjmqy6nsji0aa02-source/flakes/scala",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/fr26sy752q98h9fhhfn3643pq76vncw1-source/flakes/scala",
+        "path": "/nix/store/0npfs20rawzc9gbpygjmqy6nsji0aa02-source/flakes/scala",
+        "type": "path"
+      }
+    },
+    "scala212": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems_4"
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-TacZJv4pWTRb5jpUYutvpTxT6IyEb9IiRDLqJlPWNmU=",
+        "path": "/nix/store/0npfs20rawzc9gbpygjmqy6nsji0aa02-source/flakes/scala212",
+        "type": "path"
+      },
+      "original": {
+        "path": "/nix/store/0npfs20rawzc9gbpygjmqy6nsji0aa02-source/flakes/scala212",
         "type": "path"
       }
     },
@@ -343,6 +362,21 @@
       }
     },
     "systems_3": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_4": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
