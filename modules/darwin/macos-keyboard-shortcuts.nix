@@ -3,15 +3,19 @@
 {
   system.defaults.CustomUserPreferences = {
     NSGlobalDomain.NSUserKeyEquivalents = {
-      "Fill" = "~^\\U000D";   # Control + Option + Enter
-      "Bottom" = "~^\\U2193"; # Control + Option + ↓
-      "Left" = "~^\\U2190";   # Control + Option + ←
-      "Right" = "~^\\U2192";  # Control + Option + →
-      "Top" = "~^\\U2191";    # Control + Option + ↑
+      "Fill" = "~^\\U000D";                  # Control + Option + Enter
+      "Bottom &amp; Quarters" = "~^\\U2193"; # Control + Option + ↓
+      "Left &amp; Right" = "~^\\U2190";      # Control + Option + ←
+      "Right &amp; Left" = "~^\\U2192";      # Control + Option + →
+      "Top &amp; Quarters" = "~^\\U2191";    # Control + Option + ↑
       "Bottom Left" = "~^i";
       "Bottom Right" = "~^o";
       "Top Left" = "~^u";
       "Top Right" = "~^p";
+      "Center" = "~^c";
+      "Centre" = "~^c";
+      "Left of Screen" = "~^h";
+      "Right of Screen" = "~^l";
     };
     "com.apple.symbolichotkeys" = {
       AppleSymbolicHotKeys = {
