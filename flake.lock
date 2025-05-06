@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "config": {
-      "locked": {
-        "dir": "templates/config",
-        "lastModified": 1719931926,
-        "narHash": "sha256-B8j9lHX0LqWlZkm8JxZRN6919RQjJEu/1J1SR8pU/ww=",
-        "owner": "stackbuilders",
-        "repo": "nixpkgs-terraform",
-        "rev": "034287ee462c87dadc14a94d4b53a48ed66c7b3d",
-        "type": "github"
-      },
-      "original": {
-        "dir": "templates/config",
-        "owner": "stackbuilders",
-        "repo": "nixpkgs-terraform",
-        "type": "github"
-      }
-    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -24,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742373336,
-        "narHash": "sha256-oEF5dBlq8wGD3mkJ5PmFS1PGb28uYmvuy1IH6roIGkQ=",
+        "lastModified": 1744478979,
+        "narHash": "sha256-dyN+teG9G82G+m+PX/aSAagkC+vUv0SgUw3XkPhQodQ=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "2d9b63316926aa130a5a51136d93b9be28808f26",
+        "rev": "43975d782b418ebf4969e9ccba82466728c2851b",
         "type": "github"
       },
       "original": {
@@ -47,15 +30,14 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-+ly/0URAXBybHIr/iUENItB7TbwkPu5D/5aobyqWWrc=",
-        "path": "/nix/store/ar5c9hhys76vn6rmq3ympvyq0r59crnv-source/flakes/devops",
+        "path": "./flakes/devops",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/ar5c9hhys76vn6rmq3ympvyq0r59crnv-source/flakes/devops",
+        "path": "./flakes/devops",
         "type": "path"
-      }
+      },
+      "parent": []
     },
     "flake-compat": {
       "flake": false,
@@ -73,24 +55,6 @@
         "type": "github"
       }
     },
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
-      "locked": {
-        "lastModified": 1722555600,
-        "narHash": "sha256-XOQkdLafnb/p9ij77byFQjDf5m5QYl9b2REiVClC+x4=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "8471fe90ad337a8074e957b69ca4d0089218391d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -98,11 +62,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742501496,
-        "narHash": "sha256-LYwyZmhckDKK7i4avmbcs1pBROpOaHi98lbjX1fmVpU=",
+        "lastModified": 1744570807,
+        "narHash": "sha256-g07PYyZCIHVDLzRo8fllZRES7Nf9R8+xZwNJ7t0gt5s=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d725df5ad8cee60e61ee6fe3afb735e4fbc1ff41",
+        "rev": "cfa196c705a896372319249d757085876ab62448",
         "type": "github"
       },
       "original": {
@@ -159,7 +123,47 @@
         "type": "github"
       }
     },
-    "nixpkgs-1_9": {
+    "nixpkgs-python": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1743514126,
+        "narHash": "sha256-8zYFAsE4zlmc3MRZVLDBSHYF37posV+TxD6CNXqdxG0=",
+        "owner": "cachix",
+        "repo": "nixpkgs-python",
+        "rev": "40d2237867f219de1c1362e3d067a1673afa5f82",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cachix",
+        "repo": "nixpkgs-python",
+        "type": "github"
+      }
+    },
+    "nixpkgs-terraform": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs-1_0": "nixpkgs-1_0",
+        "nixpkgs-1_6": "nixpkgs-1_6",
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1744164289,
+        "narHash": "sha256-YLZOXvigs0X7WFxAyQFjQijOG83Hb1oJalFlbPZ5QkQ=",
+        "owner": "stackbuilders",
+        "repo": "nixpkgs-terraform",
+        "rev": "9fdddb5b09520d4c4a4cd79c4eca9e98ed6d4d82",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stackbuilders",
+        "repo": "nixpkgs-terraform",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1732617236,
         "narHash": "sha256-PYkz6U0bSEaEB1al7O1XsqVNeSNS+s3NVclJw7YC43w=",
@@ -175,67 +179,13 @@
         "type": "github"
       }
     },
-    "nixpkgs-lib": {
+    "nixpkgs_3": {
       "locked": {
-        "lastModified": 1722555339,
-        "narHash": "sha256-uFf2QeW7eAHlYXuDktm9c25OxOyCoUOQmh5SZ9amE5Q=",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/a5d394176e64ab29c852d03346c1fc9b0b7d33eb.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/a5d394176e64ab29c852d03346c1fc9b0b7d33eb.tar.gz"
-      }
-    },
-    "nixpkgs-python": {
-      "inputs": {
-        "flake-compat": "flake-compat",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1733319315,
-        "narHash": "sha256-cFQBdRmtIZFVjr2P6NkaCOp7dddF93BC0CXBwFZFaN0=",
-        "owner": "cachix",
-        "repo": "nixpkgs-python",
-        "rev": "01263eeb28c09f143d59cd6b0b7c4cc8478efd48",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cachix",
-        "repo": "nixpkgs-python",
-        "type": "github"
-      }
-    },
-    "nixpkgs-terraform": {
-      "inputs": {
-        "config": "config",
-        "flake-parts": "flake-parts",
-        "nixpkgs-1_0": "nixpkgs-1_0",
-        "nixpkgs-1_6": "nixpkgs-1_6",
-        "nixpkgs-1_9": "nixpkgs-1_9",
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1742481146,
-        "narHash": "sha256-iyMl24XikQsTrQg/iOHMpLdgtIwjJiQfopIMuLiRXpg=",
-        "owner": "stackbuilders",
-        "repo": "nixpkgs-terraform",
-        "rev": "e36beae554b581af01030e1ad26092e7019abbcf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "stackbuilders",
-        "repo": "nixpkgs-terraform",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1742395137,
-        "narHash": "sha256-WWNNjCSzQCtATpCFEijm81NNG1xqlLMVbIzXAiZysbs=",
+        "lastModified": 1744536153,
+        "narHash": "sha256-awS2zRgF4uTwrOKwwiJcByDzDOdo3Q1rPZbiHQg/N38=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2a725d40de138714db4872dc7405d86457aa17ad",
+        "rev": "18dd725c29603f582cf1900e0d25f9f1063dbf11",
         "type": "github"
       },
       "original": {
@@ -250,7 +200,7 @@
         "darwin": "darwin",
         "devops": "devops",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "rust": "rust",
         "scala": "scala",
         "scala212": "scala212"
@@ -264,15 +214,14 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-kn4jIWgUC61NKNgsCtQNQvBA/eGeSmRYOHDvlqu/rUc=",
-        "path": "/nix/store/ar5c9hhys76vn6rmq3ympvyq0r59crnv-source/flakes/rust",
+        "path": "./flakes/rust",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/ar5c9hhys76vn6rmq3ympvyq0r59crnv-source/flakes/rust",
+        "path": "./flakes/rust",
         "type": "path"
-      }
+      },
+      "parent": []
     },
     "rust-overlay": {
       "inputs": {
@@ -282,11 +231,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742437918,
-        "narHash": "sha256-Vflb6KJVDikFcM9E231mRN88uk4+jo7BWtaaQMifthI=",
+        "lastModified": 1744513456,
+        "narHash": "sha256-NLVluTmK8d01Iz+WyarQhwFcXpHEwU7m5hH3YQQFJS0=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "f03085549609e49c7bcbbee86a1949057d087199",
+        "rev": "730fd8e82799219754418483fabe1844262fd1e2",
         "type": "github"
       },
       "original": {
@@ -303,15 +252,14 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-+ZQEjcUMtIm0R9rtGj4Pm4Mov/eIIqs7ymkwHA+vpfU=",
-        "path": "/nix/store/ar5c9hhys76vn6rmq3ympvyq0r59crnv-source/flakes/scala",
+        "path": "./flakes/scala",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/ar5c9hhys76vn6rmq3ympvyq0r59crnv-source/flakes/scala",
+        "path": "./flakes/scala",
         "type": "path"
-      }
+      },
+      "parent": []
     },
     "scala212": {
       "inputs": {
@@ -321,15 +269,14 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-TacZJv4pWTRb5jpUYutvpTxT6IyEb9IiRDLqJlPWNmU=",
-        "path": "/nix/store/ar5c9hhys76vn6rmq3ympvyq0r59crnv-source/flakes/scala212",
+        "path": "./flakes/scala212",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/ar5c9hhys76vn6rmq3ympvyq0r59crnv-source/flakes/scala212",
+        "path": "./flakes/scala212",
         "type": "path"
-      }
+      },
+      "parent": []
     },
     "systems": {
       "locked": {
