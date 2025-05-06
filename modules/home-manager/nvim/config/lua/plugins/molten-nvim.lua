@@ -2,8 +2,8 @@
 return {
 	{
 		"GCBallesteros/jupytext.nvim",
+    enabled = false,
 		config = true,
-		-- enabled = false,
 		-- dev = true,
 		opts = {
 			style = "markdown",
@@ -16,6 +16,7 @@ return {
 	},
 	{
 		"quarto-dev/quarto-nvim",
+    enabled = false,
 		-- dev = true,
 		dependencies = {
 			{
