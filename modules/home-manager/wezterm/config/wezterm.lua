@@ -68,6 +68,22 @@ return {
     -- In other macOS applications this key is used to move between windows,
     -- Let's replicate the behaviour but for tmux prefix + p(previous window) or prefix + n(next window).
     {
+      key = "LeftArrow",
+      mods = "OPT|CMD",
+      action = wezterm.action.Multiple({
+        wezterm.action.SendKey({ key = "s", mods = "CTRL" }),
+        wezterm.action.SendKey({ key = "p" }),
+      }),
+    },
+    {
+      key = "RightArrow",
+      mods = "OPT|CMD",
+      action = wezterm.action.Multiple({
+        wezterm.action.SendKey({ key = "s", mods = "CTRL" }),
+        wezterm.action.SendKey({ key = "n" }),
+      }),
+    },
+    {
       -- key = "LeftArrow",
       key = "h",
       mods = "OPT|CMD",
@@ -85,22 +101,6 @@ return {
         wezterm.action.SendKey({ key = "n" }),
       }),
     },
-    -- {
-    --   key = "h",
-    --   mods = "SHIFT|CMD",
-    --   action = wezterm.action.Multiple({
-    --     wezterm.action.SendKey({ key = "s", mods = "CTRL" }),
-    --     wezterm.action.SendKey({ key = "p" }),
-    --   }),
-    -- },
-    -- {
-    --   key = "l",
-    --   mods = "CMD",
-    --   action = wezterm.action.Multiple({
-    --     wezterm.action.SendKey({ key = "s", mods = "CTRL" }),
-    --     wezterm.action.SendKey({ key = "n" }),
-    --   }),
-    -- },
     {
       key = "+",
       mods = "CMD",
