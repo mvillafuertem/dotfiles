@@ -4,7 +4,7 @@
     brews = [];
     casks = [
       "blackhole-16ch"
-      "brave-browser"
+      # "brave-browser"
       "jdownloader"
       "jetbrains-toolbox"
       "obsidian"

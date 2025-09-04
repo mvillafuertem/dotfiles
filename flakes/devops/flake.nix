@@ -21,7 +21,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         terraform = nixpkgs-terraform.packages.${system}."1.9.5";
-        python = nixpkgs-python.packages.${system}."3.9.20";
+        python = nixpkgs-python.packages.${system}."3.10.15";
         # https://github.com/NixOS/nixpkgs/issues/217768#issuecomment-1672145841
         myhelm = with pkgs;
           wrapHelm kubernetes-helm {
