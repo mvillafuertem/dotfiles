@@ -54,14 +54,17 @@
       users = [
         {
           user = "maximus";
+          hostname = "maximus";
           system = "x86_64-darwin";
         }
         {
-          user = "mvillafuerte";
+          user = "miguel.villafuerte";
+          hostname = "GBMCRQ9PQTJF7K";
           system = "aarch64-darwin";
         }
         {
           user = "userC";
+          hostname = "userC";
           system = "x86_64-linux";
         }
       ];
@@ -79,12 +82,12 @@
           inherit system overlays;
           config = {
             allowUnfreePredicate = pkg:
-              elem (getName pkg) [ "google-chrome" "obsidian" ];
+              elem (getName pkg) [ ]; # [ "google-chrome" "obsidian" ];
           };
         };
 
       mkDarwinConfig = cfg: {
-        name = cfg.user;
+        name = cfg.hostname;
         value = darwin.lib.darwinSystem {
           inherit (cfg) system;
           pkgs = mkPkgs cfg.system;
@@ -97,7 +100,7 @@
       };
 
       mkHomeConfig = cfg: {
-        name = cfg.user;
+        name = cfg.hostname;
         value = home-manager.lib.homeManagerConfiguration {
           inherit (cfg) system;
           pkgs = mkPkgs cfg.system;

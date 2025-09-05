@@ -11,7 +11,7 @@
       "spotify"
       # "docker"
       "google-chrome"
-      # "postman"
+      "postman"
       "wezterm"
     ];
   };

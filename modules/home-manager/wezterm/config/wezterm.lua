@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
-  default_prog = { "/etc/profiles/per-user/mvillafuerte/bin/bash", "-l", "-c", "tmux new-session -A -s main" },
+  default_prog = { "/etc/profiles/per-user/miguel.villafuerte/bin/bash", "-l", "-c", "tmux new-session -A -s main" },
   automatically_reload_config = true,
   hide_tab_bar_if_only_one_tab = true,
   window_close_confirmation = "NeverPrompt",

@@ -26,6 +26,7 @@
       nix
       nixfmt-classic
       nodejs
+      tmux
       openfortivpn
       pam-reattach
       rustup # rustup update
