@@ -1,4 +1,5 @@
 {
+  # sudo nix --extra-experimental-features "nix-command flakes" run nix-darwin/master#darwin-rebuild -- switch  --flake ~/.dotfiles
   # nix-shell -p nix-info --run "nix-info -m"
   description = "mvillafuerte's dotfiles";
 
