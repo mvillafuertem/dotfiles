@@ -15,6 +15,7 @@
   # https://github.com/LnL7/nix-darwin/issues/1041
   services.karabiner-elements.enable = true;
   system.stateVersion = 5;
+  system.primaryUser = "${user}";
   system.defaults = {
     dock = {
       autohide = true;
