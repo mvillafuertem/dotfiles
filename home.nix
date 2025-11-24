@@ -32,6 +32,7 @@
       rustup # rustup update
       saml2aws
       scalafmt
+      skim
       nerd-fonts.hack
       nerd-fonts.jetbrains-mono
       # (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })

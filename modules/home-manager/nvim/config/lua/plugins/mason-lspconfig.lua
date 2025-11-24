@@ -44,7 +44,6 @@ return {
 				lineFoldingOnly = true,
 			}
 
-			local lspconfig = require("lspconfig")
 			local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 			-- Use an on_attach function to only map the following keys
 			-- after the language server attaches to the current buffer
@@ -88,8 +87,8 @@ return {
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 			end
 
-			lspconfig.ansiblels.setup({})
-			-- lspconfig.azure_pipelines_ls.setup({
+			vim.lsp.config("ansiblels", {})
+			-- vim.lsp.config("azure_pipelines_ls", {
 			--   capabilities = lsp_capabilities,
 			--   settings = {
 			--     yaml = {
@@ -104,32 +103,32 @@ return {
 			--     },
 			--   },
 			-- })
-			lspconfig.bashls.setup({})
-			lspconfig.cypher_ls.setup({})
-			lspconfig.docker_compose_language_service.setup({})
-			lspconfig.dockerls.setup({})
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("bashls", {})
+			vim.lsp.config("cypher_ls", {})
+			vim.lsp.config("docker_compose_language_service", {})
+			vim.lsp.config("dockerls", {})
+			vim.lsp.config("lua_ls", {
 				on_attach = on_attach,
 				capabilities = lsp_capabilities,
 				filetypes = { "lua" },
 			})
-			lspconfig.nil_ls.setup({})
-			lspconfig.terraformls.setup({
+			vim.lsp.config("nil_ls", {})
+			vim.lsp.config("terraformls", {
 				on_attach = on_attach,
 				capabilities = lsp_capabilities,
 				filetypes = { "terraform", "tf", "terraform-vars" },
 			})
-			lspconfig.tflint.setup({
+			vim.lsp.config("tflint", {
 				capabilities = lsp_capabilities,
 				filetypes = { "terraform", "tf", "terraform-vars" },
 			})
-			-- lspconfig.tsserver.setup({
+			-- vim.lsp.config("tsserver", {
 			--  on_attach = on_attach,
 			--  capabilities = lsp_capabilities,
 			--  filetypes = { "typescript", "js" },
 			-- })
 			-- https://github.com/Allaman/nvim/blob/main/lua/core/plugins/lsp/settings/yaml.lua
-			lspconfig.yamlls.setup({
+			vim.lsp.config("yamlls", {
 				on_attach = on_attach,
 				capabilities = lsp_capabilities,
 				filetypes = { "yaml", "yml" },
@@ -189,7 +188,7 @@ return {
 			--     },
 			--   },
 			-- })
-			lspconfig.helm_ls.setup({
+			vim.lsp.config("helm_ls", {
 				on_attach = on_attach,
 				capabilities = lsp_capabilities,
 				settings = {
@@ -200,7 +199,7 @@ return {
 					},
 				},
 			})
-			-- lspconfig.rust_analyzer.setup({})
+			-- vim.lsp.config("rust_analyzer", {})
 			-- https://github.com/Alexis12119/nvim-config/blob/main/lua/plugins/lsp/init.lua#L52C1-L58C7
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 				border = "rounded",

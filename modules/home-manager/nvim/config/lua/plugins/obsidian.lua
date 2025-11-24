@@ -1,6 +1,6 @@
 return {
-	"epwalsh/obsidian.nvim",
-	enabled = false,
+	"obsidian-nvim/obsidian.nvim",
+	enabled = true,
 	version = "*", -- recommended, use latest release instead of latest commit
 	lazy = true,
 	ft = "markdown",

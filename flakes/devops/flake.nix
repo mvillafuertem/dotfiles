@@ -59,9 +59,20 @@
             mkdir -p /tmp/figlet &&\
             curl -L https://raw.githubusercontent.com/xero/figlet-fonts/master/ANSI%20Shadow.flf > /tmp/figlet/Shadow.flf
             echo -e "\033[36m$(figlet -f "/tmp/figlet/Shadow.flf" "devops")\033[0m"
+            echo "Molecule:" $(molecule --version)            
+            export OCI_USERNAME=AWS
+            export OCI_URI=097313693892.dkr.ecr.eu-west-2.amazonaws.com
+            export OCI_PASSWORD=$(aws ecr --region eu-west-2 --profile mvillafuerte_nprod get-login-password)
+            export GLOO_LICENSE="your licence"
+            export CLUSTER_NAME=nonprod
+            echo "Python:" $(python --version)            
+            echo "python-activate"
+            echo "pip install ansible-vault"
+            echo "ansible-vault view vars/qa/vault.yml"
             echo "Helm:" $(helm version)
             echo "Helmfile:" $(helmfile version)
-            echo "Molecule:" $(molecule --version)
+            echo "helmfile apply -e integration-test -l name=istio-jwt"
+
           '';
         };
       });

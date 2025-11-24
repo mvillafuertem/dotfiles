@@ -22,7 +22,7 @@ return {
       --- The below dependencies are optional,
       -- "hrsh7th/nvim-cmp",
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua",   -- for providers='copilot'
+      "zbirenbaum/copilot.lua",      -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
@@ -50,6 +50,22 @@ return {
         ft = { "markdown", "Avante" },
       },
     },
+    -- config = function()
+    --   require("avante").setup({
+    --     -- system_prompt as function ensures LLM always has latest MCP server state
+    --     -- This is evaluated for every message, even in existing chats
+    --     system_prompt = function()
+    --       local hub = require("mcphub").get_hub_instance()
+    --       return hub and hub:get_active_servers_prompt() or ""
+    --     end,
+    --     -- Using function prevents requiring mcphub before it's loaded
+    --     custom_tools = function()
+    --       return {
+    --         require("mcphub.extensions.avante").mcp_tool(),
+    --       }
+    --     end,
+    --   })
+    -- end,
   },
   -- {
   -- 	"olimorris/codecompanion.nvim",
@@ -81,21 +97,33 @@ return {
   -- 		require("codecompanion").setup(opts)
   -- 	end,
   -- },
-  {
-  	"zbirenbaum/copilot.lua",
-  	cmd = "Copilot",
-  	event = "InsertEnter",
-  	dependencies = {
-  		"zbirenbaum/copilot-cmp",
-  	},
-  	config = function()
-  		require("copilot").setup({
-  			suggestion = { enabled = false },
-  			panel = { enabled = false },
-  		})
-  		require("copilot_cmp").setup()
-  	end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   dependencies = {
+  --     "zbirenbaum/copilot-cmp",
+  --   },
+  --   config = function()
+  --     require("copilot").setup({
+  --       suggestion = { enabled = false },
+  --       panel = { enabled = false },
+  --     })
+  --     require("copilot_cmp").setup()
+  --   end,
+  -- },
+  -- {
+  --   "ravitemer/mcphub.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   build = "bundled_build.lua", -- Bundles `mcp-hub` binary along with the neovim plugin
+  --   config = function()
+  --     require("mcphub").setup({
+  --       use_bundled_binary = true, -- Use local `mcp-hub` binary
+  --     })
+  --   end,
+  -- }
   -- {
   -- 	"CopilotC-Nvim/CopilotChat.nvim",
   -- 	branch = "canary",
