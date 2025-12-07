@@ -19,6 +19,11 @@ return {
 		-- see below for full list of optional dependencies 👇
 	},
 	opts = {
-		-- see below for full list of options 👇
+		workspaces = {
+			{
+				name = "maximus",
+				path = "~/gbg/maximus",
+			},
+		},
 	},
 }
