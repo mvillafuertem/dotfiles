@@ -2,37 +2,23 @@
 # defaults read com.apple.symbolichotkeys AppleSymbolicHotKeys
 {
   system.defaults.CustomUserPreferences = {
-    NSGlobalDomain.NSUserKeyEquivalents = {
-      "Fill" = "~^\\U000D";                  # Control + Option + Enter
-      "Bottom &amp; Quarters" = "~^\\U2193"; # Control + Option + ↓
-      "Left &amp; Right" = "~^\\U2190";      # Control + Option + ←
-      "Right &amp; Left" = "~^\\U2192";      # Control + Option + →
-      "Top &amp; Quarters" = "~^\\U2191";    # Control + Option + ↑
-      "Bottom Left" = "~^i";
-      "Bottom Right" = "~^o";
-      "Top Left" = "~^u";
-      "Top Right" = "~^p";
-      "Center" = "~^c";
-      "Centre" = "~^c";
-      "Left of Screen" = "~^h";
-      "Right of Screen" = "~^l";
-    };
+    # NSGlobalDomain.NSUserKeyEquivalents = {
+    #   "Fill" = "~^\\U000D";                  # Control + Option + Enter
+    #   "Bottom &amp; Quarters" = "~^\\U2193"; # Control + Option + ↓
+    #   "Left &amp; Right" = "~^\\U2190";      # Control + Option + ←
+    #   "Right &amp; Left" = "~^\\U2192";      # Control + Option + →
+    #   "Top &amp; Quarters" = "~^\\U2191";    # Control + Option + ↑
+    #   "Bottom Left" = "~^i";
+    #   "Bottom Right" = "~^o";
+    #   "Top Left" = "~^u";
+    #   "Top Right" = "~^p";
+    #   "Center" = "~^c";
+    #   "Centre" = "~^c";
+    #   "Left of Screen" = "~^h";
+    #   "Right of Screen" = "~^l";
+    # };
     "com.apple.symbolichotkeys" = {
       AppleSymbolicHotKeys = {
-        "10" = {
-          enabled = 1;
-          value = {
-            parameters = [ 65535 96 8650752 ];
-            type = "standard";
-          };
-        };
-        "11" = {
-          enabled = 1;
-          value = {
-            parameters = [ 65535 97 8650752 ];
-            type = "standard";
-          };
-        };
         "118" = {
           enabled = 1;
           value = {
@@ -44,13 +30,6 @@
           enabled = 1;
           value = {
             parameters = [ 65535 19 262144 ];
-            type = "standard";
-          };
-        };
-        "12" = {
-          enabled = 1;
-          value = {
-            parameters = [ 65535 122 8650752 ];
             type = "standard";
           };
         };
@@ -103,205 +82,120 @@
             type = "standard";
           };
         };
-        "13" = {
+        "233" = {
           enabled = 1;
           value = {
-            parameters = [ 65535 98 8650752 ];
+            parameters = [ 109 46 1048576 ];
             type = "standard";
           };
         };
-        "15" = { enabled = 0; };
-        "16" = { enabled = 0; };
-        "163" = {
-          enabled = 1;
-          value = {
-            parameters = [ 65535 65535 0 ];
-            type = "standard";
-          };
-        };
-        "164" = {
-          enabled = 0;
-          value = {
-            parameters = [ 65535 65535 0 ];
-            type = "standard";
-          };
-        };
-        "17" = { enabled = 0; };
-        "175" = {
+        "235" = {
           enabled = 1;
           value = {
             parameters = [ 65535 65535 0 ];
             type = "standard";
           };
         };
-        "18" = { enabled = 0; };
-        "19" = { enabled = 0; };
-        "190" = {
+        "237" = {
           enabled = 1;
           value = {
-            parameters = [ 113 12 8388608 ];
+            parameters = [ 65535 36 786432 ];
             type = "standard";
           };
         };
-        "20" = { enabled = 0; };
-        "21" = {
-          enabled = 0;
-          value = {
-            parameters = [ 56 28 1835008 ];
-            type = "standard";
-          };
-        };
-        "22" = { enabled = 0; };
-        "222" = {
+        "238" = {
           enabled = 1;
           value = {
-            parameters = [ 65535 65535 0 ];
+            parameters = [ 99 8 786432 ];
             type = "standard";
           };
         };
-        "23" = { enabled = 0; };
-        "24" = { enabled = 0; };
-        "25" = {
-          enabled = 0;
-          value = {
-            parameters = [ 46 47 1835008 ];
-            type = "standard";
-          };
-        };
-        "26" = {
-          enabled = 0;
-          value = {
-            parameters = [ 44 43 1835008 ];
-            type = "standard";
-          };
-        };
-        "27" = {
+        "239" = {
           enabled = 1;
           value = {
-            parameters = [ 96 50 1048576 ];
+            parameters = [ 114 15 8650752 ];
             type = "standard";
           };
         };
-        "32" = {
+        "244" = {
           enabled = 1;
           value = {
-            parameters = [ 65535 126 8650752 ];
+            parameters = [ 117 32 786432 ];
             type = "standard";
           };
         };
-        "33" = {
+        "245" = {
           enabled = 1;
           value = {
-            parameters = [ 65535 125 8650752 ];
+            parameters = [ 112 35 786432 ];
             type = "standard";
           };
         };
-        "34" = {
+        "246" = {
           enabled = 1;
           value = {
-            parameters = [ 65535 126 8781824 ];
+            parameters = [ 105 34 786432 ];
             type = "standard";
           };
         };
-        "35" = {
+        "247" = {
           enabled = 1;
           value = {
-            parameters = [ 65535 125 8781824 ];
+            parameters = [ 111 31 786432 ];
             type = "standard";
           };
         };
-        "36" = {
+        "248" = {
           enabled = 1;
           value = {
-            parameters = [ 65535 103 8388608 ];
+            parameters = [ 65535 123 9175040 ];
             type = "standard";
           };
         };
-        "37" = {
+        "249" = {
           enabled = 1;
           value = {
-            parameters = [ 65535 103 8519680 ];
+            parameters = [ 65535 124 9175040 ];
             type = "standard";
           };
         };
-        "57" = {
+        "250" = {
           enabled = 1;
           value = {
-            parameters = [ 65535 100 8650752 ];
+            parameters = [ 65535 126 9175040 ];
             type = "standard";
           };
         };
-        "60" = {
+        "251" = {
           enabled = 1;
           value = {
-            parameters = [ 32 49 262144 ];
+            parameters = [ 65535 125 9175040 ];
             type = "standard";
           };
         };
-        "61" = {
+        "256" = {
           enabled = 1;
           value = {
-            parameters = [ 32 49 786432 ];
-            type = "standard";
-          };
-        };
-        "7" = {
-          enabled = 1;
-          value = {
-            parameters = [ 65535 120 8650752 ];
+            parameters = [ 113 12 786432 ];
             type = "standard";
           };
         };
         "79" = {
-          enabled = 1;
+          enabled = 0;
           value = {
             parameters = [ 65535 123 8650752 ];
             type = "standard";
           };
         };
-        "8" = {
-          enabled = 1;
-          value = {
-            parameters = [ 65535 99 8650752 ];
-            type = "standard";
-          };
-        };
-        "80" = {
-          enabled = 1;
-          value = {
-            parameters = [ 65535 123 8781824 ];
-            type = "standard";
-          };
-        };
         "81" = {
-          enabled = 1;
+          enabled = 0;
           value = {
             parameters = [ 65535 124 8650752 ];
             type = "standard";
           };
         };
-        "82" = {
-          enabled = 1;
-          value = {
-            parameters = [ 65535 124 8781824 ];
-            type = "standard";
-          };
-        };
-        "9" = {
-          enabled = 1;
-          value = {
-            parameters = [ 65535 118 8650752 ];
-            type = "standard";
-          };
-        };
-        "98" = {
-          enabled = 1;
-          value = {
-            parameters = [ 47 44 1179648 ];
-            type = "standard";
-          };
-        };
       };
     };
+
   };
 }
