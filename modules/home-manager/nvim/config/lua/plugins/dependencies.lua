@@ -1,4 +1,5 @@
 return {
   "mvillafuertem/dependencies.nvim",
-  config = true,
+  enabled = true,
+  opts = {},
 }
