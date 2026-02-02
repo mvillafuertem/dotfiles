@@ -20,6 +20,7 @@ in {
       eza
       nix
       nixfmt
+      nodejs
       tmux
       rustup # rustup update
     ];
