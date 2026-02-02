@@ -55,8 +55,8 @@
       users = [
         {
           user = "maximus";
-          hostname = "maximus";
-          system = "x86_64-darwin";
+          hostname = "raspberrypi";
+          system = "aarch64-linux";
         }
         {
           user = "miguel.villafuerte";
@@ -64,9 +64,9 @@
           system = "aarch64-darwin";
         }
         {
-          user = "userC";
-          hostname = "userC";
-          system = "x86_64-linux";
+          user = "maximus";
+          hostname = "maximus";
+          system = "aarch64-linux";
         }
       ];
 
@@ -93,7 +93,7 @@
           inherit (cfg) system;
           pkgs = mkPkgs cfg.system;
           specialArgs = {
-            inherit (cfg) user system; # Pasamos los valores como atributos
+            inherit (cfg) user system hostname; # Pasamos los valores como atributos
             pkgs = mkPkgs cfg.system;
           };
           modules = [ ./darwin.nix home-manager.darwinModules.home-manager ];
@@ -103,15 +103,17 @@
       mkHomeConfig = cfg: {
         name = cfg.hostname;
         value = home-manager.lib.homeManagerConfiguration {
-          inherit (cfg) system;
           pkgs = mkPkgs cfg.system;
-          specialArgs = {
+          extraSpecialArgs = {
             inherit (cfg) user system; # Pasamos los valores como atributos
-            pkgs = mkPkgs cfg.system;
           };
-          modules = [ ./home.nix ];
+          modules = [ ./system/${cfg.system}/${cfg.hostname}.nix ];
         };
       };
+
+      # Filtrar usuarios por tipo de sistema
+      darwinUsers = builtins.filter (cfg: hasSuffix "-darwin" cfg.system) users;
+      linuxUsers = builtins.filter (cfg: hasSuffix "-linux" cfg.system) users;
 
       mkDevShell = system: {
         default = devops.devShells.${system}.default;
@@ -122,8 +124,8 @@
       };
 
     in {
-      darwinConfigurations = builtins.listToAttrs (map mkDarwinConfig users);
-      homeConfigurations = builtins.listToAttrs (map mkHomeConfig users);
+      darwinConfigurations = builtins.listToAttrs (map mkDarwinConfig darwinUsers);
+      homeConfigurations = builtins.listToAttrs (map mkHomeConfig linuxUsers);
 
       # https://discourse.nixos.org/t/making-globally-available-devshells/24913/4
       # nix develop ~/.dotfiles/flake.nix#devops

@@ -1,4 +1,4 @@
-{ user, system, pkgs, ... }: {
+{ user, system, hostname, pkgs, ... }: {
   users.users.${user} = {
     home = "/Users/${user}";
     shell = pkgs.bashInteractive;
@@ -6,7 +6,8 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.${user} = (import ./home.nix { inherit user pkgs; });
+    extraSpecialArgs = { inherit user system; };
+    users.${user} = import ./system/${system}/${hostname}.nix;
   };
   nixpkgs.hostPlatform = system;
   # Auto upgrade nix package and the daemon service.
