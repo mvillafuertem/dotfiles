@@ -14,5 +14,13 @@
   fonts.fontconfig.enable = true;
 
   programs.home-manager.enable = true;
+
+  # Enable experimental features for nix commands
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+  };
 }
 
