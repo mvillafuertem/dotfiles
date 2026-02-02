@@ -19,7 +19,7 @@
           '';
         });
 
-        #sbt = pkgs.sbt.override { jre = jdk; };
+        coursier = pkgs.coursier;
         metals = pkgs.metals.override { jre = jdk; };
         # sbt = pkgs.sbt.overrideAttrs (old: rec {
         #   patchPhase = ''
@@ -37,8 +37,9 @@
             (builtins.trace "jdk: ${toString jdk}" jdk)
             (builtins.trace "sbt: ${toString sbt}" sbt)
             (builtins.trace "metals: ${toString metals}" metals)
+            (builtins.trace "coursier: ${toString pkgs.coursier}" pkgs.coursier)
             (builtins.trace "figlet: ${toString pkgs.figlet}" pkgs.figlet)
-            pkgs.gitversion
+            # pkgs.gitversion
           ];
           shellHook = ''
             [ ! -f /tmp/figlet/Shadow.flf ] &&\

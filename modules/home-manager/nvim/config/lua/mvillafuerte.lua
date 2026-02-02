@@ -4,6 +4,7 @@ vim.o.relativenumber = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.showmatch = true
+vim.opt.winborder = "rounded"
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {})
 vim.keymap.set("n", "<leader>wq", ":wq<CR>", {})
 vim.keymap.set("n", "<leader>q", ":q<CR>", {})

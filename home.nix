@@ -2,7 +2,7 @@
 { user, pkgs, ... }: {
   # This is required information for home-manager to do its job
   home = {
-    stateVersion = "24.11";
+    stateVersion = "25.05";
     username = "${user}";
     homeDirectory = "/Users/${user}";
     # sessionPath = [ "${pkgs.git}/bin/aws_completer" ];
@@ -11,7 +11,7 @@
       awscli2
       # aerospace
       # nmap https://github.com/NixOS/nixpkgs/issues/333530#issuecomment-2325269416
-      ssm-session-manager-plugin
+      # ssm-session-manager-plugin
       # bash-completion
       # coursier
       # go
@@ -24,7 +24,7 @@
       jq
       kubectl
       nix
-      nixfmt-classic
+      nixfmt
       nodejs
       tmux
       openfortivpn
@@ -35,6 +35,7 @@
       skim
       nerd-fonts.hack
       nerd-fonts.jetbrains-mono
+      wireguard-tools
       # (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
       # google-chrome https://github.com/NixOS/nixpkgs/pull/162467
     ];

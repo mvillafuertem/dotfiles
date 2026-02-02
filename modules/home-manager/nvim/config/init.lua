@@ -10,6 +10,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+vim.g.loaded_zipPlugin = 1
 
 require("mvillafuerte")
 require("lazy").setup({
@@ -30,14 +31,14 @@ require("lazy").setup({
   performance = {
     rtp = {
       disabled_plugins = {
-        "gzip",
+        -- "gzip",
         "matchit",
         "matchparen",
         "netrwPlugin",
-        "tarPlugin",
+        -- "tarPlugin",
         "tohtml",
         "tutor",
-        "zipPlugin",
+        -- "zipPlugin",
       },
     },
   },

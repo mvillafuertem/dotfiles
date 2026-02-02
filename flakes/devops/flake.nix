@@ -20,8 +20,8 @@
     devShells = nixpkgs.lib.genAttrs (import systems) (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        terraform = nixpkgs-terraform.packages.${system}."1.9.5";
-        python = nixpkgs-python.packages.${system}."3.10.15";
+        terraform = nixpkgs-terraform.packages.${system}."terraform-1.9.5";
+        # python = nixpkgs-python.packages.${system}."3.11";
         # https://github.com/NixOS/nixpkgs/issues/217768#issuecomment-1672145841
         myhelm = with pkgs;
           wrapHelm kubernetes-helm {
@@ -40,17 +40,17 @@
             terraform
             pkgs.figlet
             pkgs.git
-            python
+            # python
             pkgs.pyenv
             pkgs.crossplane
             #(pkgs.python3.withPackages (packages:
-            (python.withPackages (packages:
-              with packages; [
-                virtualenv
-                pip
-                setuptools
-                wheel
-              ]))
+            # (python.withPackages (packages:
+            #   with packages; [
+            #     virtualenv
+            #     pip
+            #     setuptools
+            #     wheel
+            #   ]))
           ];
           nativeBuildInputs = [ myhelm myhelmfile ];
 

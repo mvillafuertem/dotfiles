@@ -1,7 +1,12 @@
 local wezterm = require("wezterm")
+local tmux_startup = require 'tmux_startup'
 
 return {
-	default_prog = { "/etc/profiles/per-user/miguel.villafuerte/bin/bash", "-l", "-c", "tmux new-session -A -s main" },
+	-- default_prog = { "/etc/profiles/per-user/miguel.villafuerte/bin/bash", "-l", "-c", "tmux new-session -A -s main" },
+	-- Menú de lanzamiento para servidores remotos
+	-- launch_menu = remote_servers.create_launch_menu(),
+	-- Pestaña local automática al iniciar
+	wezterm.on("gui-startup", tmux_startup.create_local_tab), -- Menú de lanzamiento para servidores remotos
 	automatically_reload_config = true,
 	hide_tab_bar_if_only_one_tab = true,
 	window_close_confirmation = "NeverPrompt",
@@ -106,7 +111,12 @@ return {
 			mods = "CMD",
 			action = wezterm.action.IncreaseFontSize,
 		},
-    -- https://alexplescan.com/posts/2024/08/10/wezterm/
+		-- {
+		-- 	key = "s",
+		-- 	mods = "CMD|SHIFT",
+		-- 	action = wezterm.action.ShowLauncherArgs({ flags = "LAUNCH_MENU_ITEMS" }),
+		-- },
+		-- https://alexplescan.com/posts/2024/08/10/wezterm/
 		-- {
 		-- 	key = "p",
 		-- 	mods = "CMD",

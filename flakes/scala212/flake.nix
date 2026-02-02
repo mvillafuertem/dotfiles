@@ -23,12 +23,12 @@
           '';
         });
 
-        sbt = pkgs.sbt.override { jre = jdk; };
-        # sbt = pkgs.sbt.overrideAttrs (old: rec {
-        #   patchPhase = ''
-        #     echo -java-home ${jdk} >> conf/sbtopts
-        #   '';
-        # });
+        # sbt = pkgs.sbt.override { jre = jdk; };
+        sbt = pkgs.sbt.overrideAttrs (old: rec {
+          patchPhase = ''
+            echo -java-home ${jdk} >> conf/sbtopts
+          '';
+        });
 
         investigateCert = pkgs.writeText "investigate-ca.pem" ''
           -----BEGIN CERTIFICATE-----
