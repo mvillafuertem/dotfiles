@@ -4,7 +4,7 @@
         owner = "eza-community";
         repo = "eza-themes";
         rev = "main";
-        sha256 = "2WTbCQlhwMo5cOn3KwtNiIst0tNfASfZnPNsNBs+gcU=";
+        sha256 = "WcwzKm2mi/tyA+zZCpyvTdrOrZ1R1ENA3t622SGzFas=";
       }
     }/themes/catppuccin.yml";
 }
