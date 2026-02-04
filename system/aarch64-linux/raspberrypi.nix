@@ -16,6 +16,7 @@ in {
   home = {
     homeDirectory = "/home/${user}";
     packages = with pkgs; [
+      docker
       ollama
       eza
       nix
