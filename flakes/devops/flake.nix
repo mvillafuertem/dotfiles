@@ -43,6 +43,7 @@
             # python
             pkgs.pyenv
             pkgs.crossplane
+            pkgs.istioctl
             #(pkgs.python3.withPackages (packages:
             # (python.withPackages (packages:
             #   with packages; [

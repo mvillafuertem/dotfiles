@@ -3,6 +3,9 @@
 
   inputs = {
 
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/5633bcff0c6162b9e4b5f1264264611e950c8ec7";
+    };
     systems = { url = "github:nix-systems/default"; };
 
   };
@@ -11,7 +14,7 @@
     devShells = nixpkgs.lib.genAttrs (import systems) (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        metals212 = pkgs.metals;
+        metals212 = nixpkgs.legacyPackages.${system}.metals;
         # metals212 = import ./metals212.nix {
         #   inherit (pkgs) stdenv lib coursier makeWrapper setJavaClassPath;
         #   jre = pkgs.openjdk11;

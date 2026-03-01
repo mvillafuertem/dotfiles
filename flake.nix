@@ -28,7 +28,7 @@
     };
     scala212 = {
       url = "./flakes/scala212";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     rust = {
       url = "./flakes/rust";
