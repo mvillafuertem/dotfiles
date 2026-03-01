@@ -7,7 +7,7 @@ let
     "eza"
     "git"
     "k9s"
-    "karabiner"  # Darwin-only
+    # "karabiner"  # Darwin-only
     "nvim"
     "starship"
     "tmux"

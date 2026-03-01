@@ -14,7 +14,7 @@
   # services.nix-daemon.enable = false;
   nix.enable = false;
   # https://github.com/LnL7/nix-darwin/issues/1041
-  services.karabiner-elements.enable = true;
+  services.karabiner-elements.enable = false;
   system.stateVersion = 5;
   system.primaryUser = "${user}";
   system.defaults = {
