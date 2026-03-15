@@ -80,6 +80,6 @@ return {
     })
 
     -- https://www.reddit.com/r/neovim/comments/111xoy0/how_do_i_match_hover_lsp_ui_like_nvimcmp/?chainedPosts=t3_128s4pz
-    vim.cmd(":set winhighlight=" .. cmp.config.window.bordered().winhighlight)
+    -- vim.cmd(":set winhighlight=" .. cmp.config.window.bordered().winhighlight)
   end,
 }

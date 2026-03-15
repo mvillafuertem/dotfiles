@@ -1,3 +1,10 @@
+# Disable WezTerm shell integration only when inside Neovim to prevent OSC 1337 sequences
+# from appearing as text in the :terminal inside tmux
+# https://github.com/wez/wezterm/issues/3794
+if [ -n "$NVIM" ]; then
+  export WEZTERM_SHELL_SKIP_ALL=1
+fi
+
 source ~/.bash_villafuerte
 source ~/.bash_aliases
 
