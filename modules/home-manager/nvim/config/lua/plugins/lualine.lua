@@ -4,7 +4,7 @@ return {
 	opts = {
 		extensions = { "quickfix" },
 		options = {
-			theme = "catppuccin",
+			theme = "catppuccin-nvim",
 			globalstatus = true,
 			component_separators = "",
 			section_separators = { left = "", right = "" },
