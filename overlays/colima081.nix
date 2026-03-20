@@ -19,3 +19,4 @@
 #     vendorHash = "sha256-rqCPpO/Va31U++sfELcN1X6oDtDiCXoGj0RHKZUM6rY=";
 #   });
 # }
+self: super :{}
