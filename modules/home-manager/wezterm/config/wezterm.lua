@@ -34,6 +34,9 @@ return {
 	},
 	-- https://github.com/wez/wezterm/issues/3866
 	send_composed_key_when_left_alt_is_pressed = true,
+  send_composed_key_when_right_alt_is_pressed = false,
+  -- https://github.com/wezterm/wezterm/discussions/6193
+  -- use_dead_keys = false,
 	keys = {
 		-- we have to disable this key binding because we are using them in tmux
 		-- https://wezfurlong.org/wezterm/config/default-keys.html
