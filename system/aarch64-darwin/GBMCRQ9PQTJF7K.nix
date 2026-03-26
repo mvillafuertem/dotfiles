@@ -41,6 +41,8 @@ in {
       nixfmt
       nodejs
       tmux
+      opencode
+      github-copilot-cli
       openfortivpn
       pam-reattach
       rustup # rustup update
