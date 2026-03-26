@@ -52,6 +52,34 @@ return {
 			lualine_c = { "filename" },
 			lualine_x = {
 				{
+					function()
+						local ok, kulala = pcall(require, "kulala")
+						if not ok then
+							return ""
+						end
+
+						local env = kulala.get_selected_env()
+						if env and env ~= "" then
+							return "󰈙 " .. env -- Icono de .env de Nerd Fonts
+						end
+						return ""
+					end,
+					cond = function()
+						return vim.bo.filetype == "http" or vim.bo.filetype == "rest"
+					end,
+					color = { fg = "#98c379", gui = "bold" },
+				},
+				{
+					function()
+						local symbols = { enabled = " ", disabled = " " }
+						local ok, copilot = pcall(require, "copilot.client")
+						if not ok then
+							return " "
+						end
+						return copilot.get() and symbols.enabled or symbols.disabled
+					end,
+				},
+				{
 					require("lazy.status").updates,
 					cond = require("lazy.status").has_updates,
 					color = { fg = "#ff9e64" },
