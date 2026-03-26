@@ -83,7 +83,7 @@
           inherit system overlays;
           config = {
             allowUnfreePredicate = pkg:
-              elem (getName pkg) [ ]; # [ "google-chrome" "obsidian" ];
+              elem (getName pkg) [ "github-copilot-cli" ]; # [ "google-chrome" "obsidian" ];
           };
         };
 
