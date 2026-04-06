@@ -12,7 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.g.loaded_zipPlugin = 1
 
-require("mvillafuerte")
+require("mvillafuerte.options")
+require("mvillafuerte.keymaps")
 -- require("winbar")
 -- require("statusline")
 require("lazy").setup({

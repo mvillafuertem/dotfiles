@@ -24,14 +24,14 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 
-vim.opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
-}
+-- vim.opt.fillchars = {
+--   foldopen = "",
+--   foldclose = "",
+--   fold = " ",
+--   foldsep = " ",
+--   diff = "╱",
+--   eob = " "
+-- }
 
 
 local prefix = vim.env.XDG_CONFIG_HOME or vim.fn.expand("~/.config")
