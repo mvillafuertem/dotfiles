@@ -13,6 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.loaded_zipPlugin = 1
 
 require("mvillafuerte")
+-- require("winbar")
+-- require("statusline")
 require("lazy").setup({
   spec = {
     { import = "plugins" },
@@ -31,14 +33,14 @@ require("lazy").setup({
   performance = {
     rtp = {
       disabled_plugins = {
-        -- "gzip",
+        "gzip",
         "matchit",
         "matchparen",
         "netrwPlugin",
-        -- "tarPlugin",
+        "tarPlugin",
         "tohtml",
         "tutor",
-        -- "zipPlugin",
+        "zipPlugin",
       },
     },
   },
