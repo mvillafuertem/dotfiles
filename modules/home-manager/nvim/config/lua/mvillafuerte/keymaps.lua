@@ -1,12 +1,3 @@
-vim.g.mapleader = " "
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.cursorline = true
-vim.o.cursorlineopt = "both"
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.showmatch = true
-vim.opt.winborder = "rounded"
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {})
 vim.keymap.set("n", "<leader>wq", ":wq<CR>", {})
 vim.keymap.set("n", "<leader>q", ":q<CR>", {})
@@ -18,12 +9,6 @@ vim.keymap.set("n", "<Leader>cd", "<cmd>let @+=getcwd()<CR>", { desc = "copy cur
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>", {})
 -- vim.keymap.set("n", "<leader>t", ":botright :terminal<CR>i", {})
 vim.keymap.set("n", "<leader>t", ":sp<CR><C-w>J10<C-w>_:terminal<CR>i", {})
--- vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
-vim.o.expandtab = true
-vim.o.smarttab = true
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
-vim.o.conceallevel = 1
 
 -- vim.keymap.set("n", "ª", ":m .+1<CR>==", { desc = "to move a line down" })
 -- vim.keymap.set("i", "ª", ":m .+1<CR>==gi", { desc = "to move a line down" })
@@ -74,9 +59,12 @@ vim.keymap.set("n", "<leader>fz", function()
   vim.cmd([[normal zfaf]])
 end, { desc = "Fold the function" })
 
+-- Close all fold except the current one.
+vim.keymap.set("n", "zv", "zMzvzz", {
+  desc = "Close all folds except the current one",
+})
 
-local prefix = vim.env.XDG_CONFIG_HOME or vim.fn.expand("~/.config")
-vim.opt.undodir = { prefix .. "/nvim/.undo//"}
-vim.opt.undofile = true
-vim.opt.backupdir = {prefix .. "/nvim/.backup//"}
-vim.opt.directory = { prefix .. "/nvim/.swp//"}
+-- Close current fold when open. Always open next fold.
+vim.keymap.set("n", "zj", "zcjzOzz", {
+  desc = "Close current fold when open. Always open next fold.",
+})
