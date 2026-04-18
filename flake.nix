@@ -54,7 +54,7 @@
 
       users = [
         {
-          user = "maximus";
+          user = "maximusmaria";
           hostname = "raspberrypi";
           system = "aarch64-linux";
         }
