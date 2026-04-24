@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 start_colima() {
-  local CERTS="${HOME}/.ca-certificates"
-  local URL="gitlab.inv.gbgplc.com:5001"
-  mkdir -p ${CERTS}
-  openssl s_client -showcerts -connect ${URL} </dev/null 2>/dev/null|openssl x509 -outform PEM >${CERTS}/docker-com.pem
-  openssl s_client -showcerts -verify 5 -connect ${URL} </dev/null 2>/dev/null | sed -ne '/-BEGIN/,/-END/p' >${CERTS}/docker-com-chain.pem
-  colima start --vz-rosetta --vm-type vz --arch x86_64 --network-address
+  # local CERTS="${HOME}/.ca-certificates"
+  # local URL="gitlab.inv.gbgplc.com:5001"
+  # mkdir -p ${CERTS}
+  # openssl s_client -showcerts -connect ${URL} </dev/null 2>/dev/null|openssl x509 -outform PEM >${CERTS}/docker-com.pem
+  # openssl s_client -showcerts -verify 5 -connect ${URL} </dev/null 2>/dev/null | sed -ne '/-BEGIN/,/-END/p' >${CERTS}/docker-com-chain.pem
+  colima start --vz-rosetta --vm-type vz --arch x86_64 --cpu 4 --memory 6 --network-address
   
-  colima ssh -- sudo cp ${CERTS}/* /usr/local/share/ca-certificates/
-  colima ssh -- sudo update-ca-certificates
-  colima ssh -- sudo service docker restart
+  # colima ssh -- sudo cp ${CERTS}/* /usr/local/share/ca-certificates/
+  # colima ssh -- sudo update-ca-certificates
+  # colima ssh -- sudo service docker restart
 }
 alias ll='ls -lah'
 alias ls='eza --icons --color --group-directories-first'
