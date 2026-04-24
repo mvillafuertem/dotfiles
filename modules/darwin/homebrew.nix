@@ -1,19 +1,55 @@
-{...}: {
+{ ... }:
+{
   homebrew = {
     enable = true;
-    brews = [];
+    enableBashIntegration = true;
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+    };
+    global.autoUpdate = true;
+    caskArgs.no_quarantine = true;
+    brews = [ ];
     casks = [
-      "blackhole-16ch"
+      {
+        name = "blackhole-16ch";
+        greedy = true;
+      }
       # "brave-browser"
-      "jdownloader"
-      "jetbrains-toolbox"
-      "obsidian"
-      "spotify"
+      {
+        name = "jdownloader";
+        greedy = true;
+      }
+      {
+        name = "jetbrains-toolbox";
+        greedy = true;
+      }
+      {
+        name = "obsidian";
+        greedy = true;
+      }
+      {
+        name = "spotify";
+        greedy = true;
+      }
       # "docker"
-      "google-chrome"
-      "postman"
-      "wezterm"
+      {
+        name = "google-chrome";
+        greedy = true;
+      }
+      {
+        name = "postman";
+        greedy = true;
+      }
+      {
+        name = "wezterm";
+        greedy = true;
+      }
+      {
+        name = "vnc-viewer";
+        greedy = true;
+      }
     ];
   };
-  
+
 }
