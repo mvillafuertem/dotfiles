@@ -6,20 +6,24 @@
     onActivation = {
       autoUpdate = true;
       upgrade = true;
+      cleanup = "zap";
     };
     global.autoUpdate = true;
     caskArgs.no_quarantine = true;
-    brews = [ ];
+    brews = [
+      "tree-sitter"
+      "tree-sitter-cli"
+    ];
     casks = [
       {
         name = "blackhole-16ch";
         greedy = true;
       }
       # "brave-browser"
-      {
-        name = "jdownloader";
-        greedy = true;
-      }
+      # {
+      #   name = "jdownloader";
+      #   greedy = true;
+      # }
       {
         name = "jetbrains-toolbox";
         greedy = true;
