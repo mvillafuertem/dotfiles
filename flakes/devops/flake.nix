@@ -72,7 +72,9 @@
             echo "ansible-vault view vars/qa/vault.yml"
             echo "Helm:" $(helm version)
             echo "Helmfile:" $(helmfile version)
-            echo "helmfile apply -e integration-test -l name=istio-jwt"
+            echo "helmfile diff -e integration-test -l name=istio-jwt"
+            echo "export AWS_PROFILE=fabric-nonprod-187826813924"
+            echo "helmfile diff -e fabric-inv-app-nonprod -n inv-app -l name=inv-fabric-k8s"
 
           '';
         };
