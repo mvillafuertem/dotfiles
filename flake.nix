@@ -82,8 +82,7 @@
         import nixpkgs {
           inherit system overlays;
           config = {
-            allowUnfreePredicate = pkg:
-              elem (getName pkg) [ "github-copilot-cli" ]; # [ "google-chrome" "obsidian" ];
+            allowUnfreePredicate = pkg: elem (getName pkg) [ "github-copilot-cli" "claude-code" ]; # [ "google-chrome" "obsidian" ];
           };
         };
 

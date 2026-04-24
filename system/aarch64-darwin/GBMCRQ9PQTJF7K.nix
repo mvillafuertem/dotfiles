@@ -31,6 +31,7 @@ in {
       # go
       colima
       docker
+      claude-code
       docker-buildx
       docker-credential-helpers
       eza
