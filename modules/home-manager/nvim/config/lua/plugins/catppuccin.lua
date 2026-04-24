@@ -13,11 +13,11 @@ return {
 			integrations = {
 				which_key = true,
 			},
-			custom_highlights = function(colors)
-				return {
-					WinSeparator = { fg = colors.blue },
-				}
-			end,
+			-- custom_highlights = function(colors)
+			-- 	return {
+			-- 		WinSeparator = { fg = colors.blue },
+			-- 	}
+			-- end,
 		})
 		vim.cmd.colorscheme("catppuccin-nvim")
 	end,
