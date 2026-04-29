@@ -9,7 +9,6 @@
       cleanup = "zap";
     };
     global.autoUpdate = true;
-    caskArgs.no_quarantine = true;
     brews = [
       "tree-sitter"
       "tree-sitter-cli"
@@ -20,6 +19,10 @@
         greedy = true;
       }
       # "brave-browser"
+      {
+        name = "claude";
+        greedy = true;
+      }
       # {
       #   name = "jdownloader";
       #   greedy = true;
