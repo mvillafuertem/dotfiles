@@ -35,6 +35,7 @@ in {
       docker-buildx
       docker-credential-helpers
       eza
+      gh
       git-lfs
       jq
       kubectl
