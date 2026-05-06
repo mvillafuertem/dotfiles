@@ -10,6 +10,8 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    withRuby = false;
+    withPython3 = false;
     #extraConfig = builtins.readFile "${config.home.homeDirectory}/.dotfiles/vimrc";
     # package = pkgs.neovim-nightly;
     extraPackages = with pkgs; [ ];

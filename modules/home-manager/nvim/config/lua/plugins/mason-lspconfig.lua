@@ -201,13 +201,17 @@ return {
 			})
 			-- vim.lsp.config("rust_analyzer", {})
 			-- https://github.com/Alexis12119/nvim-config/blob/main/lua/plugins/lsp/init.lua#L52C1-L58C7
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				border = "rounded",
-			})
+			vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+				config = config or {}
+				config.border = "rounded"
+				vim.lsp.handlers.hover(err, result, ctx, config)
+			end
 
-			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-				border = "rounded",
-			})
+			vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
+				config = config or {}
+				config.border = "rounded"
+				vim.lsp.handlers.signature_help(err, result, ctx, config)
+			end
 		end,
 	},
 }
