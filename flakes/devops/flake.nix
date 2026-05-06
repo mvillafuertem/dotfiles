@@ -40,6 +40,7 @@
             terraform
             pkgs.figlet
             pkgs.git
+            pkgs.argo-workflows
             # python
             pkgs.pyenv
             pkgs.crossplane
