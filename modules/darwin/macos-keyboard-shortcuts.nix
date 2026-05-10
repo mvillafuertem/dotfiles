@@ -1,22 +1,55 @@
 # https://github.com/ConstantinCezarBegu/nix/blob/master/module/darwin/macos-keyboard-shortcuts-configuration.nix
 # defaults read com.apple.symbolichotkeys AppleSymbolicHotKeys
+{ lib, ... }:
 {
+  # Forzar a macOS a recargar symbolichotkeys tras cada rebuild.
+  # Sin esto los cambios se escriben al plist pero no surten efecto
+  # hasta cerrar y abrir sesión.
+  # mkAfter para componerlo con otros postActivation (ver darwin.nix).
+  system.activationScripts.postActivation.text = lib.mkAfter ''
+    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u || true
+  '';
+
   system.defaults.CustomUserPreferences = {
-    # NSGlobalDomain.NSUserKeyEquivalents = {
-    #   "Fill" = "~^\\U000D";                  # Control + Option + Enter
-    #   "Bottom &amp; Quarters" = "~^\\U2193"; # Control + Option + ↓
-    #   "Left &amp; Right" = "~^\\U2190";      # Control + Option + ←
-    #   "Right &amp; Left" = "~^\\U2192";      # Control + Option + →
-    #   "Top &amp; Quarters" = "~^\\U2191";    # Control + Option + ↑
-    #   "Bottom Left" = "~^i";
-    #   "Bottom Right" = "~^o";
-    #   "Top Left" = "~^u";
-    #   "Top Right" = "~^p";
-    #   "Center" = "~^c";
-    #   "Centre" = "~^c";
-    #   "Left of Screen" = "~^h";
-    #   "Right of Screen" = "~^l";
-    # };
+    # Atajos por nombre de menú (Ventana → Trasladar y redimensionar /
+    # Window → Move & Resize). Sequoia/Tahoe exponen Window Tiling como
+    # ítems de menú, así que la vía correcta es NSUserKeyEquivalents
+    # (no symbolichotkeys). Como NSUserKeyEquivalents matchea por texto
+    # exacto del menú, incluimos las claves en español Y en inglés para
+    # que el mismo módulo funcione en ambos hosts (las que no matchean
+    # se ignoran sin error).
+    # Nombres oficiales:
+    # https://support.apple.com/es-es/guide/mac-help/mchl9674d0b0/mac
+    # https://support.apple.com/guide/mac-help/mchl9674d0b0/mac (en)
+    # Sintaxis: @ = Cmd, ^ = Ctrl, ~ = Option, $ = Shift
+    NSGlobalDomain.NSUserKeyEquivalents = {
+      # --- Español ---
+      # Esquinas (Ctrl+Opt+U/I/O/P)
+      "Parte superior izquierda" = "~^u";
+      "Parte superior derecha"   = "~^p";
+      "Parte inferior izquierda" = "~^i";
+      "Parte inferior derecha"   = "~^o";
+      "Centro"             = "~^c";
+      "Rellenar"           = "~^\r"; # Ctrl+Opt+Enter
+      "Izquierda y derecha" = "~^←";
+      "Derecha e izquierda" = "~^→";
+      "Superior e inferior" = "~^↑";
+      "Inferior y superior" = "~^↓";
+
+      # --- English ---
+      "Top Left"     = "~^u";
+      "Top Right"    = "~^p";
+      "Bottom Left"  = "~^i";
+      "Bottom Right" = "~^o";
+      "Center"       = "~^c";
+      "Centre"       = "~^c"; # variante en-GB
+      "Fill"         = "~^\r";
+      "Left & Right" = "~^←";
+      "Right & Left" = "~^→";
+      "Top & Bottom" = "~^↑";
+      "Bottom & Top" = "~^↓";
+    };
+
     "com.apple.symbolichotkeys" = {
       AppleSymbolicHotKeys = {
         "118" = {
@@ -118,28 +151,28 @@
           };
         };
         "244" = {
-          enabled = 1;
+          enabled = 0;
           value = {
             parameters = [ 117 32 786432 ];
             type = "standard";
           };
         };
         "245" = {
-          enabled = 1;
+          enabled = 0;
           value = {
             parameters = [ 112 35 786432 ];
             type = "standard";
           };
         };
         "246" = {
-          enabled = 1;
+          enabled = 0;
           value = {
             parameters = [ 105 34 786432 ];
             type = "standard";
           };
         };
         "247" = {
-          enabled = 1;
+          enabled = 0;
           value = {
             parameters = [ 111 31 786432 ];
             type = "standard";
@@ -181,16 +214,16 @@
           };
         };
         "79" = {
-          enabled = 0;
+          enabled = 1;
           value = {
-            parameters = [ 65535 123 8650752 ];
+            parameters = [ 65535 123 262144 ];
             type = "standard";
           };
         };
         "81" = {
-          enabled = 0;
+          enabled = 1;
           value = {
-            parameters = [ 65535 124 8650752 ];
+            parameters = [ 65535 124 262144 ];
             type = "standard";
           };
         };
