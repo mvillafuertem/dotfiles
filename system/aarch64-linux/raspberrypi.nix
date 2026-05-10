@@ -17,7 +17,8 @@ in {
     homeDirectory = "/home/${user}";
     packages = with pkgs; [
      # docker
-      ollama
+      opencode
+      nmap
       eza
       nix
       nixfmt
