@@ -3,16 +3,37 @@
     home = "/Users/${user}";
     shell = pkgs.bashInteractive;
   };
+  # Registra el bash de Nix en /etc/shells para que macOS lo acepte como
+  # shell de login.
+  environment.shells = [ pkgs.bashInteractive ];
+
+  # Cambiar el shell de login del usuario al bash de Nix.
+  # nix-darwin solo gestiona el UserShell para usuarios declarados en
+  # `users.knownUsers` (que requiere uid/gid hardcoded). Para evitar eso,
+  # lo aplicamos vía dscl en cada switch. Idempotente.
+  system.activationScripts.postActivation.text = ''
+    desired="/run/current-system/sw/bin/bash"
+    current=$(/usr/bin/dscl . -read /Users/${user} UserShell 2>/dev/null | awk '{print $2}')
+    if [ "$current" != "$desired" ]; then
+      echo "Setting login shell for ${user} to $desired (was $current)"
+      /usr/bin/dscl . -create /Users/${user} UserShell "$desired"
+    fi
+  '';
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit user system; };
-    users.${user} = import ./system/${system}/${hostname}.nix;
+    # Nota: la config home-manager por host vive dentro de
+    # ./system/${system}/${hostname}.nix bajo `home-manager.users.${user}`
   };
   nixpkgs.hostPlatform = system;
-  # Auto upgrade nix package and the daemon service.
-  # services.nix-daemon.enable = false;
-  nix.enable = false;
+  nix.enable = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.gc = {
+    automatic = true;
+    interval.Day = 7;
+    options = "--delete-older-than 30d";
+  };
   # https://github.com/LnL7/nix-darwin/issues/1041
   services.karabiner-elements.enable = false;
   system.stateVersion = 5;
@@ -26,19 +47,13 @@
       tilesize = 36;
       orientation = "bottom";
     };
-    # https://github.com/mirkolenz/nixos/blob/main/system/darwin/settings.nix
   };
   security.pam.services.sudo_local = {
     touchIdAuth = true;
     reattach = true;
   };
-  # https://write.rog.gr/writing/using-touchid-with-tmux/
-  # environment = {
-  #   etc."pam.d/sudo_local".text = ''
-  #     # Managed by Nix Darwin
-  #     auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
-  #     auth       sufficient     pam_tid.so
-  #   '';
-  # };
-  imports = [ ./modules/darwin ];
+  imports = [
+    ./modules/darwin
+    ./system/${system}/${hostname}.nix
+  ];
 }

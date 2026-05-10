@@ -9,54 +9,16 @@
       cleanup = "zap";
     };
     global.autoUpdate = true;
+
+    # Paquetes comunes a TODOS los hosts darwin.
+    # Para paquetes específicos por host, ver: modules/darwin/hosts/<hostname>.nix
     brews = [
       "tree-sitter"
       "tree-sitter-cli"
     ];
     casks = [
-      {
-        name = "blackhole-16ch";
-        greedy = true;
-      }
-      # "brave-browser"
-      {
-        name = "claude";
-        greedy = true;
-      }
-      # {
-      #   name = "jdownloader";
-      #   greedy = true;
-      # }
-      {
-        name = "jetbrains-toolbox";
-        greedy = true;
-      }
-      {
-        name = "obsidian";
-        greedy = true;
-      }
-      {
-        name = "spotify";
-        greedy = true;
-      }
-      # "docker"
-      {
-        name = "google-chrome";
-        greedy = true;
-      }
-      {
-        name = "postman";
-        greedy = true;
-      }
-      {
-        name = "wezterm";
-        greedy = true;
-      }
-      {
-        name = "vnc-viewer";
-        greedy = true;
-      }
+      { name = "wezterm"; greedy = true; }
+      { name = "google-chrome"; greedy = true; }
     ];
   };
-
 }

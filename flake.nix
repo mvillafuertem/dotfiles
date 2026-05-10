@@ -64,6 +64,11 @@
           system = "aarch64-darwin";
         }
         {
+          user = "karen";
+          hostname = "macbookair";
+          system = "aarch64-darwin";
+        }
+        {
           user = "maximus";
           hostname = "maximus";
           system = "aarch64-linux";

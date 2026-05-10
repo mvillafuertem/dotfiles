@@ -1,5 +1,5 @@
 # Common configuration shared across all systems
-{ user, pkgs, ... }: {
+{ user, pkgs, lib, ... }: {
   home = {
     stateVersion = "25.05";
     username = "${user}";
@@ -15,11 +15,13 @@
 
   programs.home-manager.enable = true;
 
-  # Enable experimental features for nix commands
+  # Enable experimental features for nix commands.
+  # Usamos mkDefault para que en darwin (donde nix-darwin gestiona `nix`
+  # a nivel sistema y lo inyecta también en home-manager) no haya conflicto.
   nix = {
-    package = pkgs.nix;
+    package = lib.mkDefault pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = lib.mkDefault [ "nix-command" "flakes" ];
     };
   };
 }

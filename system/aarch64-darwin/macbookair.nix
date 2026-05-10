@@ -2,10 +2,10 @@
 let
   hmModules = map (m: ../../modules/home-manager/${m}) [
     "bash"
-    "direnv"
+    # "direnv"
     "eza"
     "git"
-    "k9s"
+    # "k9s"
     "nvim"
     "starship"
     "tmux"
@@ -13,14 +13,24 @@ let
   ];
 in {
   ##############################################################
+  # Identidad de red de este host
+  ##############################################################
+  networking = {
+    hostName = "macbookair";       # `hostname` (uso interno)
+    computerName = "macbookair";   # nombre amigable (Ajustes → Acerca de)
+    localHostName = "macbookair";  # nombre Bonjour: macbookair.local
+  };
+
+  ##############################################################
   # Configuración a nivel darwin (homebrew, servicios, etc.)
   ##############################################################
   homebrew = {
     brews = [
+      # brews específicos de este host
     ];
     casks = [
-      { name = "jetbrains-toolbox"; greedy = true; }
-      { name = "postman"; greedy = true; }
+      { name = "spotify"; greedy = true; }
+      { name = "vnc-viewer"; greedy = true; }
     ];
   };
 
@@ -33,29 +43,12 @@ in {
     home = {
       homeDirectory = "/Users/${user}";
       packages = with pkgs; [
-        awscli2
-        colima
-        docker
-        claude-code
-        docker-buildx
-        docker-credential-helpers
         eza
-        gh
-        git-lfs
-        jq
-        kubectl
         nix
         nixfmt
-        nodejs
         tmux
         opencode
-        github-copilot-cli
-        openfortivpn
         pam-reattach
-        rustup
-        saml2aws
-        scalafmt
-        skim
         nerd-fonts.hack
         nerd-fonts.jetbrains-mono
         wireguard-tools
