@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
   home.file.".inputrc" = { source = ./config/inputrc; };
   xdg.configFile.bash = {
     source = ./config;
@@ -12,6 +12,33 @@
     enable = true;
     shellOptions = [ ];
     enableCompletion = true;
+    # Workaround for upstream nix bug: https://github.com/NixOS/nix/issues/13255
+    # Fix in flight: https://github.com/NixOS/nix/pull/15005 (makes
+    # nix-daemon.sh idempotent). When that lands in a nix release, this whole
+    # profileExtra block can be removed.
+    #
+    # On non-NixOS Linux (Debian/Ubuntu), tmux launches bash as a login shell,
+    # which re-runs /etc/profile -> resets PATH -> tries to source nix.sh ->
+    # nix-daemon.sh early-returns because $__ETC_PROFILE_NIX_SOURCED is
+    # inherited from the parent. Net effect: PATH inside tmux loses every
+    # nix bin dir and `nix`, `home-manager`, etc. are "command not found".
+    #
+    # Fix: if the guard is set but nix isn't actually on PATH, unset the guard
+    # and re-source. No-op in the healthy case, so safe to leave.
+    #
+    # Not applied on Darwin: nix-darwin manages /etc/bashrc itself and may
+    # extend NIX_PROFILES with system-level entries we'd clobber by re-running
+    # the (currently non-idempotent) nix-daemon.sh.
+    profileExtra = lib.optionalString pkgs.stdenv.isLinux ''
+      if [ -n "''${__ETC_PROFILE_NIX_SOURCED:-}" ] && ! command -v nix >/dev/null 2>&1; then
+        unset __ETC_PROFILE_NIX_SOURCED
+        if [ -e /etc/profile.d/nix.sh ]; then
+          . /etc/profile.d/nix.sh
+        elif [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+        fi
+      fi
+    '';
     bashrcExtra = ''
       export BASH_SILENCE_DEPRECATION_WARNING=1
       [[ -r "${pkgs.git}/share/git/contrib/completion/git-completion.bash" ]] && . "${pkgs.git}/share/git/contrib/completion/git-completion.bash"
