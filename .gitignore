@@ -1,0 +1,37 @@
+# Nix
+result
+result-*
+.direnv/
+.envrc.local
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Secretos / credenciales
+.env
+.env.*
+!.env.*.example
+secrets/
+*.pem
+*.key
+*.pfx
+*.p12
+id_rsa*
+id_ed25519*
+id_ecdsa*
+*.gpg
+*.asc
+
+# Cloud configs
+.aws/
+.kube/config
+.ssh/
+
+# Editor
+*.swp
+*.swo
+.vscode/
+.idea/

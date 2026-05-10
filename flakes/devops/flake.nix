@@ -61,21 +61,28 @@
             mkdir -p /tmp/figlet &&\
             curl -L https://raw.githubusercontent.com/xero/figlet-fonts/master/ANSI%20Shadow.flf > /tmp/figlet/Shadow.flf
             echo -e "\033[36m$(figlet -f "/tmp/figlet/Shadow.flf" "devops")\033[0m"
-            echo "Molecule:" $(molecule --version)            
+            echo "Molecule:" $(molecule --version)
+
+            # Carga variables locales (no commiteadas). Ver .env.local.example
+            [ -f ~/.dotfiles/flakes/devops/.env.local ] && source ~/.dotfiles/flakes/devops/.env.local
+
+            : "''${AWS_ACCOUNT_ID:?Define AWS_ACCOUNT_ID en ~/.dotfiles/flakes/devops/.env.local}"
+            : "''${AWS_PROFILE:?Define AWS_PROFILE en ~/.dotfiles/flakes/devops/.env.local}"
+            : "''${AWS_REGION:=eu-west-2}"
+
             export OCI_USERNAME=AWS
-            export OCI_URI=097313693892.dkr.ecr.eu-west-2.amazonaws.com
-            export OCI_PASSWORD=$(aws ecr --region eu-west-2 --profile mvillafuerte_nprod get-login-password)
+            export OCI_URI="''${AWS_ACCOUNT_ID}.dkr.ecr.''${AWS_REGION}.amazonaws.com"
+            export OCI_PASSWORD=$(aws ecr --region "''${AWS_REGION}" --profile "''${AWS_PROFILE}" get-login-password)
             export GLOO_LICENSE="your licence"
-            export CLUSTER_NAME=nonprod
-            echo "Python:" $(python --version)            
+            export CLUSTER_NAME="''${CLUSTER_NAME:-nonprod}"
+            echo "Python:" $(python --version)
             echo "python-activate"
             echo "pip install ansible-vault"
             echo "ansible-vault view vars/qa/vault.yml"
             echo "Helm:" $(helm version)
             echo "Helmfile:" $(helmfile version)
             echo "helmfile diff -e integration-test -l name=istio-jwt"
-            echo "export AWS_PROFILE=fabric-nonprod-187826813924"
-            echo "helmfile diff -e fabric-inv-app-nonprod -n inv-app -l name=inv-fabric-k8s"
+            echo "helmfile diff -e fabric-inv-app -n inv-app -l name=inv-fabric-k8s"
 
           '';
         };
