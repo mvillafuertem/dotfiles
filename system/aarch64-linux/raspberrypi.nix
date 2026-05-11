@@ -1,7 +1,7 @@
 # Linux-specific configuration for raspberry
 { user, pkgs, ... }:
 let
-  modules = map (module: ../../modules/home-manager/${module}) [
+  homeManagerModules = map (module: ../../homeManagerModules/home-manager/${module}) [
     "bash"
     "eza"
     "git"
@@ -11,7 +11,7 @@ let
     # No wezterm, k9s - lightweight setup
   ];
 in {
-  imports = [ ../common.nix ] ++ modules;
+  imports = [ ../common.nix ] ++ homeManagerModules;
 
   home = {
     homeDirectory = "/home/${user}";

@@ -1,6 +1,6 @@
 { user, pkgs, ... }:
 let
-  hmModules = map (m: ../../modules/home-manager/${m}) [
+  homeManagerModules = map (module: ../../modules/home-manager/${module}) [
     "bash"
     # "direnv"
     "eza"
@@ -38,7 +38,7 @@ in {
   # Configuración home-manager para este host/usuario
   ##############################################################
   home-manager.users.${user} = {
-    imports = [ ../common.nix ] ++ hmModules;
+    imports = [ ../common.nix ] ++ homeManagerModules;
 
     home = {
       homeDirectory = "/Users/${user}";

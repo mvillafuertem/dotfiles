@@ -1,6 +1,6 @@
 { user, pkgs, ... }:
 let
-  hmModules = map (m: ../../modules/home-manager/${m}) [
+  homeManagerModules = map (module: ../../modules/home-manager/${module}) [
     "bash"
     "direnv"
     "eza"
@@ -19,8 +19,13 @@ in {
     brews = [
     ];
     casks = [
+      { name = "blackhole-16ch"; greedy = true; }
+      { name = "claude"; greedy = true; }
       { name = "jetbrains-toolbox"; greedy = true; }
+      { name = "obsidian"; greedy = true; }
       { name = "postman"; greedy = true; }
+      { name = "spotify"; greedy = true; }
+      { name = "vnc-viewer"; greedy = true; }
     ];
   };
 
@@ -28,7 +33,7 @@ in {
   # Configuración home-manager para este host/usuario
   ##############################################################
   home-manager.users.${user} = {
-    imports = [ ../common.nix ] ++ hmModules;
+    imports = [ ../common.nix ] ++ homeManagerModules;
 
     home = {
       homeDirectory = "/Users/${user}";
