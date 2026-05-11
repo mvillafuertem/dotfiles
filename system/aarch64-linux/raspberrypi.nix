@@ -1,7 +1,7 @@
 # Linux-specific configuration for raspberry
 { user, pkgs, ... }:
 let
-  homeManagerModules = map (module: ../../homeManagerModules/home-manager/${module}) [
+  homeManagerModules = map (module: ../../modules/home-manager/${module}) [
     "bash"
     "eza"
     "git"
