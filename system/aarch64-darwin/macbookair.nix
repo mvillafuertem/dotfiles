@@ -1,5 +1,15 @@
 { user, pkgs, ... }:
 let
+  darwinModules = map (module: ../../modules/darwin/${module}) [
+    "homebrew.nix"
+    "macos-dock.nix"
+    "macos-finder.nix"
+    "macos-keyboard-shortcuts.nix"
+    "macos-power-management.nix"
+    "macos-trackpad.nix"
+    "macos-window-manager.nix"
+    # "sketchybar.nix"
+  ];
   homeManagerModules = map (module: ../../modules/home-manager/${module}) [
     "bash"
     # "direnv"
@@ -7,11 +17,14 @@ let
     "git"
     # "k9s"
     "nvim"
+    # "sketchybar"
     "starship"
     "tmux"
     "wezterm"
   ];
 in {
+  imports = darwinModules;
+
   ##############################################################
   # Identidad de red de este host
   ##############################################################

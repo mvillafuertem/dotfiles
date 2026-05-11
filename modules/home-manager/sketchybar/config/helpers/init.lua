@@ -1,0 +1,4 @@
+-- Los helpers binarios (event_providers, menus) se compilan en build-time
+-- via la derivation Nix (modules/home-manager/sketchybar/default.nix) y se
+-- enlazan bajo $CONFIG_DIR/helpers/*/bin/. SbarLua viene en el wrapper de
+-- lua (cpath ya configurado), así que tampoco hace falta modificarlo aquí.

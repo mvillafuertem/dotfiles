@@ -52,8 +52,10 @@
     touchIdAuth = true;
     reattach = true;
   };
+  # Los darwin modules ya no se importan en bloque: cada host elige los suyos
+  # en `system/${system}/${hostname}.nix` mediante una lista `darwinModules`
+  # (mismo patrón que `homeManagerModules`).
   imports = [
-    ./modules/darwin
     ./system/${system}/${hostname}.nix
   ];
 }

@@ -1,5 +1,14 @@
 { user, pkgs, ... }:
 let
+  darwinModules = map (module: ../../modules/darwin/${module}) [
+    "homebrew.nix"
+    "macos-dock.nix"
+    "macos-finder.nix"
+    "macos-keyboard-shortcuts.nix"
+    "macos-power-management.nix"
+    "macos-trackpad.nix"
+    "macos-window-manager.nix"
+  ];
   homeManagerModules = map (module: ../../modules/home-manager/${module}) [
     "bash"
     "direnv"
@@ -12,6 +21,8 @@ let
     "wezterm"
   ];
 in {
+  imports = darwinModules;
+
   ##############################################################
   # Configuración a nivel darwin (homebrew, servicios, etc.)
   ##############################################################

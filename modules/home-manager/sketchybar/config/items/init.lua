@@ -1,0 +1,7 @@
+require("items.apple")
+require("items.menus")
+-- require("items.spaces")  -- requiere aerospace/yabai (no activado en este host)
+require("items.front_app")
+require("items.calendar")
+require("items.widgets")
+require("items.media")
