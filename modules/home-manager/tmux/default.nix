@@ -1,16 +1,21 @@
 { pkgs, ... }: {
-  xdg.configFile.tmux = {
-    source = ./config;
-    recursive = true;
-  };
+  # We render tmux.conf via `.text` so we can interpolate ${pkgs.bashInteractive}
+  # into the default-shell/default-command lines. The interpolation needs Nix,
+  # which a raw `source = ./config/tmux.conf` cannot provide.
+  xdg.configFile."tmux/tmux.conf".text = ''
+    ${builtins.readFile ./config/tmux.conf}
 
-  #home.file.".tmux.conf" = { source = ./config/tmux.conf; };
+    # Append the shell pinning at the end so it overrides anything earlier.
+    # ${pkgs.bashInteractive}/bin/bash resolves to a /nix/store path that
+    # exists on nix-darwin, NixOS, and standalone home-manager on Linux,
+    # and does not depend on the username.
+    set -g default-shell   ${pkgs.bashInteractive}/bin/bash
+    set -g default-command ${pkgs.bashInteractive}/bin/bash
+  '';
+
   programs.tmux = {
     enable = true;
-    # Use the latest bash from nixpkgs (works on NixOS and nix-darwin,
-    # independent of the username). Resolves to a /nix/store path.
-    shell = "${pkgs.bashInteractive}/bin/bash";
-    plugins = with pkgs; [ 
+    plugins = with pkgs; [
       # tmuxPlugins.catppuccin
     ];
   };

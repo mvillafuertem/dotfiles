@@ -11,6 +11,7 @@ let
   ];
   homeManagerModules = map (module: ../../modules/home-manager/${module}) [
     "bash"
+    "claude"
     "direnv"
     "eza"
     "git"
