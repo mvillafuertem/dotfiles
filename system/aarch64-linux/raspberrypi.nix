@@ -1,5 +1,5 @@
 # Linux-specific configuration for raspberry
-{ user, pkgs, lib, ... }:
+{ user, pkgs, ... }:
 let
   homeManagerModules = map (module: ../../modules/home-manager/${module}) [
     "bash"
@@ -30,9 +30,5 @@ in {
 
   # Linux-specific configuration
   # Example: systemd.user.services.something = { ... };
-
-  home.activation.sudoers = lib.hm.dag.entryAfter [ "writeBoundary" ] (
-    builtins.readFile ../../scripts/setup-sudoers.sh
-  );
 }
 
