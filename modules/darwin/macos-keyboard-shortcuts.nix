@@ -1,15 +1,7 @@
 # https://github.com/ConstantinCezarBegu/nix/blob/master/module/darwin/macos-keyboard-shortcuts-configuration.nix
 # defaults read com.apple.symbolichotkeys AppleSymbolicHotKeys
-{ lib, ... }:
+{ ... }:
 {
-  # Forzar a macOS a recargar symbolichotkeys tras cada rebuild.
-  # Sin esto los cambios se escriben al plist pero no surten efecto
-  # hasta cerrar y abrir sesión.
-  # mkAfter para componerlo con otros postActivation (ver darwin.nix).
-  system.activationScripts.postActivation.text = lib.mkAfter ''
-    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u || true
-  '';
-
   system.defaults.CustomUserPreferences = {
     # Atajos por nombre de menú (Ventana → Trasladar y redimensionar /
     # Window → Move & Resize). Sequoia/Tahoe exponen Window Tiling como
