@@ -52,6 +52,9 @@
     touchIdAuth = true;
     reattach = true;
   };
+  security.sudo.extraConfig = ''
+    ${user} ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/darwin-rebuild
+  '';
   # Los darwin modules ya no se importan en bloque: cada host elige los suyos
   # en `system/${system}/${hostname}.nix` mediante una lista `darwinModules`
   # (mismo patrón que `homeManagerModules`).
