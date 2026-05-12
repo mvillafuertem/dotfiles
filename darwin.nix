@@ -54,6 +54,8 @@
   };
   security.sudo.extraConfig = ''
     ${user} ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/darwin-rebuild
+    ${user} ALL=(ALL) NOPASSWD: /etc/profiles/per-user/${user}/bin/wg-quick
+    ${user} ALL=(ALL) NOPASSWD: /etc/profiles/per-user/${user}/bin/wg
   '';
   # Los darwin modules ya no se importan en bloque: cada host elige los suyos
   # en `system/${system}/${hostname}.nix` mediante una lista `darwinModules`
