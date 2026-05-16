@@ -25,6 +25,31 @@ in {
   imports = darwinModules;
 
   ##############################################################
+  # Sudoers extra solo para este host (corporativo).
+  # En este equipo el sudoers central restringe a `miguel.villafuerte`,
+  # así que necesitamos NOPASSWD + SETENV para que `brew cask` pueda
+  # operar sobre /Applications durante `darwin-rebuild switch`.
+  # En otros Macs donde el usuario es admin pleno, NO se aplica esto y
+  # sudo seguirá pidiendo Touch ID normalmente.
+  ##############################################################
+  security.sudo.extraConfig = ''
+    ${user} ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/darwin-rebuild
+    ${user} ALL=(ALL) NOPASSWD: /etc/profiles/per-user/${user}/bin/wg-quick
+    ${user} ALL=(ALL) NOPASSWD: /etc/profiles/per-user/${user}/bin/wg
+    # Requerido por Homebrew cask. SETENV permite el `sudo -E` interno de brew.
+    ${user} ALL=(ALL) NOPASSWD: SETENV: /usr/bin/touch
+    ${user} ALL=(ALL) NOPASSWD: SETENV: /bin/rm
+    ${user} ALL=(ALL) NOPASSWD: SETENV: /bin/cp
+    ${user} ALL=(ALL) NOPASSWD: SETENV: /bin/mv
+    ${user} ALL=(ALL) NOPASSWD: SETENV: /bin/chmod
+    ${user} ALL=(ALL) NOPASSWD: SETENV: /usr/sbin/chown
+    ${user} ALL=(ALL) NOPASSWD: SETENV: /usr/sbin/installer
+    ${user} ALL=(ALL) NOPASSWD: SETENV: /usr/bin/xattr
+    ${user} ALL=(ALL) NOPASSWD: SETENV: /usr/bin/pkill
+    ${user} ALL=(ALL) NOPASSWD: SETENV: /bin/launchctl
+  '';
+
+  ##############################################################
   # Configuración a nivel darwin (homebrew, servicios, etc.)
   ##############################################################
   homebrew = {
