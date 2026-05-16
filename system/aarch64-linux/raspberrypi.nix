@@ -5,9 +5,12 @@ let
     "bash"
     "eza"
     "git"
+    "labwc"
+    "lxterminal"
     "nvim"
     "starship"
     "tmux"
+    "wf-panel-pi"
     # No wezterm, k9s - lightweight setup
   ];
 in {
@@ -25,6 +28,8 @@ in {
       nodejs
       tmux
       rustup # rustup update
+      nerd-fonts.hack
+      nerd-fonts.jetbrains-mono
     ];
   };
 
