@@ -135,11 +135,13 @@ return {
 	},
 	mouse_bindings = {
 		-- CMD-click will open the link under the mouse cursor
-		{
-			event = { Up = { streak = 1, button = "Left" } },
-			mods = "SHIFT",
-			action = wezterm.action.DisableDefaultAssignment,
-		},
+		-- Disabled: this prevented Shift+drag from doing native WezTerm selection,
+		-- which is needed to copy from TUI apps that capture the mouse (tmux, opencode, nvim).
+		-- {
+		-- 	event = { Up = { streak = 1, button = "Left" } },
+		-- 	mods = "SHIFT",
+		-- 	action = wezterm.action.DisableDefaultAssignment,
+		-- },
 		{
 			event = { Up = { streak = 1, button = "Left" } },
 			mods = "CMD",
