@@ -18,12 +18,12 @@
                 curlOpts = "-H Referer:https://www.azul.com/downloads/zulu/";
               };
               postUnpack = ''
-                if [ -d "$sourceRoot/Contents" ] && [ ! -d "$sourceRoot/zulu-17.jdk" ]; then
-                  mkdir -p "$sourceRoot/zulu-17.jdk"
-                  mv "$sourceRoot/Contents" "$sourceRoot/zulu-17.jdk/"
-                  if [ -d "$sourceRoot/_CodeSignature" ]; then
-                    mv "$sourceRoot/_CodeSignature" "$sourceRoot/zulu-17.jdk/"
+                if [ -d "$sourceRoot/zulu-17.jdk/Contents" ] && [ ! -d "$sourceRoot/Contents" ]; then
+                  mv "$sourceRoot/zulu-17.jdk/Contents" "$sourceRoot/"
+                  if [ -d "$sourceRoot/zulu-17.jdk/_CodeSignature" ]; then
+                    mv "$sourceRoot/zulu-17.jdk/_CodeSignature" "$sourceRoot/"
                   fi
+                  rmdir "$sourceRoot/zulu-17.jdk" 2>/dev/null || true
                 fi
               '';
             });
