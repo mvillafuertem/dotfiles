@@ -7,6 +7,7 @@
       autoUpdate = true;
       upgrade = true;
       cleanup = "zap";
+      extraFlags = [ "--verbose" ];
     };
     global.autoUpdate = true;
 
