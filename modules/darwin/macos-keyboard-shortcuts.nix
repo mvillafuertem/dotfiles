@@ -205,17 +205,20 @@
             type = "standard";
           };
         };
+        # Mover entre espacios/escritorios: Ctrl+Opt+Cmd+flecha
+        # (antes Ctrl+flecha, que colisiona con mover-por-palabra en la
+        # terminal). Modificador 1835008 = Control+Option+Command.
         "79" = {
           enabled = 1;
           value = {
-            parameters = [ 65535 123 262144 ];
+            parameters = [ 65535 123 1835008 ];
             type = "standard";
           };
         };
         "81" = {
           enabled = 1;
           value = {
-            parameters = [ 65535 124 262144 ];
+            parameters = [ 65535 124 1835008 ];
             type = "standard";
           };
         };
