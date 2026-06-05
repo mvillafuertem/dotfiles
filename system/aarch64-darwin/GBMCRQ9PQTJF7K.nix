@@ -8,6 +8,7 @@ let
     "macos-power-management.nix"
     "macos-trackpad.nix"
     "macos-window-manager.nix"
+    "whichspace"
   ];
   homeManagerModules = map (module: ../../modules/home-manager/${module}) [
     "bash"
