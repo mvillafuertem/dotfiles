@@ -29,7 +29,7 @@
     ];
     casks = [
       { name = "wezterm"; greedy = true; }
-      { name = "google-chrome"; greedy = true; }
+      { name = "google-chrome"; }
     ];
   };
 }
