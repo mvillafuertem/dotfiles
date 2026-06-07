@@ -60,7 +60,7 @@
         }
         {
           user = "miguel.villafuerte";
-          hostname = "GBMCRQ9PQTJF7K";
+          hostname = "macbookpro";
           system = "aarch64-darwin";
         }
         {

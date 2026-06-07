@@ -53,6 +53,20 @@ in {
   ##############################################################
   # Configuración a nivel darwin (homebrew, servicios, etc.)
   ##############################################################
+
+  ##############################################################
+  # Hostname declarativo (DESHABILITADO — pendiente de hablar con IT).
+  # Este Mac lo gestiona JAMF y la política MDM podría forzar el hostname
+  # (el serial GBMCRQ9PQTJF7K). Para reaplicar "macbookpro" en cada
+  # `darwin-rebuild switch`, añadir `hostname` a la firma del archivo:
+  #   { user, hostname, pkgs, ... }:        # actualmente { user, pkgs, ... }
+  # y descomentar (computerName + hostName cubren los tres scutil; el
+  # localHostName hereda de hostName):
+  #
+  # networking.computerName = hostname;
+  # networking.hostName     = hostname;
+  ##############################################################
+
   homebrew = {
     brews = [
     ];
