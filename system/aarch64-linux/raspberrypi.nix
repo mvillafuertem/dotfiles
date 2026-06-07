@@ -8,6 +8,7 @@ let
     "labwc"
     "lxterminal"
     "nvim"
+    "nftables"
     "opencode"
     "starship"
     "tmux"
