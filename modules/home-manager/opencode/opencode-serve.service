@@ -1,0 +1,14 @@
+[Unit]
+Description=OpenCode Serve (tmux)
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/projects
+ExecStart=%h/.local/bin/opencode-serve.sh
+ExecStop=%h/.nix-profile/bin/tmux kill-session -t opencode
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

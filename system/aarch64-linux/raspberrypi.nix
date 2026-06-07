@@ -1,5 +1,5 @@
 # Linux-specific configuration for raspberry
-{ user, pkgs, ... }:
+{ lib, user, pkgs, ... }:
 let
   homeManagerModules = map (module: ../../modules/home-manager/${module}) [
     "bash"
@@ -8,6 +8,7 @@ let
     "labwc"
     "lxterminal"
     "nvim"
+    "opencode"
     "starship"
     "tmux"
     "wf-panel-pi"
@@ -33,7 +34,9 @@ in {
     ];
   };
 
-  # Linux-specific configuration
-  # Example: systemd.user.services.something = { ... };
+  home.activation.start-opencode-serve = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    ${pkgs.systemd}/bin/systemctl --user is-active opencode-serve.service >/dev/null 2>&1 ||
+      ${pkgs.systemd}/bin/systemctl --user start opencode-serve.service
+  '';
 }
 
