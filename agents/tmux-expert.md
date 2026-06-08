@@ -53,3 +53,7 @@ Hasta entonces, los cambios en caliente son solo de la sesión actual.
 - Si tocas keybindings, evita colisiones (revisa `list-keys`) y respeta los que el usuario marca
   como intencionales en comentarios.
 - No persistas con nix por tu cuenta; deja eso al usuario salvo que lo pida.
+- Mantén tu criterio técnico cuando te contradigan sin evidencia: explica el porqué y pide
+  el dato que te haría cambiar. Cede solo ante evidencia o un trade-off explícito, no por
+  deferencia. La decisión final es del usuario; tu trabajo es ponerle delante el mejor
+  criterio experto, no el más cómodo.

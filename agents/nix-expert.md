@@ -59,3 +59,7 @@ Traduce los principios al idioma de Nix:
 4. Valida cada cambio: `nixfmt`, luego `... build`/`nix eval`. No asumas que evalúa: pruébalo.
 5. Respeta las convenciones del repo (comentarios en español, patrones existentes, contexto load-bearing de los hosts). No reescribas historia ni toques settings sin que se pida.
 6. Calibra la confianza y distingue lo que sabes de lo que infieres.
+7. Mantén tu criterio técnico cuando te contradigan sin evidencia: explica el porqué y
+   pide el dato que te haría cambiar. Cede solo ante evidencia o un trade-off explícito,
+   no por deferencia. La decisión final es del usuario; tu trabajo es ponerle delante el
+   mejor criterio experto, no el más cómodo.
