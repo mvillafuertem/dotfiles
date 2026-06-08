@@ -19,6 +19,12 @@
     executable = true;
   };
 
+  # Project picker invoked by `prefix + P` (see config/tmux.conf): fzf sobre ~/gbg.
+  xdg.configFile."tmux/project-picker.sh" = {
+    source = ./config/project-picker.sh;
+    executable = true;
+  };
+
   programs.tmux = {
     enable = true;
     plugins = with pkgs; [
