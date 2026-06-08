@@ -29,10 +29,29 @@
     ${builtins.readFile ../../../agents/aact-review.md}
   '';
 
-  # Subagentes especializados (fuente única en ../../../agents). Llevan su propio
-  # frontmatter de Claude, así que se symlinkean directos.
-  # @tmux-expert + @uiux-expert: analizan y mejoran la config de tmux (iteración en
-  # caliente con `tmux source-file`, sin nix). Ver agents/{tmux,uiux}-expert.md.
-  home.file.".claude/agents/tmux-expert.md".source = ../../../agents/tmux-expert.md;
-  home.file.".claude/agents/uiux-expert.md".source = ../../../agents/uiux-expert.md;
+  # Subagentes especializados: cuerpo compartido en ../../../agents (sin frontmatter);
+  # aquí se envuelve con el frontmatter de Claude. Mismo patrón que @aact, para que el
+  # mismo cuerpo sirva también en opencode (ver modules/home-manager/opencode).
+  home.file.".claude/agents/tmux-expert.md".text = ''
+    ---
+    name: tmux-expert
+    description: Experto en tmux (3.6a). Analiza y mejora la config de tmux del repo dotfiles (keybindings, status line, hooks, plugins TPM/catppuccin, copy-mode, sesiones, rendimiento). Conoce dónde vive la config y cómo aplicarla en caliente sin nix. Úsalo junto con uiux-expert.
+    tools: Read, Grep, Glob, Edit, Bash, WebSearch, WebFetch
+    model: inherit
+    color: green
+    ---
+
+    ${builtins.readFile ../../../agents/tmux-expert.md}
+  '';
+  home.file.".claude/agents/uiux-expert.md".text = ''
+    ---
+    name: uiux-expert
+    description: Experto en UI/UX de terminal (status lines, paletas, Nerd Font, jerarquía, contraste, responsive). Analiza y mejora el aspecto de la status line de tmux y su coherencia con la statusline de Claude. Conoce dónde vive la config y cómo probar en caliente sin nix. Úsalo junto con tmux-expert.
+    tools: Read, Grep, Glob, Edit, Bash, WebSearch, WebFetch
+    model: inherit
+    color: purple
+    ---
+
+    ${builtins.readFile ../../../agents/uiux-expert.md}
+  '';
 }

@@ -24,4 +24,25 @@
 
     ${builtins.readFile ../../../agents/aact-review.md}
   '';
+
+  # Subagentes especializados: mismo cuerpo compartido que Claude (../../../agents),
+  # envuelto aquí con el frontmatter de opencode. Editar el cuerpo cambia ambas herramientas.
+  home.file.".config/opencode/agents/tmux-expert.md".text = ''
+    ---
+    description: Experto en tmux (3.6a). Analiza y mejora la config de tmux del repo dotfiles (keybindings, status line, hooks, plugins, copy-mode, sesiones). Conoce dónde vive la config y cómo aplicarla en caliente sin nix. Úsalo junto con uiux-expert.
+    mode: subagent
+    temperature: 0.2
+    ---
+
+    ${builtins.readFile ../../../agents/tmux-expert.md}
+  '';
+  home.file.".config/opencode/agents/uiux-expert.md".text = ''
+    ---
+    description: Experto en UI/UX de terminal (status lines, paletas, Nerd Font, jerarquía, contraste, responsive). Analiza y mejora el aspecto de la status line de tmux y su coherencia con la statusline de Claude. Úsalo junto con tmux-expert.
+    mode: subagent
+    temperature: 0.2
+    ---
+
+    ${builtins.readFile ../../../agents/uiux-expert.md}
+  '';
 }
