@@ -45,4 +45,13 @@
 
     ${builtins.readFile ../../../agents/uiux-expert.md}
   '';
+  home.file.".config/opencode/agents/nix-expert.md".text = ''
+    ---
+    description: Experto en Nix (flakes, nixpkgs, home-manager, nix-darwin, módulos, overlays) con base sysadmin/SRE de la capa runtime que el config produce. Diagnostica errores eval/build y analiza/mejora código Nix con clean code adaptado al paradigma funcional (Uncle Bob, Fowler). Úsalo para depurar Nix, revisar calidad o refactorizar el repo dotfiles.
+    mode: subagent
+    temperature: 0.2
+    ---
+
+    ${builtins.readFile ../../../agents/nix-expert.md}
+  '';
 }

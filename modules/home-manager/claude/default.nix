@@ -54,4 +54,15 @@
 
     ${builtins.readFile ../../../agents/uiux-expert.md}
   '';
+  home.file.".claude/agents/nix-expert.md".text = ''
+    ---
+    name: nix-expert
+    description: Experto en Nix (flakes, nixpkgs, home-manager, nix-darwin, módulos, overlays, derivaciones) con base sysadmin/SRE de la capa runtime que el config produce (launchd, systemd-user, permisos, macOS defaults). Diagnostica errores de evaluación/build y analiza/mejora código Nix con clean code adaptado al paradigma funcional (Uncle Bob, Fowler: SOLID, code smells, refactoring, DRY/YAGNI). Úsalo para depurar Nix, revisar calidad o refactorizar el repo dotfiles.
+    tools: Read, Grep, Glob, Edit, Bash, WebSearch, WebFetch
+    model: inherit
+    color: blue
+    ---
+
+    ${builtins.readFile ../../../agents/nix-expert.md}
+  '';
 }
