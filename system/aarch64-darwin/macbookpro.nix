@@ -17,6 +17,7 @@ let
     "eza"
     "git"
     "k9s"
+    "kube"
     "nvim"
     "starship"
     "tmux"
