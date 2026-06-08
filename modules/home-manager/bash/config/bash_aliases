@@ -172,7 +172,7 @@ alias nix-dev='_nix_dev() { nix --extra-experimental-features "nix-command flake
 alias nix-update='_nix_update() { nix --extra-experimental-features "nix-command flakes" flake update --flake ~/.dotfiles ; }; _nix_update'
 alias nix-dev-shells="nix flake show ~/.dotfiles --json | jq '.devShells'"
 
-alias vpn='stty -echo; printf "Password:"; read pass; stty echo; { echo $pass; echo $pass; pass=***; } | sudo --stdin openfortivpn --pppd-use-peerdns=1 --username=<username> --trusted-cert <hash-cert> <domain>:<port>'
+alias vpn='stty -echo; printf "Password:"; read pass; stty echo; { echo $pass; echo $pass; pass=***; } | sudo --stdin openfortivpn --pppd-use-peerdns=1 --username=<username> --trusted-cert <hash-cert> <domain>:<port> --saml-login'
 
 ### Virtualenv ###
 ##alias vin="virtualenv .venv && source .venv/bin/activate"
