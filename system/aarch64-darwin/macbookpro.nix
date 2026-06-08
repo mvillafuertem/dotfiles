@@ -97,6 +97,7 @@ in {
         docker-buildx
         docker-credential-helpers
         eza
+        fzf
         gh
         git-lfs
         jq
@@ -112,7 +113,7 @@ in {
         rustup
         saml2aws
         scalafmt
-        skim
+        # skim # reemplazado por fzf (ver k9s-context-menu.sh)
         nerd-fonts.hack
         nerd-fonts.jetbrains-mono
         wireguard-tools
