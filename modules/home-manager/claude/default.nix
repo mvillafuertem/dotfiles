@@ -28,4 +28,11 @@
 
     ${builtins.readFile ../../../agents/aact-review.md}
   '';
+
+  # Subagentes especializados (fuente única en ../../../agents). Llevan su propio
+  # frontmatter de Claude, así que se symlinkean directos.
+  # @tmux-expert + @uiux-expert: analizan y mejoran la config de tmux (iteración en
+  # caliente con `tmux source-file`, sin nix). Ver agents/{tmux,uiux}-expert.md.
+  home.file.".claude/agents/tmux-expert.md".source = ../../../agents/tmux-expert.md;
+  home.file.".claude/agents/uiux-expert.md".source = ../../../agents/uiux-expert.md;
 }
