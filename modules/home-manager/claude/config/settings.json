@@ -36,6 +36,16 @@
           }
         ]
       }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/bell.sh"
+          }
+        ]
+      }
     ]
   }
 }
