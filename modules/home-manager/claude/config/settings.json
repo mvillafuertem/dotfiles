@@ -27,9 +27,8 @@
         ]
       }
     ],
-    "Notification": [
+    "Stop": [
       {
-        "matcher": "idle_prompt",
         "hooks": [
           {
             "type": "command",
