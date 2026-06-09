@@ -32,7 +32,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/bell.sh"
+            "command": "~/.claude/notify.sh 'Claude has finished'"
           }
         ]
       }
@@ -42,7 +42,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/bell.sh"
+            "command": "~/.claude/notify.sh 'Claude is waiting for your approval'"
           }
         ]
       }
