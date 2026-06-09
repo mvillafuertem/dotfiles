@@ -6,6 +6,7 @@ wezterm.on('bell', function(window, pane)
 end)
 
 return {
+  audible_bell = "Disabled",
 	-- default_prog = { "/etc/profiles/per-user/miguel.villafuerte/bin/bash", "-l", "-c", "tmux new-session -A -s main" },
 	-- Menú de lanzamiento para servidores remotos
 	-- launch_menu = remote_servers.create_launch_menu(),
