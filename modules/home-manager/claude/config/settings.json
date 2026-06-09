@@ -32,7 +32,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/bell.sh && osascript -e 'display notification \"Ready for your next prompt\" with title \"Claude Code\" subtitle \"✓ Done\" sound name \"Glass\"'"
+            "command": "~/.claude/bell.sh"
           }
         ]
       }
