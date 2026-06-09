@@ -1,4 +1,13 @@
-{ pkgs, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.gbg-tmux;
+in {
+  options.gbg-tmux = {
+    enableK9sContextMenu = lib.mkEnableOption "k9s context menu script";
+    enableProjectPicker = lib.mkEnableOption "project picker script";
+  };
+
+  config = {
   # We render tmux.conf via `.text` so we can interpolate ${pkgs.bashInteractive}
   # into the default-shell/default-command lines. The interpolation needs Nix,
   # which a raw `source = ./config/tmux.conf` cannot provide.
@@ -14,13 +23,13 @@
   '';
 
   # k9s context picker invoked by `prefix + K` (see config/tmux.conf).
-  xdg.configFile."tmux/k9s-context-menu.sh" = {
+  xdg.configFile."tmux/k9s-context-menu.sh" = lib.mkIf cfg.enableK9sContextMenu {
     source = ./config/k9s-context-menu.sh;
     executable = true;
   };
 
   # Project picker invoked by `prefix + P` (see config/tmux.conf): fzf sobre ~/gbg.
-  xdg.configFile."tmux/project-picker.sh" = {
+  xdg.configFile."tmux/project-picker.sh" = lib.mkIf cfg.enableProjectPicker {
     source = ./config/project-picker.sh;
     executable = true;
   };
@@ -31,4 +40,5 @@
       # tmuxPlugins.catppuccin
     ];
   };
+};
 }

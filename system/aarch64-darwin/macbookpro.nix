@@ -88,6 +88,11 @@ in {
   home-manager.users.${user} = {
     imports = [ ../common.nix ] ++ homeManagerModules;
 
+    gbg-tmux = {
+      enableK9sContextMenu = true;
+      enableProjectPicker = true;
+    };
+
     home = {
       homeDirectory = "/Users/${user}";
       packages = with pkgs; [
