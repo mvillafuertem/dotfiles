@@ -1,10 +1,6 @@
 local wezterm = require("wezterm")
 local tmux_startup = require 'tmux_startup'
 
-wezterm.on('bell', function(window, pane)
-  window:toast_notification('Claude Code', 'Ha terminado', nil, 4000)
-end)
-
 return {
 	-- default_prog = { "/etc/profiles/per-user/miguel.villafuerte/bin/bash", "-l", "-c", "tmux new-session -A -s main" },
 	-- Menú de lanzamiento para servidores remotos
