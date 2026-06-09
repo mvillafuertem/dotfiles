@@ -34,6 +34,12 @@ in {
     executable = true;
   };
 
+  # Battery level as plain integer for status-right color comparisons.
+  xdg.configFile."tmux/batt-level.sh" = {
+    source = ./config/batt-level.sh;
+    executable = true;
+  };
+
   programs.tmux = {
     enable = true;
     plugins = with pkgs; [
