@@ -16,8 +16,20 @@
   "teammateMode": "tmux",
   "skipAutoPermissionPrompt": true,
   "hooks": {
-    "Stop": [
+    "PreToolUse": [
       {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/block-dangerous-commands.sh"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "idle_prompt",
         "hooks": [
           {
             "type": "command",
