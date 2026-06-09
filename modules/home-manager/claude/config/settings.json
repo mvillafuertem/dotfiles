@@ -1,0 +1,30 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_SPAWN_BACKEND": "tmux"
+  },
+  "model": "sonnet[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "padding": 0
+  },
+  "effortLevel": "high",
+  "tui": "default",
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "teammateMode": "tmux",
+  "skipAutoPermissionPrompt": true,
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/bell.sh && osascript -e 'display notification \"Claude Code necesita tu atención\" with title \"Claude Code\"'"
+          }
+        ]
+      }
+    ]
+  }
+}
