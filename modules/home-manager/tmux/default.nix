@@ -34,6 +34,13 @@ in {
     executable = true;
   };
 
+  # Sub-configs sourced by tmux.conf (split by concern)
+  xdg.configFile."tmux/options.conf".source     = ./config/options.conf;
+  xdg.configFile."tmux/keybindings.conf".source = ./config/keybindings.conf;
+  xdg.configFile."tmux/plugins.conf".source     = ./config/plugins.conf;
+  xdg.configFile."tmux/statusbar.conf".source   = ./config/statusbar.conf;
+  xdg.configFile."tmux/style.conf".source       = ./config/style.conf;
+
   # Battery level as plain integer for status-right color comparisons.
   xdg.configFile."tmux/batt-level.sh" = {
     source = ./config/batt-level.sh;
