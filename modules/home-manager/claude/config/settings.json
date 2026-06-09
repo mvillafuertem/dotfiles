@@ -33,7 +33,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/bell.sh && osascript -e 'display notification \"Claude Code needs your attention\" with title \"Claude Code\"'"
+            "command": "~/.claude/bell.sh && osascript -e 'display notification \"Ready for your next prompt\" with title \"Claude Code\" subtitle \"✓ Done\" sound name \"Glass\"'"
           }
         ]
       }
