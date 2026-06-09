@@ -1,8 +1,10 @@
 local wezterm = require("wezterm")
 local tmux_startup = require 'tmux_startup'
 
-wezterm.on('bell', function(window, pane)
-  window:toast_notification('Claude Code', 'Ha terminado', nil, 4000)
+wezterm.on('user-var-changed', function(window, pane, name, value)
+  if name == 'CLAUDE_DONE' then
+    window:toast_notification('Claude Code', 'Ha terminado', nil, 4000)
+  end
 end)
 
 return {
