@@ -51,6 +51,8 @@ vim.filetype.add({
   pattern = {
     ["[jt]sconfig.*.json"] = "jsonc",
     ["%.env%.[%w_.-]+"] = "dotenv",
+    [".*%.ya?ml%.gotmpl"] = "helm",
+    [".*%.gotmpl"] = "helm",
   },
 })
 
