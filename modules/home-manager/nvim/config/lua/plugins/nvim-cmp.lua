@@ -9,8 +9,8 @@ return {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-git",
     --
-    "hrsh7th/cmp-vsnip",
-    "hrsh7th/vim-vsnip",
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
   },
   config = function()
     local cmp = require("cmp")
@@ -19,7 +19,7 @@ return {
         { name = "nvim_lsp" },
         { name = "path" },
         { name = "buffer" },
-        { name = "vsnip" },
+        { name = "luasnip" },
         { name = "crates" },
         { name = "avante_commands" },
         { name = "avante_mentions" },
@@ -27,8 +27,7 @@ return {
       },
       snippet = {
         expand = function(args)
-          -- Comes from vsnip
-          vim.fn["vsnip#anonymous"](args.body)
+          require("luasnip").lsp_expand(args.body)
         end,
       },
       window = {
