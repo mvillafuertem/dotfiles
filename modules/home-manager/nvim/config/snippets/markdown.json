@@ -23,9 +23,7 @@
       "Fetch main, create a new branch from it, commit the current changes, push, and open a PR.",
       "The PR title and description must be concise and clear.",
       "",
-      "The changes are about: ${1:describe the changes}",
-      "",
-      "Additional context: ${2:any extra details or motivation}"
+      "$0"
     ],
     "description": "Prompt to fetch main, branch, commit, push and open a PR"
   }
