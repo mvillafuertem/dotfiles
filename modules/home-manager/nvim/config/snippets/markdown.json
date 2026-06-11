@@ -1,0 +1,16 @@
+{
+  "jira-story": {
+    "prefix": "jira-story",
+    "body": [
+      "Using the Atlassian MCP, create a Jira Technical Story in project INV.",
+      "Follow the exact same structure as INV-8374: user story table (As a / I want / so that),",
+      "a context paragraph, Scope section, Out of scope section, and Acceptance Criteria table",
+      "(GIVEN / WHEN / THEN / Observation). Same team (Identity - Phoenix), next active sprint.",
+      "",
+      "The ticket is about: ${1:describe the topic}",
+      "",
+      "Additional context: ${2:any extra details, constraints or background}"
+    ],
+    "description": "Prompt to create a Jira Technical Story following INV-8374 structure"
+  }
+}
