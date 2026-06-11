@@ -6,6 +6,7 @@ let
     "eza"
     "git"
     "labwc"
+    "ssh"
     "lxterminal"
     "nvim"
     "nftables"

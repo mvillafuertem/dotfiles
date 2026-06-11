@@ -19,6 +19,7 @@ let
     "k9s"
     "kube"
     "nvim"
+    "ssh"
     "starship"
     "tmux"
     "wezterm"

@@ -17,6 +17,7 @@ let
     "git"
     # "k9s"
     "nvim"
+    "ssh"
     # "sketchybar"
     "starship"
     "tmux"

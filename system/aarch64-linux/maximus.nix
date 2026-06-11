@@ -8,6 +8,7 @@ let
     "git"
     "k9s"
     "nvim"
+    "ssh"
     "starship"
     "tmux"
     "wezterm"
