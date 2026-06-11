@@ -15,6 +15,16 @@
     ],
     "description": "Prompt to create a Jira Technical Story following INV-8374 structure"
   },
+  "daily": {
+    "prefix": "daily",
+    "body": [
+      "Act as an engineering manager. Summarise this session for my daily standup.",
+      "English UK. Be concise, no filler. 3-5 bullet points max.",
+      "Lead with business value, not technical detail.",
+      "Format: what was done, why it matters, any blockers or next steps."
+    ],
+    "description": "Prompt to summarise the session for a daily standup"
+  },
   "git-pr": {
     "prefix": "git-pr",
     "body": [
