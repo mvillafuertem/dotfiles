@@ -1,0 +1,16 @@
+{
+  "service": {
+    "prefix": "dc-service",
+    "body": [
+      "${1:service-name}:",
+      "  image: ${2:image}:${3:latest}",
+      "  container_name: ${1:service-name}",
+      "  ports:",
+      "    - \"${4:8080}:${4:8080}\"",
+      "  environment:",
+      "    - ${5:KEY}=${6:value}",
+      "  restart: ${7|unless-stopped,always,on-failure,no|}"
+    ],
+    "description": "Docker Compose service block"
+  }
+}
