@@ -10,6 +10,7 @@ let
     "lxterminal"
     "nvim"
     "nftables"
+    "k3s"
     "opencode"
     "starship"
     "tmux"
