@@ -1,5 +1,5 @@
 local wezterm = require("wezterm")
-local tmux_startup = require 'tmux_startup'
+-- local tmux_startup = require 'tmux_startup'
 
 return {
 	audible_bell = "Disabled",
@@ -7,7 +7,7 @@ return {
 	-- Menú de lanzamiento para servidores remotos
 	-- launch_menu = remote_servers.create_launch_menu(),
 	-- Pestaña local automática al iniciar
-	wezterm.on("gui-startup", tmux_startup.create_local_tab), -- Menú de lanzamiento para servidores remotos
+	-- wezterm.on("gui-startup", tmux_startup.create_local_tab), -- Menú de lanzamiento para servidores remotos
 	automatically_reload_config = true,
 	hide_tab_bar_if_only_one_tab = true,
 	window_close_confirmation = "NeverPrompt",
